@@ -1,0 +1,6 @@
+framework module Pods_Biap_BiapUITests {
+  umbrella header "Pods-Biap-BiapUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

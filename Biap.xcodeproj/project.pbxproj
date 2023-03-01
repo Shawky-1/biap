@@ -1,0 +1,841 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		657B0C9F670CFCB3F9667730 /* Pods_Biap_BiapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */; };
+		6F03947FFE3D78CE93EE2D9C /* Pods_BiapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4268A41E84F53E90D014887D /* Pods_BiapTests.framework */; };
+		8B1912CAEBC3E2B6BAED2EED /* Pods_Biap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD92C732119FFF8952511E4 /* Pods_Biap.framework */; };
+		E28F532029AE7D1500FB99EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F531F29AE7D1500FB99EF /* AppDelegate.swift */; };
+		E28F532229AE7D1500FB99EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F532129AE7D1500FB99EF /* SceneDelegate.swift */; };
+		E28F532429AE7D1500FB99EF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F532329AE7D1500FB99EF /* HomeVC.swift */; };
+		E28F532729AE7D1500FB99EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28F532529AE7D1500FB99EF /* Main.storyboard */; };
+		E28F532929AE7D1800FB99EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E28F532829AE7D1800FB99EF /* Assets.xcassets */; };
+		E28F532C29AE7D1800FB99EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28F532A29AE7D1800FB99EF /* LaunchScreen.storyboard */; };
+		E28F533729AE7D1900FB99EF /* BiapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F533629AE7D1900FB99EF /* BiapTests.swift */; };
+		E28F534129AE7D1900FB99EF /* BiapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F534029AE7D1900FB99EF /* BiapUITests.swift */; };
+		E28F534329AE7D1900FB99EF /* BiapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F534229AE7D1900FB99EF /* BiapUITestsLaunchTests.swift */; };
+		E28F535229AF9A2D00FB99EF /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F535129AF9A2D00FB99EF /* HomeVM.swift */; };
+		E28F535729AF9ABD00FB99EF /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F535629AF9ABD00FB99EF /* NetworkManger.swift */; };
+		E28F535A29AF9AF300FB99EF /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F535929AF9AF300FB99EF /* URLS.swift */; };
+		E28F535D29AF9F1A00FB99EF /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F535C29AF9F1A00FB99EF /* Customer.swift */; };
+		E28F535F29AF9FD600FB99EF /* CustomerAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F535E29AF9FD600FB99EF /* CustomerAddress.swift */; };
+		E28F536129AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F536029AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E28F533329AE7D1900FB99EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E28F531429AE7D1500FB99EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E28F531B29AE7D1500FB99EF;
+			remoteInfo = Biap;
+		};
+		E28F533D29AE7D1900FB99EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E28F531429AE7D1500FB99EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E28F531B29AE7D1500FB99EF;
+			remoteInfo = Biap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17C4992A391E9A98B044AFD7 /* Pods-Biap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap.release.xcconfig"; path = "Target Support Files/Pods-Biap/Pods-Biap.release.xcconfig"; sourceTree = "<group>"; };
+		4268A41E84F53E90D014887D /* Pods_BiapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BD92C732119FFF8952511E4 /* Pods_Biap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biap_BiapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95079B974D7A62FD560890AE /* Pods-Biap-BiapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1764C1B0D1DA9885A9EE083 /* Pods-Biap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap.debug.xcconfig"; path = "Target Support Files/Pods-Biap/Pods-Biap.debug.xcconfig"; sourceTree = "<group>"; };
+		AA1DC5F6B9DD877F5C8E91DB /* Pods-Biap-BiapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.release.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C18848E764F955FBA1FA8C47 /* Pods-BiapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiapTests.debug.xcconfig"; path = "Target Support Files/Pods-BiapTests/Pods-BiapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA9466D6963F28C8FDB31F0E /* Pods-BiapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiapTests.release.xcconfig"; path = "Target Support Files/Pods-BiapTests/Pods-BiapTests.release.xcconfig"; sourceTree = "<group>"; };
+		E28F531C29AE7D1500FB99EF /* Biap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28F531F29AE7D1500FB99EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E28F532129AE7D1500FB99EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E28F532329AE7D1500FB99EF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E28F532629AE7D1500FB99EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E28F532829AE7D1800FB99EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E28F532B29AE7D1800FB99EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E28F532D29AE7D1800FB99EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28F533229AE7D1900FB99EF /* BiapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28F533629AE7D1900FB99EF /* BiapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiapTests.swift; sourceTree = "<group>"; };
+		E28F533C29AE7D1900FB99EF /* BiapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28F534029AE7D1900FB99EF /* BiapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiapUITests.swift; sourceTree = "<group>"; };
+		E28F534229AE7D1900FB99EF /* BiapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E28F535129AF9A2D00FB99EF /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E28F535629AF9ABD00FB99EF /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
+		E28F535929AF9AF300FB99EF /* URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
+		E28F535C29AF9F1A00FB99EF /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		E28F535E29AF9FD600FB99EF /* CustomerAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAddress.swift; sourceTree = "<group>"; };
+		E28F536029AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompositionalLayoutHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E28F531929AE7D1500FB99EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1912CAEBC3E2B6BAED2EED /* Pods_Biap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28F532F29AE7D1900FB99EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F03947FFE3D78CE93EE2D9C /* Pods_BiapTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28F533929AE7D1900FB99EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				657B0C9F670CFCB3F9667730 /* Pods_Biap_BiapUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C7C5E63CF9F4BD187C9CBB0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1764C1B0D1DA9885A9EE083 /* Pods-Biap.debug.xcconfig */,
+				17C4992A391E9A98B044AFD7 /* Pods-Biap.release.xcconfig */,
+				95079B974D7A62FD560890AE /* Pods-Biap-BiapUITests.debug.xcconfig */,
+				AA1DC5F6B9DD877F5C8E91DB /* Pods-Biap-BiapUITests.release.xcconfig */,
+				C18848E764F955FBA1FA8C47 /* Pods-BiapTests.debug.xcconfig */,
+				DA9466D6963F28C8FDB31F0E /* Pods-BiapTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		81857D9350689B388859DB06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BD92C732119FFF8952511E4 /* Pods_Biap.framework */,
+				844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */,
+				4268A41E84F53E90D014887D /* Pods_BiapTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E28F531329AE7D1500FB99EF = {
+			isa = PBXGroup;
+			children = (
+				E28F531E29AE7D1500FB99EF /* Biap */,
+				E28F533529AE7D1900FB99EF /* BiapTests */,
+				E28F533F29AE7D1900FB99EF /* BiapUITests */,
+				E28F531D29AE7D1500FB99EF /* Products */,
+				3C7C5E63CF9F4BD187C9CBB0 /* Pods */,
+				81857D9350689B388859DB06 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E28F531D29AE7D1500FB99EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E28F531C29AE7D1500FB99EF /* Biap.app */,
+				E28F533229AE7D1900FB99EF /* BiapTests.xctest */,
+				E28F533C29AE7D1900FB99EF /* BiapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E28F531E29AE7D1500FB99EF /* Biap */ = {
+			isa = PBXGroup;
+			children = (
+				E28F535B29AF9F0E00FB99EF /* Models */,
+				E28F535829AF9AED00FB99EF /* Enums */,
+				E28F535429AF9A9C00FB99EF /* Utilities */,
+				E28F535329AF9A6B00FB99EF /* Mangers */,
+				E28F534F29AF9A1200FB99EF /* Scenes */,
+				E28F535529AF9AA900FB99EF /* Views */,
+				E28F532D29AE7D1800FB99EF /* Info.plist */,
+			);
+			path = Biap;
+			sourceTree = "<group>";
+		};
+		E28F533529AE7D1900FB99EF /* BiapTests */ = {
+			isa = PBXGroup;
+			children = (
+				E28F533629AE7D1900FB99EF /* BiapTests.swift */,
+			);
+			path = BiapTests;
+			sourceTree = "<group>";
+		};
+		E28F533F29AE7D1900FB99EF /* BiapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E28F534029AE7D1900FB99EF /* BiapUITests.swift */,
+				E28F534229AE7D1900FB99EF /* BiapUITestsLaunchTests.swift */,
+			);
+			path = BiapUITests;
+			sourceTree = "<group>";
+		};
+		E28F534F29AF9A1200FB99EF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E28F535029AF9A1A00FB99EF /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E28F535029AF9A1A00FB99EF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E28F532329AE7D1500FB99EF /* HomeVC.swift */,
+				E28F535129AF9A2D00FB99EF /* HomeVM.swift */,
+				E28F536029AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E28F535329AF9A6B00FB99EF /* Mangers */ = {
+			isa = PBXGroup;
+			children = (
+				E28F535629AF9ABD00FB99EF /* NetworkManger.swift */,
+			);
+			path = Mangers;
+			sourceTree = "<group>";
+		};
+		E28F535429AF9A9C00FB99EF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E28F531F29AE7D1500FB99EF /* AppDelegate.swift */,
+				E28F532129AE7D1500FB99EF /* SceneDelegate.swift */,
+				E28F532829AE7D1800FB99EF /* Assets.xcassets */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E28F535529AF9AA900FB99EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E28F532529AE7D1500FB99EF /* Main.storyboard */,
+				E28F532A29AE7D1800FB99EF /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E28F535829AF9AED00FB99EF /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E28F535929AF9AF300FB99EF /* URLS.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E28F535B29AF9F0E00FB99EF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E28F535C29AF9F1A00FB99EF /* Customer.swift */,
+				E28F535E29AF9FD600FB99EF /* CustomerAddress.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E28F531B29AE7D1500FB99EF /* Biap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28F534629AE7D1900FB99EF /* Build configuration list for PBXNativeTarget "Biap" */;
+			buildPhases = (
+				376C85CDA0B508A6080EB4EF /* [CP] Check Pods Manifest.lock */,
+				E28F531829AE7D1500FB99EF /* Sources */,
+				E28F531929AE7D1500FB99EF /* Frameworks */,
+				E28F531A29AE7D1500FB99EF /* Resources */,
+				B5BDC7507E804D721E543889 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Biap;
+			productName = Biap;
+			productReference = E28F531C29AE7D1500FB99EF /* Biap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E28F533129AE7D1900FB99EF /* BiapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28F534929AE7D1900FB99EF /* Build configuration list for PBXNativeTarget "BiapTests" */;
+			buildPhases = (
+				6BB1B5F3EB6CEC744CD6F1FA /* [CP] Check Pods Manifest.lock */,
+				E28F532E29AE7D1900FB99EF /* Sources */,
+				E28F532F29AE7D1900FB99EF /* Frameworks */,
+				E28F533029AE7D1900FB99EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E28F533429AE7D1900FB99EF /* PBXTargetDependency */,
+			);
+			name = BiapTests;
+			productName = BiapTests;
+			productReference = E28F533229AE7D1900FB99EF /* BiapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E28F533B29AE7D1900FB99EF /* BiapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28F534C29AE7D1900FB99EF /* Build configuration list for PBXNativeTarget "BiapUITests" */;
+			buildPhases = (
+				C87D9502B6A8A0BBD763F70C /* [CP] Check Pods Manifest.lock */,
+				E28F533829AE7D1900FB99EF /* Sources */,
+				E28F533929AE7D1900FB99EF /* Frameworks */,
+				E28F533A29AE7D1900FB99EF /* Resources */,
+				B323862C0C35F23BC9B54FFF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E28F533E29AE7D1900FB99EF /* PBXTargetDependency */,
+			);
+			name = BiapUITests;
+			productName = BiapUITests;
+			productReference = E28F533C29AE7D1900FB99EF /* BiapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E28F531429AE7D1500FB99EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E28F531B29AE7D1500FB99EF = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					E28F533129AE7D1900FB99EF = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E28F531B29AE7D1500FB99EF;
+					};
+					E28F533B29AE7D1900FB99EF = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E28F531B29AE7D1500FB99EF;
+					};
+				};
+			};
+			buildConfigurationList = E28F531729AE7D1500FB99EF /* Build configuration list for PBXProject "Biap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E28F531329AE7D1500FB99EF;
+			productRefGroup = E28F531D29AE7D1500FB99EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E28F531B29AE7D1500FB99EF /* Biap */,
+				E28F533129AE7D1900FB99EF /* BiapTests */,
+				E28F533B29AE7D1900FB99EF /* BiapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E28F531A29AE7D1500FB99EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28F532C29AE7D1800FB99EF /* LaunchScreen.storyboard in Resources */,
+				E28F532929AE7D1800FB99EF /* Assets.xcassets in Resources */,
+				E28F532729AE7D1500FB99EF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28F533029AE7D1900FB99EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28F533A29AE7D1900FB99EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		376C85CDA0B508A6080EB4EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Biap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BB1B5F3EB6CEC744CD6F1FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BiapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B323862C0C35F23BC9B54FFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5BDC7507E804D721E543889 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C87D9502B6A8A0BBD763F70C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Biap-BiapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E28F531829AE7D1500FB99EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28F535F29AF9FD600FB99EF /* CustomerAddress.swift in Sources */,
+				E28F535729AF9ABD00FB99EF /* NetworkManger.swift in Sources */,
+				E28F535D29AF9F1A00FB99EF /* Customer.swift in Sources */,
+				E28F535A29AF9AF300FB99EF /* URLS.swift in Sources */,
+				E28F532429AE7D1500FB99EF /* HomeVC.swift in Sources */,
+				E28F535229AF9A2D00FB99EF /* HomeVM.swift in Sources */,
+				E28F536129AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift in Sources */,
+				E28F532029AE7D1500FB99EF /* AppDelegate.swift in Sources */,
+				E28F532229AE7D1500FB99EF /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28F532E29AE7D1900FB99EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28F533729AE7D1900FB99EF /* BiapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28F533829AE7D1900FB99EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28F534329AE7D1900FB99EF /* BiapUITestsLaunchTests.swift in Sources */,
+				E28F534129AE7D1900FB99EF /* BiapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E28F533429AE7D1900FB99EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E28F531B29AE7D1500FB99EF /* Biap */;
+			targetProxy = E28F533329AE7D1900FB99EF /* PBXContainerItemProxy */;
+		};
+		E28F533E29AE7D1900FB99EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E28F531B29AE7D1500FB99EF /* Biap */;
+			targetProxy = E28F533D29AE7D1900FB99EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E28F532529AE7D1500FB99EF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E28F532629AE7D1500FB99EF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E28F532A29AE7D1800FB99EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E28F532B29AE7D1800FB99EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E28F534429AE7D1900FB99EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E28F534529AE7D1900FB99EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E28F534729AE7D1900FB99EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1764C1B0D1DA9885A9EE083 /* Pods-Biap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQP2A9KA89;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Biap/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.Biap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E28F534829AE7D1900FB99EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17C4992A391E9A98B044AFD7 /* Pods-Biap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQP2A9KA89;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Biap/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.Biap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E28F534A29AE7D1900FB99EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C18848E764F955FBA1FA8C47 /* Pods-BiapTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQP2A9KA89;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.BiapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Biap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Biap";
+			};
+			name = Debug;
+		};
+		E28F534B29AE7D1900FB99EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA9466D6963F28C8FDB31F0E /* Pods-BiapTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQP2A9KA89;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.BiapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Biap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Biap";
+			};
+			name = Release;
+		};
+		E28F534D29AE7D1900FB99EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95079B974D7A62FD560890AE /* Pods-Biap-BiapUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQP2A9KA89;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.BiapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Biap;
+			};
+			name = Debug;
+		};
+		E28F534E29AE7D1900FB99EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA1DC5F6B9DD877F5C8E91DB /* Pods-Biap-BiapUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQP2A9KA89;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.BiapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Biap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E28F531729AE7D1500FB99EF /* Build configuration list for PBXProject "Biap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28F534429AE7D1900FB99EF /* Debug */,
+				E28F534529AE7D1900FB99EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28F534629AE7D1900FB99EF /* Build configuration list for PBXNativeTarget "Biap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28F534729AE7D1900FB99EF /* Debug */,
+				E28F534829AE7D1900FB99EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28F534929AE7D1900FB99EF /* Build configuration list for PBXNativeTarget "BiapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28F534A29AE7D1900FB99EF /* Debug */,
+				E28F534B29AE7D1900FB99EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28F534C29AE7D1900FB99EF /* Build configuration list for PBXNativeTarget "BiapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28F534D29AE7D1900FB99EF /* Debug */,
+				E28F534E29AE7D1900FB99EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E28F531429AE7D1500FB99EF /* Project object */;
+}
