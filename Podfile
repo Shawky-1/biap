@@ -7,7 +7,8 @@ target 'Biap' do
 
   # Pods for Biap
   pod "Alamofire"
-  
+  pod 'IQKeyboardManagerSwift'
+  pod 'NVActivityIndicatorView'
   
   target 'BiapTests' do
     inherit! :search_paths
