@@ -11,18 +11,18 @@ import Alamofire
 class NetworkManger{
     static let AFSession = Alamofire.Session()
 
-    static func createNewCustomer(customer: Customer,Complition:@escaping(Result<Data, Error>) ->()){
-        
-        let url = URLS.baseURL + URLS.customer.newCustomer.rawValue
-        let parameters:[String: Any] = ["customer": ["first_name": customer.firstName,
-                                                     "last_name" : customer.lastName,
-                                                     "email": customer.email,
-                                                     "phone": customer.phone,
-                                                     "password": customer.password,
-                                                     "password_confirmation": customer.password]]
-        
-
-
+//    static func createNewCustomer(customer: Customer,Complition:@escaping(Result<Customer, Error>) ->()){
+//
+//        let url = URLS.baseURL + URLS.customer.newCustomer.rawValue
+//        let parameters:[String: Any] = ["customer": ["first_name": customer.firstName,
+//                                                     "last_name" : customer.lastName,
+//                                                     "email": customer.email,
+//                                                     "phone": customer.phone,
+//                                                     "password": customer.password,
+//                                                     "password_confirmation": customer.password]]
+//
+//
+//
 //        AFSession.request(url, method: .post,
 //                   parameters: parameters,
 //                   encoding: JSONEncoding.default).response{ responseData in
@@ -44,6 +44,29 @@ class NetworkManger{
 //                Complition(.failure(error))
 //            }
 //        }
+//
+//    }
+    
+    
+    static func getAllBrands(complition:@escaping (Result<Brand, Error>) -> ()){
+        
+        let url = URLS.baseURL + URLS.products.brands.rawValue
+        
+        AF.request(url, method: .get, encoding: URLEncoding.default).validate().response{ responseData in
+            switch responseData.result{
+            case .success(let data):
+                do {
+                    let brands = try JSONDecoder().decode(Brand.self, from: data!)
+                    complition(.success(brands))
+                } catch let error{
+                    complition(.failure(error))
+                }
+                
+            case .failure(let error):
+                complition(.failure(error))
+            }
+            
+        }
         
     }
 }

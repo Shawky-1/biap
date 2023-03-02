@@ -11,7 +11,11 @@ enum URLS {
     static let baseURL: String = "https://\(EndPoints.apiKey):\(EndPoints.apiPassword)@\(EndPoints.storeName).myshopify.com/admin/api/\(EndPoints.apiVersion)"
     
     enum customer: String {
-        case newCustomer = "/customers.json"
+        case newCustomer = "/customers"
+    }
+    
+    enum products: String{
+        case brands = "/smart_collections.json"
     }
 }
 
