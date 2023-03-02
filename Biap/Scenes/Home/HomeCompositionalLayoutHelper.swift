@@ -20,11 +20,11 @@ class HomeCompositionalLayoutHelper {
     func createSectionFor(index:Int, enviroment:NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection{
         switch index{
         case 0:
-            return createSecondSection()
+            return createFirstSection()
         case 1:
             return createSecondSection()
-        //    case 2:
-        //        return createThirdSection()
+        case 2:
+            return createThirdSection()
         default:
             return  createFirstSection()
         }
@@ -38,12 +38,12 @@ class HomeCompositionalLayoutHelper {
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.58), heightDimension: .fractionalHeight(0.25))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.3))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         
         //Section
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
+        section.orthogonalScrollingBehavior = .groupPaging
         
         //Supplementary
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
@@ -61,7 +61,7 @@ class HomeCompositionalLayoutHelper {
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.6))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.5))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         
         //Section
@@ -93,7 +93,7 @@ class HomeCompositionalLayoutHelper {
         
         
         let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.4))
-        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [largelItem, vertialGroup, vertialGroup])
+        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [vertialGroup, vertialGroup])
         
         //Section
         let section = NSCollectionLayoutSection(group: horizontalGroup)
@@ -105,6 +105,21 @@ class HomeCompositionalLayoutHelper {
         section.boundarySupplementaryItems = [header]
         
         return section
+    }
+    
+    func foodBannerSection()-> NSCollectionLayoutSection {
+         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+         let groupSize = NSCollectionLayoutSize(widthDimension:        .fractionalWidth(0.7), heightDimension: .absolute(225))
+         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+         let section = NSCollectionLayoutSection(group: group)
+         section.orthogonalScrollingBehavior = .continuous
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
+         return section
     }
     
 }
