@@ -6,10 +6,12 @@ target 'Biap' do
   use_frameworks!
 
   # Pods for Biap
-  pod "Alamofire"
-pod 'Kingfisher'
-  
-  
+
+  pod 'Alamofire'
+  pod 'IQKeyboardManagerSwift'
+  pod 'NVActivityIndicatorView'
+  pod 'Kingfisher'
+
   target 'BiapTests' do
     inherit! :search_paths
     # Pods for testing

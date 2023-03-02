@@ -1,20 +1,30 @@
 PODS:
-  - Alamofire (5.6.3)
+  - Alamofire (5.6.4)
+  - IQKeyboardManagerSwift (6.5.11)
   - Kingfisher (7.6.1)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
 
 DEPENDENCIES:
   - Alamofire
+  - IQKeyboardManagerSwift
   - Kingfisher
+  - NVActivityIndicatorView
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - Kingfisher
+    - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
-  Alamofire: 8b7a946e9db6f76e93eaa0d4c84e3751633959c9
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   Kingfisher: 93a3c6d0d551658a31e19f21747e1d15cb39d525
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
 
-PODFILE CHECKSUM: c43149850e80dfde1741ea191b2338e653bdf8b7
+PODFILE CHECKSUM: 632a41674df58ffa1328116f9990673cd90daa6a
 
 COCOAPODS: 1.11.3

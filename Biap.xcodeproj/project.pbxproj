@@ -27,6 +27,10 @@
 		E2793B6F29B0DFCF0060BE7B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B6A29B0DFCF0060BE7B /* UIView+Extensions.swift */; };
 		E2793B7029B0DFCF0060BE7B /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B6B29B0DFCF0060BE7B /* UICollectionView+Extensions.swift */; };
 		E2793B7129B0DFCF0060BE7B /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B6C29B0DFCF0060BE7B /* UIStackView+Extensions.swift */; };
+		E2793B7529B0EDD50060BE7B /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B7329B0EDD50060BE7B /* ProductDetailsVC.swift */; };
+		E2793B7629B0EDD50060BE7B /* ProductDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2793B7429B0EDD50060BE7B /* ProductDetailsVC.xib */; };
+		E2793B7929B106510060BE7B /* CustomTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B7829B106510060BE7B /* CustomTabbarVC.swift */; };
+		E2793B7F29B125230060BE7B /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2793B7E29B125230060BE7B /* HomeVC.xib */; };
 		E28F532029AE7D1500FB99EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F531F29AE7D1500FB99EF /* AppDelegate.swift */; };
 		E28F532229AE7D1500FB99EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F532129AE7D1500FB99EF /* SceneDelegate.swift */; };
 		E28F532429AE7D1500FB99EF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F532329AE7D1500FB99EF /* HomeVC.swift */; };
@@ -89,6 +93,10 @@
 		E2793B6A29B0DFCF0060BE7B /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		E2793B6B29B0DFCF0060BE7B /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		E2793B6C29B0DFCF0060BE7B /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		E2793B7329B0EDD50060BE7B /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
+		E2793B7429B0EDD50060BE7B /* ProductDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsVC.xib; sourceTree = "<group>"; };
+		E2793B7829B106510060BE7B /* CustomTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarVC.swift; sourceTree = "<group>"; };
+		E2793B7E29B125230060BE7B /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		E28F531C29AE7D1500FB99EF /* Biap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28F531F29AE7D1500FB99EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E28F532129AE7D1500FB99EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,9 +240,27 @@
 			children = (
 				BC94611E29B1132A00994D80 /* ProductView */,
 				E2793B6229B003CC0060BE7B /* HeaderView */,
+				E2793B7229B0ED9D0060BE7B /* ProductDetailsVC */,
 				E2793B5229AFD1CB0060BE7B /* ReusableViews */,
 			);
 			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		E2793B7229B0ED9D0060BE7B /* ProductDetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				E2793B7329B0EDD50060BE7B /* ProductDetailsVC.swift */,
+				E2793B7429B0EDD50060BE7B /* ProductDetailsVC.xib */,
+			);
+			path = ProductDetailsVC;
+			sourceTree = "<group>";
+		};
+		E2793B7729B106330060BE7B /* CustomTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				E2793B7829B106510060BE7B /* CustomTabbarVC.swift */,
+			);
+			path = CustomTabbar;
 			sourceTree = "<group>";
 		};
 		E28F531329AE7D1500FB99EF = {
@@ -295,6 +321,7 @@
 		E28F534F29AF9A1200FB99EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E2793B7729B106330060BE7B /* CustomTabbar */,
 				E2793B5329AFD2120060BE7B /* Tabbar */,
 				E28F535029AF9A1A00FB99EF /* Home */,
 				BC94611329B0FA9B00994D80 /* ProductsView */,
@@ -306,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				E28F532329AE7D1500FB99EF /* HomeVC.swift */,
+				E2793B7E29B125230060BE7B /* HomeVC.xib */,
 				E28F535129AF9A2D00FB99EF /* HomeVM.swift */,
 				E28F536029AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift */,
 			);
@@ -378,7 +406,7 @@
 				E28F531829AE7D1500FB99EF /* Sources */,
 				E28F531929AE7D1500FB99EF /* Frameworks */,
 				E28F531A29AE7D1500FB99EF /* Resources */,
-				B5BDC7507E804D721E543889 /* [CP] Embed Pods Frameworks */,
+				1B0E307FDA2E02A2D9A8345B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,7 +444,7 @@
 				E28F533829AE7D1900FB99EF /* Sources */,
 				E28F533929AE7D1900FB99EF /* Frameworks */,
 				E28F533A29AE7D1900FB99EF /* Resources */,
-				B323862C0C35F23BC9B54FFF /* [CP] Embed Pods Frameworks */,
+				5DAA9ED3029E10BC1E3983A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -480,9 +508,11 @@
 				E28F532929AE7D1800FB99EF /* Assets.xcassets in Resources */,
 				BC94612A29B114A500994D80 /* ProductCell.xib in Resources */,
 				E2793B6729B0D55C0060BE7B /* BrandsCell.xib in Resources */,
+				E2793B7629B0EDD50060BE7B /* ProductDetailsVC.xib in Resources */,
 				E28F532729AE7D1500FB99EF /* Main.storyboard in Resources */,
 				BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */,
 				E2793B5929AFD38C0060BE7B /* HeaderView.xib in Resources */,
+				E2793B7F29B125230060BE7B /* HomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +533,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B0E307FDA2E02A2D9A8345B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		376C85CDA0B508A6080EB4EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -525,6 +572,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5DAA9ED3029E10BC1E3983A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6BB1B5F3EB6CEC744CD6F1FA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,40 +609,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B323862C0C35F23BC9B54FFF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5BDC7507E804D721E543889 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biap/Pods-Biap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C87D9502B6A8A0BBD763F70C /* [CP] Check Pods Manifest.lock */ = {
@@ -621,6 +651,7 @@
 				E28F535729AF9ABD00FB99EF /* NetworkManger.swift in Sources */,
 				E28F535D29AF9F1A00FB99EF /* Customer.swift in Sources */,
 				E2793B6F29B0DFCF0060BE7B /* UIView+Extensions.swift in Sources */,
+				E2793B7929B106510060BE7B /* CustomTabbarVC.swift in Sources */,
 				E2793B6629B0D55C0060BE7B /* BrandsCell.swift in Sources */,
 				E28F535A29AF9AF300FB99EF /* URLS.swift in Sources */,
 				E28F532429AE7D1500FB99EF /* HomeVC.swift in Sources */,
@@ -631,6 +662,7 @@
 				E28F536129AFD02D00FB99EF /* HomeCompositionalLayoutHelper.swift in Sources */,
 				E2793B7029B0DFCF0060BE7B /* UICollectionView+Extensions.swift in Sources */,
 				E2793B5529AFD2360060BE7B /* TabBarVC.swift in Sources */,
+				E2793B7529B0EDD50060BE7B /* ProductDetailsVC.swift in Sources */,
 				E28F532029AE7D1500FB99EF /* AppDelegate.swift in Sources */,
 				E28F532229AE7D1500FB99EF /* SceneDelegate.swift in Sources */,
 			);
