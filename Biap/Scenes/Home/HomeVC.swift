@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!{
@@ -17,20 +18,15 @@ class HomeVC: UIViewController {
     }
     
     
-    var viewModel:ViewModel?
-    var brands:[Brand.SmartCollections]?
+    var viewModel:homeVM!
+    
     override func viewDidLoad() {
         viewModel = homeVM()
         setupUI()
-        NetworkManger.getAllBrands {[weak self] result in
-            guard let self = self else {return}
-            switch result{
-            case .success(let brand):
-                self.brands = brand.brands
-                print(self.brands)
-                self.collectionView.reloadData()
-            case .failure(let error):
-                print(error)
+        viewModel.getbrands()
+        viewModel.bindResultToHomeView = {[weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
             }
         }
     }
@@ -53,33 +49,33 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
             
-        case 0: return 20
-        case 1: return 20
-        case 2: return 20
+        case 0: return 0
+        case 1: return viewModel.listOfBrands?.smart_collections.count ?? 1
         default: return 10
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCell", for: indexPath) as! BrandsCell
+        
 
         switch indexPath.section{
         case 0:
-            cell.imgView.image = #imageLiteral(resourceName: "HD-wallpaper-sea-side-top-view-top-view-sea-side-nature-background-ios-android-apple")
-            return cell
+            //cell.brandName.text = "Ahmed"
+            return UICollectionViewCell()
         case 1:
-            cell.imgView.image = #imageLiteral(resourceName: "HD-wallpaper-sea-side-top-view-top-view-sea-side-nature-background-ios-android-apple")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCell", for: indexPath) as! BrandsCell
+            cell.brandName.text = viewModel.listOfBrands?.smart_collections[indexPath.row].title
+            let brandImageUrl = URL(string: viewModel.listOfBrands?.smart_collections[indexPath.row].image.src ?? "")
+            cell.brandImageV.kf.setImage(with: brandImageUrl)
             return cell
-        case 2:
-            cell.imgView.image = #imageLiteral(resourceName: "HD-wallpaper-sea-side-top-view-top-view-sea-side-nature-background-ios-android-apple")
-            return cell
+        
         default:
-            cell.imgView.image = #imageLiteral(resourceName: "HD-wallpaper-sea-side-top-view-top-view-sea-side-nature-background-ios-android-apple")
-            return cell
+            //cell.imgView.image = #imageLiteral(resourceName: "HD-wallpaper-sea-side-top-view-top-view-sea-side-nature-background-ios-android-apple")
+            return UICollectionViewCell()
         }
     }
     
@@ -109,6 +105,21 @@ extension HomeVC: UICollectionViewDataSource{
     
 
 extension HomeVC: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //let PVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsView") as! ProductsView
+        
+        //PVC.vendor = viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
+        
+        //self.navigationController?.pushViewController(PVC, animated: true)
+        let VC = ProductsView(nibName: "ProductsView", bundle: nil)
+        
+        
+        VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
+        
+        
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
     
 }
 

@@ -9,7 +9,9 @@ import UIKit
 
 class BrandsCell: UICollectionViewCell {
 
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var brandImageV: UIImageView!
+    
+    @IBOutlet weak var brandName: UILabel!
     
     var didClickFav: ((Int)->())?
     override func awakeFromNib() {
@@ -17,8 +19,8 @@ class BrandsCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configureCell(brand: Brand.SmartCollections){
-    }
+    //func configureCell(brand: Brand.SmartCollections){
+    //}
 
 
 }

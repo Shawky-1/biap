@@ -7,6 +7,7 @@ target 'Biap' do
 
   # Pods for Biap
   pod "Alamofire"
+pod 'Kingfisher'
   
   
   target 'BiapTests' do

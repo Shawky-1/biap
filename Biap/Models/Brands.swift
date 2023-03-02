@@ -56,7 +56,7 @@ import Foundation
 
 
 
-struct Brand: Decodable{
+/*struct Brand: Decodable{
     let brands: [SmartCollections]
     enum CodingKeys: String, CodingKey {
         case brands = "smart_collections"
@@ -86,6 +86,23 @@ struct Brand: Decodable{
             case image = "src"
         }
     }
+}*/
+
+
+
+
+struct brands:Codable{
+    let smart_collections:[brand]
 }
 
+struct brand:Codable{
+    let id:Int?
+    let title:String?
+    let handle:String?
+    let image:brandLogo
+}
+
+struct brandLogo:Codable{
+    let src:String?
+}
 

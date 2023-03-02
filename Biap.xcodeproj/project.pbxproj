@@ -10,6 +10,12 @@
 		657B0C9F670CFCB3F9667730 /* Pods_Biap_BiapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */; };
 		6F03947FFE3D78CE93EE2D9C /* Pods_BiapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4268A41E84F53E90D014887D /* Pods_BiapTests.framework */; };
 		8B1912CAEBC3E2B6BAED2EED /* Pods_Biap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD92C732119FFF8952511E4 /* Pods_Biap.framework */; };
+		BC94611C29B0FB4E00994D80 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94611A29B0FB4E00994D80 /* ProductsView.swift */; };
+		BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94611B29B0FB4E00994D80 /* ProductsView.xib */; };
+		BC94612929B114A500994D80 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94612729B114A500994D80 /* ProductCell.swift */; };
+		BC94612A29B114A500994D80 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94612829B114A500994D80 /* ProductCell.xib */; };
+		BCFC56C229B122AF00C162A4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC56C129B122AF00C162A4 /* Products.swift */; };
+		BCFC56C429B122FE00C162A4 /* ProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC56C329B122FE00C162A4 /* ProductVM.swift */; };
 		E2793B5529AFD2360060BE7B /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B5429AFD2360060BE7B /* TabBarVC.swift */; };
 		E2793B5829AFD38C0060BE7B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B5629AFD38C0060BE7B /* HeaderView.swift */; };
 		E2793B5929AFD38C0060BE7B /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2793B5729AFD38C0060BE7B /* HeaderView.xib */; };
@@ -64,6 +70,12 @@
 		95079B974D7A62FD560890AE /* Pods-Biap-BiapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1764C1B0D1DA9885A9EE083 /* Pods-Biap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap.debug.xcconfig"; path = "Target Support Files/Pods-Biap/Pods-Biap.debug.xcconfig"; sourceTree = "<group>"; };
 		AA1DC5F6B9DD877F5C8E91DB /* Pods-Biap-BiapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.release.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC94611A29B0FB4E00994D80 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		BC94611B29B0FB4E00994D80 /* ProductsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsView.xib; sourceTree = "<group>"; };
+		BC94612729B114A500994D80 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		BC94612829B114A500994D80 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		BCFC56C129B122AF00C162A4 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		BCFC56C329B122FE00C162A4 /* ProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVM.swift; sourceTree = "<group>"; };
 		C18848E764F955FBA1FA8C47 /* Pods-BiapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiapTests.debug.xcconfig"; path = "Target Support Files/Pods-BiapTests/Pods-BiapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9466D6963F28C8FDB31F0E /* Pods-BiapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiapTests.release.xcconfig"; path = "Target Support Files/Pods-BiapTests/Pods-BiapTests.release.xcconfig"; sourceTree = "<group>"; };
 		E2793B5429AFD2360060BE7B /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
@@ -150,6 +162,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC94611329B0FA9B00994D80 /* ProductsView */ = {
+			isa = PBXGroup;
+			children = (
+				BC94611A29B0FB4E00994D80 /* ProductsView.swift */,
+				BC94611B29B0FB4E00994D80 /* ProductsView.xib */,
+				BCFC56C329B122FE00C162A4 /* ProductVM.swift */,
+			);
+			path = ProductsView;
+			sourceTree = "<group>";
+		};
+		BC94611E29B1132A00994D80 /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+				BC94612729B114A500994D80 /* ProductCell.swift */,
+				BC94612829B114A500994D80 /* ProductCell.xib */,
+			);
+			path = ProductView;
+			sourceTree = "<group>";
+		};
 		E2793B5229AFD1CB0060BE7B /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +230,7 @@
 		E2793B6329B003D80060BE7B /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				BC94611E29B1132A00994D80 /* ProductView */,
 				E2793B6229B003CC0060BE7B /* HeaderView */,
 				E2793B5229AFD1CB0060BE7B /* ReusableViews */,
 			);
@@ -265,6 +297,7 @@
 			children = (
 				E2793B5329AFD2120060BE7B /* Tabbar */,
 				E28F535029AF9A1A00FB99EF /* Home */,
+				BC94611329B0FA9B00994D80 /* ProductsView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -321,6 +354,7 @@
 				E28F535C29AF9F1A00FB99EF /* Customer.swift */,
 				E28F535E29AF9FD600FB99EF /* CustomerAddress.swift */,
 				E2793B5A29AFD5DA0060BE7B /* Brands.swift */,
+				BCFC56C129B122AF00C162A4 /* Products.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,8 +478,10 @@
 			files = (
 				E28F532C29AE7D1800FB99EF /* LaunchScreen.storyboard in Resources */,
 				E28F532929AE7D1800FB99EF /* Assets.xcassets in Resources */,
+				BC94612A29B114A500994D80 /* ProductCell.xib in Resources */,
 				E2793B6729B0D55C0060BE7B /* BrandsCell.xib in Resources */,
 				E28F532729AE7D1500FB99EF /* Main.storyboard in Resources */,
+				BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */,
 				E2793B5929AFD38C0060BE7B /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,9 +611,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2793B6D29B0DFCF0060BE7B /* UITableView+Extensions.swift in Sources */,
+				BCFC56C229B122AF00C162A4 /* Products.swift in Sources */,
 				E2793B5B29AFD5DA0060BE7B /* Brands.swift in Sources */,
 				E2793B7129B0DFCF0060BE7B /* UIStackView+Extensions.swift in Sources */,
 				E28F536429AFD0E000FB99EF /* ViewModel.swift in Sources */,
+				BC94611C29B0FB4E00994D80 /* ProductsView.swift in Sources */,
+				BCFC56C429B122FE00C162A4 /* ProductVM.swift in Sources */,
 				E28F535F29AF9FD600FB99EF /* CustomerAddress.swift in Sources */,
 				E28F535729AF9ABD00FB99EF /* NetworkManger.swift in Sources */,
 				E28F535D29AF9F1A00FB99EF /* Customer.swift in Sources */,
@@ -585,6 +624,7 @@
 				E2793B6629B0D55C0060BE7B /* BrandsCell.swift in Sources */,
 				E28F535A29AF9AF300FB99EF /* URLS.swift in Sources */,
 				E28F532429AE7D1500FB99EF /* HomeVC.swift in Sources */,
+				BC94612929B114A500994D80 /* ProductCell.swift in Sources */,
 				E28F535229AF9A2D00FB99EF /* HomeVM.swift in Sources */,
 				E2793B5829AFD38C0060BE7B /* HeaderView.swift in Sources */,
 				E2793B6E29B0DFCF0060BE7B /* UIColor+Extensions.swift in Sources */,

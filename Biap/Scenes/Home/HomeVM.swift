@@ -12,15 +12,21 @@ class homeVM: ViewModel{
     
     func viewDidLoad() {
     }
-    
-    
-    func fetchBrands(){
-        NetworkManger.getAllBrands { result in
+    var bindResultToHomeView:(() -> ()) = {}
+    var listOfBrands:brands!{
+        didSet{
+            bindResultToHomeView()
+        }
+    }
+    func getbrands(){
+        NetworkManger.fetchBrand { [weak self] result in
+            guard let self = self else {return}
             switch result{
-            case .success(let brands):
-                print(brands)
+            case .success(let product):
+                self.listOfBrands = product
+    
             case .failure(let error):
-                print(error)
+                print(String(describing: error))
             }
         }
     }

@@ -48,25 +48,46 @@ class NetworkManger{
 //    }
     
     
-    static func getAllBrands(complition:@escaping (Result<Brand, Error>) -> ()){
-        
-        let url = URLS.baseURL + URLS.products.brands.rawValue
-        
-        AF.request(url, method: .get, encoding: URLEncoding.default).validate().response{ responseData in
+    static func fetchBrand(complition:@escaping (Result<brands, Error>)->Void){
+        let url = URL(string: "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/smart_collections.json")
+        AF.request(url!).validate().response { responseData in
+            
             switch responseData.result{
             case .success(let data):
-                do {
-                    let brands = try JSONDecoder().decode(Brand.self, from: data!)
+                do{
+                    let brands = try JSONDecoder().decode(brands.self, from: data!)
                     complition(.success(brands))
-                } catch let error{
+                    //print(Leagues)
+                }catch{
                     complition(.failure(error))
                 }
-                
             case .failure(let error):
                 complition(.failure(error))
             }
-            
         }
+        
+        
+    }
+    
+    
+    static func fetchSPRODUCT(vendor:String,complition:@escaping (Result<product, Error>)->Void){
+        let url = URL(string: "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?vendor=\(vendor)")
+        AF.request(url!).validate().response { responseData in
+            
+            switch responseData.result{
+            case .success(let data):
+                do{
+                    let product = try JSONDecoder().decode(product.self, from: data!)
+                    complition(.success(product))
+                    //print(Leagues)
+                }catch{
+                    complition(.failure(error))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+        
         
     }
 }
