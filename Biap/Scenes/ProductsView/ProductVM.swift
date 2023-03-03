@@ -10,30 +10,77 @@ import Foundation
 
 
 class productVM{
+    var imgArr:[String] = []
+    
+    var sizeArr:[String] = []
+    var colorArr:[String] = []
     var bindResultToProductView:(() -> ()) = {}
-    var listOfProducts:product?{
+    var listOfProducts:products?{
+        didSet{
+            bindResultToProductView()
+        }
+        
+    }
+    
+    var singleProduct:singleProduct?{
         didSet{
             bindResultToProductView()
         }
     }
     
     
-    func getSProduct(url:String,vendor:String){
-        NetworkManger.fetchSPRODUCT(url:url,vendor: vendor) { [weak self] result in
+    func getSProduct(url:String,id:Int,vendor:String){
+        NetworkManger.fetchProducts(url:url,id: id,vendor: vendor) { [weak self] result in
             guard let self = self else {return}
             switch result{
             case .success(let product):
                 self.listOfProducts = product
                 
-                //print(self.listOfProducts?.products)
-                //print(self.listOfBrands!.smart_collections[0].image.src!)
+                /*for each in self.listOfProducts!.products[0].images{
+                    self.imgArr.append(each.src ?? "")
+                }*/
+                
+                print(self.imgArr)
                 
             case .failure(let error):
                 print(String(describing: error))
             }
         }
     }
-}
+    
+    
+    func fetchSingleProduct(url:String,id:Int,vendr:String){
+        NetworkManger.fetchSingleProduct(url: url, id: id, vendor: vendr) { [weak self] result in
+            guard let self = self else {return}
+            switch result{
+            case .success(let product):
+                self.singleProduct = product
+                
+                for each in self.singleProduct!.product.images{
+                    self.imgArr.append(each.src ?? "")
+                }
+                
+                
+                for each in self.singleProduct!.product.options{
+                    if each.name == "Size"{
+                        let size = each.values!
+                        self.sizeArr.append(contentsOf: size)
+                    }
+                    if each.name == "Color"{
+                        let color = each.values!
+                        self.colorArr.append(contentsOf: color)
+                    }
+                }
+                
+              
+                
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+        }
+    }
+
 
 
 
