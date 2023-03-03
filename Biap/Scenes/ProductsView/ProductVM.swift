@@ -18,8 +18,8 @@ class productVM{
     }
     
     
-    func getSProduct(vendor:String){
-        NetworkManger.fetchSPRODUCT(vendor: vendor) { [weak self] result in
+    func getSProduct(url:String,vendor:String){
+        NetworkManger.fetchSPRODUCT(url:url,vendor: vendor) { [weak self] result in
             guard let self = self else {return}
             switch result{
             case .success(let product):

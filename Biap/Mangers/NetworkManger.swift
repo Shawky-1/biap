@@ -70,8 +70,8 @@ class NetworkManger{
     }
     
     
-    static func fetchSPRODUCT(vendor:String,complition:@escaping (Result<product, Error>)->Void){
-        let url = URL(string: "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?vendor=\(vendor)")
+    static func fetchSPRODUCT(url:String,vendor:String,complition:@escaping (Result<product, Error>)->Void){
+        let url = URL(string: url)
         AF.request(url!).validate().response { responseData in
             
             switch responseData.result{

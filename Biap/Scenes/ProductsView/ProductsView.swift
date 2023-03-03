@@ -24,7 +24,8 @@ class ProductsView: UIViewController {
         setupUI()
         viewModel = productVM()
         let termVendor = vendor.replacingOccurrences(of: " ", with: "+")
-        viewModel.getSProduct(vendor: termVendor)
+        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?vendor=\(vendor)"
+        viewModel.getSProduct(url:url,vendor: termVendor)
         viewModel.bindResultToProductView = {[weak self] in
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
@@ -73,6 +74,6 @@ extension ProductsView:UICollectionViewDataSource{
 extension ProductsView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: 150, height: 150)
-        return CGSize(width: collectionView.frame.size.width/2.1,height: collectionView.frame.size.height/3)
+        return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/3)
     }
 }
