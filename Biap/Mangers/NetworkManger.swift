@@ -70,14 +70,36 @@ class NetworkManger{
     }
     
     
-    static func fetchSPRODUCT(url:String,vendor:String,complition:@escaping (Result<product, Error>)->Void){
+    static func fetchProducts(url:String,id:Int,vendor:String,complition:@escaping (Result<products, Error>)->Void){
         let url = URL(string: url)
         AF.request(url!).validate().response { responseData in
             
             switch responseData.result{
             case .success(let data):
                 do{
-                    let product = try JSONDecoder().decode(product.self, from: data!)
+                    let product = try JSONDecoder().decode(products.self, from: data!)
+                    complition(.success(product))
+                    //print(Leagues)
+                }catch{
+                    complition(.failure(error))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+        
+        
+    }
+    
+    
+    static func fetchSingleProduct(url:String,id:Int,vendor:String,complition:@escaping (Result<singleProduct, Error>)->Void){
+        let url = URL(string: url)
+        AF.request(url!).validate().response { responseData in
+            
+            switch responseData.result{
+            case .success(let data):
+                do{
+                    let product = try JSONDecoder().decode(singleProduct.self, from: data!)
                     complition(.success(product))
                     //print(Leagues)
                 }catch{

@@ -14,6 +14,7 @@ class ProductsView: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var vendor:String = ""
+    var id:Int = 0
     
     var viewModel:productVM!
     
@@ -24,8 +25,8 @@ class ProductsView: UIViewController {
         setupUI()
         viewModel = productVM()
         let termVendor = vendor.replacingOccurrences(of: " ", with: "+")
-        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?vendor=\(vendor)"
-        viewModel.getSProduct(url:url,vendor: termVendor)
+        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?vendor=\(termVendor)"
+        viewModel.getSProduct(url:url,id: id,vendor: termVendor)
         viewModel.bindResultToProductView = {[weak self] in
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
@@ -63,7 +64,7 @@ extension ProductsView:UICollectionViewDataSource{
         
         cell.productName.text = viewModel.listOfProducts?.products[indexPath.row].title
         cell.productPrice.text = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price
-        let productImageUrl = URL(string: viewModel.listOfProducts?.products[indexPath.row].images?[0].src ?? "")
+        let productImageUrl = URL(string: viewModel.listOfProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         return cell
     }
@@ -77,3 +78,23 @@ extension ProductsView:UICollectionViewDelegateFlowLayout{
         return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/3)
     }
 }
+
+
+extension ProductsView: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
+        
+        
+        vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
+        vc.productN = viewModel.listOfProducts?.products[indexPath.row].title ?? ""
+        vc.price = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price ?? ""
+        vc.desc = viewModel.listOfProducts?.products[indexPath.row].body_html ?? ""
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+

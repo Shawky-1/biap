@@ -11,6 +11,7 @@ target 'Biap' do
   pod 'IQKeyboardManagerSwift'
   pod 'NVActivityIndicatorView'
   pod 'Kingfisher'
+  pod 'DropDown'
 
   target 'BiapTests' do
     inherit! :search_paths

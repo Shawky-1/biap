@@ -107,11 +107,7 @@ extension HomeVC: UICollectionViewDataSource{
 extension HomeVC: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let PVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsView") as! ProductsView
         
-        //PVC.vendor = viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
-        
-        //self.navigationController?.pushViewController(PVC, animated: true)
         let VC = ProductsView(nibName: "ProductsView", bundle: nil)
         
         

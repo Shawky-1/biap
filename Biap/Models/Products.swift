@@ -6,8 +6,13 @@
 //
 
 import Foundation
-struct product:Codable{
+struct products:Codable{
     let products:[properies]
+}
+
+
+struct singleProduct:Codable{
+    let product:properies
 }
 
 struct properies:Codable{
@@ -17,7 +22,8 @@ struct properies:Codable{
     let vendor:String?
     let product_type:String?
     let variants:[Vproperties]?
-    let images:[images]?
+    let options:[option]
+    let images:[images]
 }
 
 
@@ -34,7 +40,15 @@ struct Vproperties:Codable{
 
 
 struct images:Codable{
-    let id:Int?
-    let position:Int?
-    let src:String?
+    let id:Int
+    let position:Int
+    let src:String
 }
+
+
+struct option:Codable{
+    let product_id:Int?
+    let name:String?
+    let values:[String]?
+}
+
