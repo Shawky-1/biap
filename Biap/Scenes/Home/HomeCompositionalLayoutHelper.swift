@@ -38,12 +38,12 @@ class HomeCompositionalLayoutHelper {
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.3))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         
         //Section
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
+        section.orthogonalScrollingBehavior = .groupPagingCentered
         
         //Supplementary
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
