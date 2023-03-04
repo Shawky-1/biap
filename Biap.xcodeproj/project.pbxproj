@@ -10,6 +10,9 @@
 		657B0C9F670CFCB3F9667730 /* Pods_Biap_BiapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */; };
 		6F03947FFE3D78CE93EE2D9C /* Pods_BiapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4268A41E84F53E90D014887D /* Pods_BiapTests.framework */; };
 		8B1912CAEBC3E2B6BAED2EED /* Pods_Biap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD92C732119FFF8952511E4 /* Pods_Biap.framework */; };
+		9E997EBC29B3EB92008B74F7 /* Coupons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E997EBB29B3EB92008B74F7 /* Coupons.swift */; };
+		9E997EC029B3EC1E008B74F7 /* CouponsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E997EBE29B3EC1E008B74F7 /* CouponsCell.swift */; };
+		9E997EC129B3EC1E008B74F7 /* CouponsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E997EBF29B3EC1E008B74F7 /* CouponsCell.xib */; };
 		BC94611C29B0FB4E00994D80 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94611A29B0FB4E00994D80 /* ProductsView.swift */; };
 		BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94611B29B0FB4E00994D80 /* ProductsView.xib */; };
 		BC94612929B114A500994D80 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94612729B114A500994D80 /* ProductCell.swift */; };
@@ -86,6 +89,9 @@
 		5BD92C732119FFF8952511E4 /* Pods_Biap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biap_BiapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95079B974D7A62FD560890AE /* Pods-Biap-BiapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E997EBB29B3EB92008B74F7 /* Coupons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupons.swift; sourceTree = "<group>"; };
+		9E997EBE29B3EC1E008B74F7 /* CouponsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponsCell.swift; sourceTree = "<group>"; };
+		9E997EBF29B3EC1E008B74F7 /* CouponsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponsCell.xib; sourceTree = "<group>"; };
 		A1764C1B0D1DA9885A9EE083 /* Pods-Biap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap.debug.xcconfig"; path = "Target Support Files/Pods-Biap/Pods-Biap.debug.xcconfig"; sourceTree = "<group>"; };
 		AA1DC5F6B9DD877F5C8E91DB /* Pods-Biap-BiapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.release.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC94611A29B0FB4E00994D80 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
@@ -198,6 +204,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9E997EBD29B3EC1E008B74F7 /* CouponsCell */ = {
+			isa = PBXGroup;
+			children = (
+				9E997EBE29B3EC1E008B74F7 /* CouponsCell.swift */,
+				9E997EBF29B3EC1E008B74F7 /* CouponsCell.xib */,
+			);
+			path = CouponsCell;
+			sourceTree = "<group>";
+		};
 		BC94611329B0FA9B00994D80 /* ProductsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +311,7 @@
 		E2793B6329B003D80060BE7B /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E997EBD29B3EC1E008B74F7 /* CouponsCell */,
 				BCBC2D5629B2781000AAA541 /* ProductDetailsCell */,
 				BCD0158F29B2229B009BD854 /* CategoriesCell */,
 				BC94611E29B1132A00994D80 /* ProductView */,
@@ -391,6 +407,7 @@
 		E28F534F29AF9A1200FB99EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BC9E6E6629B2701E001E0FC4 /* ProductDetails */,
 				E2793B7729B106330060BE7B /* CustomTabbar */,
 				E2793B8029B2B2E70060BE7B /* Login */,
 				E28F535029AF9A1A00FB99EF /* Home */,
@@ -456,6 +473,7 @@
 				E2793B5A29AFD5DA0060BE7B /* Brands.swift */,
 				BCFC56C129B122AF00C162A4 /* Products.swift */,
 				E2BDE00D29B3CC9E00CC5977 /* Customer.swift */,
+				9E997EBB29B3EB92008B74F7 /* Coupons.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -614,6 +632,7 @@
 				E2BDE00429B3BD0500CC5977 /* RegisterVC.xib in Resources */,
 				E2793B7629B0EDD50060BE7B /* ProductDetailsVC.xib in Resources */,
 				E28F532729AE7D1500FB99EF /* Main.storyboard in Resources */,
+				9E997EC129B3EC1E008B74F7 /* CouponsCell.xib in Resources */,
 				BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */,
 				E2793B5929AFD38C0060BE7B /* HeaderView.xib in Resources */,
 				E2793B7F29B125230060BE7B /* HomeVC.xib in Resources */,
@@ -758,6 +777,7 @@
 				BCBC2D5929B2785B00AAA541 /* ProductDetailsCell.swift in Sources */,
 				E2793B7929B106510060BE7B /* CustomTabbarVC.swift in Sources */,
 				E2BDE00329B3BD0500CC5977 /* RegisterVC.swift in Sources */,
+				9E997EBC29B3EB92008B74F7 /* Coupons.swift in Sources */,
 				E2793B6629B0D55C0060BE7B /* BrandsCell.swift in Sources */,
 				E28F535A29AF9AF300FB99EF /* URLS.swift in Sources */,
 				E28F532429AE7D1500FB99EF /* HomeVC.swift in Sources */,
@@ -766,6 +786,7 @@
 				BC94612929B114A500994D80 /* ProductCell.swift in Sources */,
 				E2793B8629B2B30D0060BE7B /* LoginVM.swift in Sources */,
 				E28F535229AF9A2D00FB99EF /* HomeVM.swift in Sources */,
+				9E997EC029B3EC1E008B74F7 /* CouponsCell.swift in Sources */,
 				E2793B5829AFD38C0060BE7B /* HeaderView.swift in Sources */,
 				E2793B6E29B0DFCF0060BE7B /* UIColor+Extensions.swift in Sources */,
 				E2BDE01129B3D63F00CC5977 /* LoginValidator.swift in Sources */,
