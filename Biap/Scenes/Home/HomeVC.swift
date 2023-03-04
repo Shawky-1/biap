@@ -19,10 +19,13 @@ class HomeVC: UIViewController {
     
     
     var viewModel:homeVM!
+    var timer: Timer?
+    var currentCellIndex = 0
     
     override func viewDidLoad() {
         viewModel = homeVM()
         setupUI()
+        viewModel.getCoupons()
         viewModel.getbrands()
         viewModel.bindResultToHomeView = {[weak self] in
             guard let self = self else {return}
@@ -34,6 +37,8 @@ class HomeVC: UIViewController {
         collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
 //        collectionView.registerCell(cellClass: BrandsCell.self)
         collectionView.register(UINib(nibName: "BrandsCell", bundle: nil), forCellWithReuseIdentifier: "BrandsCell")
+        collectionView.register(UINib(nibName: "CouponsCell", bundle: nil), forCellWithReuseIdentifier: "CouponsCell")
+        startTimer()
         
     }
     
@@ -41,7 +46,19 @@ class HomeVC: UIViewController {
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
         HomeCompositionalLayoutHelper()
     }()
-
+    
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(slideToNextCell), userInfo: nil, repeats: true)
+    }
+    
+    @objc func slideToNextCell(){
+        if currentCellIndex < viewModel.adsArr.count-1 {
+            currentCellIndex += 1
+        }else{
+            currentCellIndex = 0
+        }
+        collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+    }
     
 
 }
@@ -53,7 +70,7 @@ extension HomeVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
             
-        case 0: return 0
+        case 0: return viewModel.adsArr.count
         case 1: return viewModel.listOfBrands?.smart_collections.count ?? 1
         default: return 10
         }
@@ -63,8 +80,11 @@ extension HomeVC: UICollectionViewDataSource{
 
         switch indexPath.section{
         case 0:
-            
-            return UICollectionViewCell()
+
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CouponsCell", for: indexPath) as! CouponsCell
+            cell.couponImage.image = UIImage(named: viewModel.adsArr[indexPath.row].image!)
+            return cell
+
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCell", for: indexPath) as! BrandsCell
             cell.brandName.text = viewModel.listOfBrands?.smart_collections[indexPath.row].title
@@ -106,15 +126,19 @@ extension HomeVC: UICollectionViewDataSource{
 extension HomeVC: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let VC = ProductsView(nibName: "ProductsView", bundle: nil)
-        
-        
-        VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
-        VC.hidesBottomBarWhenPushed = true
-        
-        
-        self.navigationController?.pushViewController(VC, animated: true)
+
+        switch (indexPath.section){
+        case 0:
+            let pasteboard = UIPasteboard.general
+            pasteboard.string = viewModel.adsArr[indexPath.row].code
+        case 1:
+            let VC = ProductsView(nibName: "ProductsView", bundle: nil)
+            VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
+            self.navigationController?.pushViewController(VC, animated: true)
+        default:
+            break
+        }
+
     }
     
 }

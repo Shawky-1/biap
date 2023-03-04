@@ -11,41 +11,44 @@ import Alamofire
 class NetworkManger{
     static let AFSession = Alamofire.Session()
 
-//    static func createNewCustomer(customer: Customer,Complition:@escaping(Result<Customer, Error>) ->()){
-//
-//        let url = URLS.baseURL + URLS.customer.newCustomer.rawValue
-//        let parameters:[String: Any] = ["customer": ["first_name": customer.firstName,
-//                                                     "last_name" : customer.lastName,
-//                                                     "email": customer.email,
-//                                                     "phone": customer.phone,
-//                                                     "password": customer.password,
-//                                                     "password_confirmation": customer.password]]
-//
-//
-//
-//        AFSession.request(url, method: .post,
-//                   parameters: parameters,
-//                   encoding: JSONEncoding.default).response{ responseData in
-//
-//            debugPrint(responseData)
-//
-//            switch responseData.result {
-//            case .success(let JSON):
-//                let jsonData = try! JSONSerialization.data(withJSONObject: JSON, options: [])
-//
-//                print(JSON)
-//                do{
-//                    let customer = try JSONDecoder().decode(CustomerResponse.self, from: jsonData)
-//                    Complition(.success(customer))
-//                }catch let error {
-//                    Complition(.failure(error))
-//                }
-//            case .failure(let error):
-//                Complition(.failure(error))
-//            }
-//        }
-//
-//    }
+    static func RegisterCustomer(customer: Customer,Complition:@escaping(Result<Customer, Error>) ->()){
+
+        let url = URLS.baseURL + URLS.customer.newCustomer.rawValue
+        let headers:HTTPHeaders = [Tokens.headerToken : Tokens.secretToken]
+        let parameters:[String: Any] = ["customer": ["first_name": customer.firstName,
+                                                     "last_name" : customer.lastName,
+                                                     "email": customer.email,
+                                                     "phone": customer.phone,]]
+        
+
+    }
+    
+    static func searchCustomer(email: String, complition: @escaping(Result<Customer, Error>) -> ()){
+        let url = URLS.baseURL + URLS.customer.searchCustomer.rawValue
+        let query:String = "email:\(email)"
+        let parameters:[String: Any] = ["query": query]
+        let headers:HTTPHeaders = [Tokens.headerToken : Tokens.secretToken]
+        
+        AF.request(url, parameters: parameters, headers: headers).validate().response { responseData in
+            switch responseData.result {
+            case .success(let data):
+                do {
+                    let customerRawResponse = try JSONDecoder().decode(CustomersResponse.self, from: data!)
+                    if !customerRawResponse.customers.isEmpty{
+                        complition(.success(customerRawResponse.customers.first!))
+                    } else {
+                        complition(.failure(AppErrors.noCustomers))
+                    }
+                } catch let error {
+                    complition(.failure(error))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
+
+    
     
     
     static func fetchBrand(complition:@escaping (Result<brands, Error>)->Void){
@@ -113,3 +116,26 @@ class NetworkManger{
         
     }
 }
+
+enum AppErrors: Error {
+
+    case serverError(Error)
+    case noCustomers
+    case invalidResponse
+    
+    var errorMessage: String {
+        switch self {
+        case .serverError(let error):
+            return error.localizedDescription
+        case .noCustomers:
+            return "Invalid email"
+        case .invalidResponse:
+            return "Invalid response"
+        }
+    }
+}
+
+
+
+
+

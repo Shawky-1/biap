@@ -8,10 +8,11 @@
 import Foundation
 
 enum URLS {
-    static let baseURL: String = "https://\(EndPoints.apiKey):\(EndPoints.apiPassword)@\(EndPoints.storeName).myshopify.com/admin/api/\(EndPoints.apiVersion)"
+    static let baseURL: String = "https://mad-ism202.myshopify.com/admin/api/2023-01"
     
     enum customer: String {
         case newCustomer = "/customers"
+        case searchCustomer = "/customers/search.json"
     }
     
     enum products: String{
@@ -19,11 +20,10 @@ enum URLS {
     }
 }
 
-struct EndPoints{
-    static let apiKey: String = "80300e359dad594ca2466b7c53e94435"
-    static let apiPassword: String = "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"
-    static let storeName: String = "mad-ism202"
-    static let apiVersion: String = "2023-01"
+struct Tokens{
+    //https://mad-ism202.myshopify.com/admin/api/2023-01/customers.json
+    static let secretToken: String = "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"
+    static let headerToken: String = "X-Shopify-Access-Token"
 }
 
 

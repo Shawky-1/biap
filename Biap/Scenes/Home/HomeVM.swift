@@ -12,6 +12,7 @@ class homeVM: ViewModel{
     
     func viewDidLoad() {
     }
+    var adsArr:[coupon] = []
     var bindResultToHomeView:(() -> ()) = {}
     var listOfBrands:brands!{
         didSet{
@@ -31,4 +32,9 @@ class homeVM: ViewModel{
         }
     }
     
+    func getCoupons(){
+        adsArr.append(coupon(code: "VFSSW20", image: "ad1"))
+        adsArr.append(coupon(code: "EFYSS10", image: "ad2"))
+        adsArr.append(coupon(code: "SUVXX50", image: "ad3"))
+    }
 }
