@@ -18,21 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         IQKeyboardManager.shared.enable = true
         
-//        UINavigationBar.appearance().barTintColor = .black
-//        UINavigationBar.appearance().tintColor = .white
-//        UINavigationBar.appearance().isTranslucent = false
+        let defaults = UserDefaults.standard
+        // Check if Walkthrough is completed
+        defaults.setValue(true, forKey: "WalkthroughCompleted")
+        if defaults.bool(forKey: "WalkthroughCompleted") {
+            // Check if email exists
+            if defaults.string(forKey: "email") != nil {
+                let TabBarVC = CustomTabbarVC()
+                window?.rootViewController = TabBarVC
+            } else {
+                let loginVC = LoginVC()
+                window?.rootViewController = loginVC
+            }
+        } else {
+            let walkthroughVC = LoginVC() // Instantiate your WalkthroughVC here
+            let navController = UINavigationController(rootViewController: walkthroughVC)
+            window?.rootViewController = navController
+        }
         
-       // SET THE ROOT VIEW CONTROLLER
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        let HomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
-//        let navController = UINavigationController(rootViewController: HomeVC)
-////
-//        window?.rootViewController = navController
-
-
-        window?.rootViewController = CustomTabbarVC()
         window?.makeKeyAndVisible()
-        
         return true
     }
 

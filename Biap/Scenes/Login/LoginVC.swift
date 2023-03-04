@@ -9,21 +9,56 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var continueBtn: UIButton!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var errorLbl: UILabel!
+    
+    var viewModel: LoginVM!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel = LoginVM()
+        viewModel.viewDidLoad()
+        setupUI()
+        
+        viewModel.didLogin = {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let message):
+                print(message)
+                self.viewModel.storeCustomer()
+                self.errorLbl.text = ""
+                self.navigateToHomeVC()
+            case .failure(let error as LoginError):
+                print(error.localizedDescription)
+                self.errorLbl.text = error.localizedDescription
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupUI(){
+        loginBtn.cornerRadius = loginBtn.bounds.height / 2
+        registerBtn.cornerRadius = loginBtn.bounds.height / 2
     }
-    */
+    
+    func navigateToHomeVC(){
+        let viewController = CustomTabbarVC(nibName: "CustomTabbarVC", bundle: nil)
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func didClickContinue(_ sender: Any) {
+        navigateToHomeVC()
+    }
+    @IBAction func didPressLogin(_ sender: Any) {
+        viewModel.login(email: emailTF.text ?? "", password: passwordTF.text ?? "")
+    }
+    
 
 }

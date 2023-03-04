@@ -1,20 +1,20 @@
 //
-//  TabBarVC.swift
+//  RegisterVC.swift
 //  Biap
 //
-//  Created by Ahmed Shawky on 01/03/2023.
+//  Created by Ahmed Shawky on 04/03/2023.
 //
 
 import UIKit
 
-class TabBarVC: UITabBarController {
+class RegisterVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation
