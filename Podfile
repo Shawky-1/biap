@@ -12,6 +12,8 @@ target 'Biap' do
   pod 'NVActivityIndicatorView'
   pod 'Kingfisher'
   pod 'DropDown'
+  pod 'ReachabilitySwift'
+
 
   target 'BiapTests' do
     inherit! :search_paths
