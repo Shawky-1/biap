@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Categories" customModule="Biap" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="i10-17-Gmq" id="G6k-gE-olb"/>
-                <outlet property="segCont" destination="n6W-WJ-eTl" id="Gdk-9B-Zah"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i10-17-Gmq">
-                    <rect key="frame" x="5" y="90" width="383" height="738"/>
+                    <rect key="frame" x="5" y="59" width="383" height="769"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YRA-0S-0tq">
                         <size key="itemSize" width="128" height="128"/>
@@ -34,28 +33,13 @@
                         <outlet property="delegate" destination="-1" id="C11-6p-TXJ"/>
                     </connections>
                 </collectionView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n6W-WJ-eTl">
-                    <rect key="frame" x="0.0" y="59" width="393" height="32"/>
-                    <segments>
-                        <segment title="All"/>
-                        <segment title="Shoes"/>
-                        <segment title="Accessories"/>
-                        <segment title="T-Shirts"/>
-                    </segments>
-                    <connections>
-                        <action selector="segConAction:" destination="-1" eventType="valueChanged" id="mQL-Cf-S81"/>
-                    </connections>
-                </segmentedControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="n6W-WJ-eTl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6pk-HO-5sz"/>
+                <constraint firstItem="i10-17-Gmq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HAj-jR-ThZ"/>
                 <constraint firstItem="i10-17-Gmq" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="HiK-10-zjY"/>
-                <constraint firstItem="i10-17-Gmq" firstAttribute="top" secondItem="n6W-WJ-eTl" secondAttribute="bottom" id="ZsU-eW-zKY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n6W-WJ-eTl" secondAttribute="trailing" id="fRJ-uU-KoG"/>
                 <constraint firstItem="i10-17-Gmq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="knu-Ih-dC3"/>
-                <constraint firstItem="n6W-WJ-eTl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vYY-1B-TBC"/>
                 <constraint firstAttribute="trailing" secondItem="i10-17-Gmq" secondAttribute="trailing" constant="5" id="xdT-1w-vAm"/>
             </constraints>
             <point key="canvasLocation" x="100" y="-11.267605633802818"/>

@@ -25,9 +25,8 @@ class HomeVC: UIViewController {
         setupUI()
         viewModel.getbrands()
         viewModel.bindResultToHomeView = {[weak self] in
-            DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-            }
+            guard let self = self else {return}
+            self.collectionView.reloadData()
         }
     }
     
@@ -64,7 +63,7 @@ extension HomeVC: UICollectionViewDataSource{
 
         switch indexPath.section{
         case 0:
-            //cell.brandName.text = "Ahmed"
+            
             return UICollectionViewCell()
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCell", for: indexPath) as! BrandsCell
@@ -74,7 +73,7 @@ extension HomeVC: UICollectionViewDataSource{
             return cell
         
         default:
-            //cell.imgView.image = #imageLiteral(resourceName: "HD-wallpaper-sea-side-top-view-top-view-sea-side-nature-background-ios-android-apple")
+           
             return UICollectionViewCell()
         }
     }
@@ -112,6 +111,7 @@ extension HomeVC: UICollectionViewDelegate{
         
         
         VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
+        VC.hidesBottomBarWhenPushed = true
         
         
         self.navigationController?.pushViewController(VC, animated: true)

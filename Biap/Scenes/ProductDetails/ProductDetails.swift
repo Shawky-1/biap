@@ -30,9 +30,6 @@ class ProductDetails: UIViewController {
     var viewModel:productVM!
     var id:Int = 0
     
-    
-    
-    var vendor:String = ""
     var productN = ""
     var price = ""
     var desc:String = ""
@@ -41,16 +38,16 @@ class ProductDetails: UIViewController {
         super.viewDidLoad()
         viewModel = productVM()
         setupUI()
-        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products/\(id).json"
-        viewModel.fetchSingleProduct(url: url, id: id, vendr: vendor)
+        let url = urls.productDetailsUrl(id: id)
+        viewModel.fetchSingleProduct(url: url)
         viewModel.bindResultToProductView = {[weak self] in
-            DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-            }
+            guard let self = self else {return}
+                self.collectionView.reloadData()
         }
         productName.text = productN
         productPrice.text = price
         descriprion.text = desc
+        descriprion.isEditable = false
 
     }
     

@@ -70,7 +70,7 @@ class NetworkManger{
     }
     
     
-    static func fetchProducts(url:String,id:Int,vendor:String,complition:@escaping (Result<products, Error>)->Void){
+    static func fetchProducts(url:String,complition:@escaping (Result<products, Error>)->Void){
         let url = URL(string: url)
         AF.request(url!).validate().response { responseData in
             
@@ -92,7 +92,7 @@ class NetworkManger{
     }
     
     
-    static func fetchSingleProduct(url:String,id:Int,vendor:String,complition:@escaping (Result<singleProduct, Error>)->Void){
+    static func fetchSingleProduct(url:String,complition:@escaping (Result<singleProduct, Error>)->Void){
         let url = URL(string: url)
         AF.request(url!).validate().response { responseData in
             

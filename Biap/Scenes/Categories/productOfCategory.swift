@@ -1,54 +1,50 @@
 //
-//  ProductsView.swift
+//  productOfCategory.swift
 //  Biap
 //
-//  Created by Abdelrahman on 02/03/2023.
+//  Created by Abdelrahman on 04/03/2023.
 //
 
 import UIKit
 
-class ProductsView: UIViewController {
-    
-  
+class productOfCategory: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var vendor:String = ""
-    
+    var productType = ""
     var viewModel:productVM!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+       
         viewModel = productVM()
-        let editedVendor = vendor.replacingOccurrences(of: " ", with: "+")
-        let url = urls.productsViewUrl(vendor: editedVendor)
+        let url = urls.productsOfCategory(productType: productType)
         viewModel.getSProduct(url:url)
         viewModel.bindResultToProductView = {[weak self] in
-                self?.collectionView.reloadData()
+            guard let self = self else {return}
+                self.collectionView.reloadData()
         }
+       
     }
-    
-    
+
     func setupUI(){
         //collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
 //        collectionView.registerCell(cellClass: BrandsCell.self)
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+        
         
     }
     
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
         HomeCompositionalLayoutHelper()
     }()
-    
-    
-}
 
-extension ProductsView:UICollectionViewDataSource{
+
+}
+extension productOfCategory:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.listOfProducts?.products.count ?? 1
+        return viewModel.listOfProducts?.products.count ?? 0
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -62,21 +58,25 @@ extension ProductsView:UICollectionViewDataSource{
         cell.productPrice.text = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price
         let productImageUrl = URL(string: viewModel.listOfProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
+        
+        
         return cell
     }
     
     
 }
 
-extension ProductsView:UICollectionViewDelegateFlowLayout{
+extension productOfCategory:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: 150, height: 150)
-        return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/3)
+        //return CGSize(width: ((collectionView.bounds.width)/3.2),height: collectionView.frame.size.height/4.9)
+        
+        return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/2.8)
     }
 }
 
 
-extension ProductsView: UICollectionViewDelegate{
+extension productOfCategory: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

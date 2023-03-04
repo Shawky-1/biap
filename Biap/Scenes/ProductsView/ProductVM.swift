@@ -14,6 +14,7 @@ class productVM{
     
     var sizeArr:[String] = []
     var colorArr:[String] = []
+    var productTypesArr:[String] = []
     var bindResultToProductView:(() -> ()) = {}
     var listOfProducts:products?{
         didSet{
@@ -29,18 +30,18 @@ class productVM{
     }
     
     
-    func getSProduct(url:String,id:Int,vendor:String){
-        NetworkManger.fetchProducts(url:url,id: id,vendor: vendor) { [weak self] result in
+    func getSProduct(url:String){
+        NetworkManger.fetchProducts(url:url) { [weak self] result in
             guard let self = self else {return}
             switch result{
             case .success(let product):
                 self.listOfProducts = product
-                
-                /*for each in self.listOfProducts!.products[0].images{
-                    self.imgArr.append(each.src ?? "")
-                }*/
-                
-                print(self.imgArr)
+                for each in self.listOfProducts!.products{
+                    if self.productTypesArr.contains(each.product_type!) == false{
+                        self.productTypesArr.append(each.product_type ?? "")
+                    }
+                        
+                }
                 
             case .failure(let error):
                 print(String(describing: error))
@@ -49,15 +50,15 @@ class productVM{
     }
     
     
-    func fetchSingleProduct(url:String,id:Int,vendr:String){
-        NetworkManger.fetchSingleProduct(url: url, id: id, vendor: vendr) { [weak self] result in
+    func fetchSingleProduct(url:String){
+        NetworkManger.fetchSingleProduct(url: url) { [weak self] result in
             guard let self = self else {return}
             switch result{
             case .success(let product):
                 self.singleProduct = product
                 
                 for each in self.singleProduct!.product.images{
-                    self.imgArr.append(each.src ?? "")
+                    self.imgArr.append(each.src)
                 }
                 
                 
@@ -71,8 +72,6 @@ class productVM{
                         self.colorArr.append(contentsOf: color)
                     }
                 }
-                
-              
                 
             case .failure(let error):
                 print(String(describing: error))
