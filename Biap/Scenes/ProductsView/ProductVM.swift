@@ -9,7 +9,9 @@ import Foundation
 
 
 
+
 class productVM{
+    
     var imgArr:[String] = []
     
     var sizeArr:[String] = []
@@ -78,6 +80,10 @@ class productVM{
             }
         }
         }
+    
+    
+
+    
     }
 
 

@@ -12,24 +12,17 @@ class ProductDetails: UIViewController {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var productName: UILabel!
-    
     @IBOutlet weak var productPrice: UILabel!
-    
-  
     @IBOutlet weak var selectSize: UILabel!
-    
     @IBOutlet weak var selectColor: UILabel!
-    
     @IBOutlet weak var descriprion: UITextView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     let myDropDown = DropDown()
-   
-    
     var viewModel:productVM!
     var id:Int = 0
-    
     var productN = ""
     var price = ""
     var desc:String = ""
@@ -42,20 +35,21 @@ class ProductDetails: UIViewController {
         viewModel.fetchSingleProduct(url: url)
         viewModel.bindResultToProductView = {[weak self] in
             guard let self = self else {return}
+                
+            DispatchQueue.main.async {
                 self.collectionView.reloadData()
+                self.pageControl.numberOfPages = self.viewModel.imgArr.count
+            }
         }
         productName.text = productN
         productPrice.text = price
         descriprion.text = desc
         descriprion.isEditable = false
-
     }
     
     
     
     @IBAction func selectSizeAction(_ sender: Any) {
-        
-        
         myDropDown.anchorView = sender as? any AnchorView
         myDropDown.dataSource = viewModel.sizeArr
         myDropDown.bottomOffset = CGPoint(x: 0, y: (myDropDown.anchorView?.plainView.bounds.height)!)
@@ -63,7 +57,7 @@ class ProductDetails: UIViewController {
         myDropDown.direction = .bottom
         myDropDown.selectionAction = {(index: Int, item:String) in
             self.selectSize.text = self.viewModel.sizeArr[index]
-            self.selectSize.textColor = .black
+            self.selectSize.textColor = nil
         }
         myDropDown.show()
     }
@@ -77,7 +71,7 @@ class ProductDetails: UIViewController {
         myDropDown.direction = .bottom
         myDropDown.selectionAction = {(index: Int, item:String) in
             self.selectColor.text = self.viewModel.colorArr[index]
-            self.selectColor.textColor = .black
+            self.selectColor.textColor = nil
         }
         myDropDown.show()
     }
@@ -85,9 +79,9 @@ class ProductDetails: UIViewController {
     
     
     func setupUI(){
-        //collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
-//        collectionView.registerCell(cellClass: BrandsCell.self)
+        addButton.cornerRadius = addButton.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
+        
         
     }
     
@@ -124,20 +118,14 @@ extension ProductDetails:UICollectionViewDelegateFlowLayout{
         //return CGSize(width: 150, height: 150)
         return CGSize(width: ((collectionView.bounds.width)),height: collectionView.bounds.height)
     }
-}
-
-
-/*extension ProductDetails: UICollectionViewDelegate{
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
-        
-        
-        //VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
-        
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0
     }
     
-}*/
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = (scrollView.contentOffset.x) / (scrollView.frame.width)
+        pageControl.currentPage = Int(index)
+      
+    }
+}

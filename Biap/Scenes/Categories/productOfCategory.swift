@@ -11,8 +11,11 @@ class productOfCategory: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var productType = ""
     var viewModel:productVM!
+    var filteredProducts:products?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -22,6 +25,7 @@ class productOfCategory: UIViewController {
         viewModel.getSProduct(url:url)
         viewModel.bindResultToProductView = {[weak self] in
             guard let self = self else {return}
+            self.filteredProducts = self.viewModel.listOfProducts
                 self.collectionView.reloadData()
         }
        
@@ -31,8 +35,6 @@ class productOfCategory: UIViewController {
         //collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
 //        collectionView.registerCell(cellClass: BrandsCell.self)
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
-        
-        
     }
     
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
@@ -43,7 +45,7 @@ class productOfCategory: UIViewController {
 }
 extension productOfCategory:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.listOfProducts?.products.count ?? 0
+        return filteredProducts?.products.count ?? 0
         
     }
     
@@ -54,11 +56,10 @@ extension productOfCategory:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
-        cell.productName.text = viewModel.listOfProducts?.products[indexPath.row].title
-        cell.productPrice.text = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price
-        let productImageUrl = URL(string: viewModel.listOfProducts?.products[indexPath.row].images[0].src ?? "")
+        cell.productName.text = filteredProducts?.products[indexPath.row].title
+        cell.productPrice.text = filteredProducts?.products[indexPath.row].variants?[0].price
+        let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
-        
         
         return cell
     }
@@ -68,8 +69,6 @@ extension productOfCategory:UICollectionViewDataSource{
 
 extension productOfCategory:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //return CGSize(width: 150, height: 150)
-        //return CGSize(width: ((collectionView.bounds.width)/3.2),height: collectionView.frame.size.height/4.9)
         
         return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/2.8)
     }
@@ -89,6 +88,21 @@ extension productOfCategory: UICollectionViewDelegate{
         vc.desc = viewModel.listOfProducts?.products[indexPath.row].body_html ?? ""
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+extension productOfCategory:UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredProducts = viewModel.listOfProducts
+            collectionView.reloadData()
+        } else {
+            filteredProducts!.products = viewModel.listOfProducts!.products.filter{
+                $0.title!.lowercased().contains(searchText.lowercased()) }
+            collectionView.reloadData()
+        }
     }
     
 }

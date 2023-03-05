@@ -7,7 +7,7 @@
 
 import Foundation
 struct products:Codable{
-    let products:[properies]
+    var products:[properies]
 }
 
 

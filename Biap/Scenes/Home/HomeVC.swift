@@ -133,6 +133,7 @@ extension HomeVC: UICollectionViewDelegate{
             pasteboard.string = viewModel.adsArr[indexPath.row].code
         case 1:
             let VC = ProductsView(nibName: "ProductsView", bundle: nil)
+            VC.hidesBottomBarWhenPushed = true
             VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
             self.navigationController?.pushViewController(VC, animated: true)
         default:
