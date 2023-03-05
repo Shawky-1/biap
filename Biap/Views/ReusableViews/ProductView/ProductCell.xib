@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,12 +22,21 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyM-fR-Gfj">
                         <rect key="frame" x="0.0" y="135" width="187" height="41"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peR-gq-5ag">
+                        <rect key="frame" x="147.66666666666666" y="5" width="34.333333333333343" height="34.333333333333336"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" cornerStyle="capsule"/>
+                        <connections>
+                            <action selector="favoriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5gY-VY-tBL"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIQ-y6-2pm">
-                        <rect key="frame" x="0.0" y="191" width="187" height="20.333333333333343"/>
+                        <rect key="frame" x="0.0" y="179" width="187" height="20.333333333333343"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20.333333333333343" id="2Db-7q-kSI"/>
                         </constraints>
@@ -34,24 +44,47 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01X-rP-KKA">
+                        <rect key="frame" x="0.0" y="205" width="187" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" systemColor="systemGreenColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JyM-fR-Gfj" secondAttribute="trailing" id="5X3-dd-mM6"/>
+                <constraint firstAttribute="trailing" secondItem="01X-rP-KKA" secondAttribute="trailing" id="7Eg-5A-CWG"/>
                 <constraint firstItem="hAJ-NG-fh6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BCd-ir-Y8e"/>
+                <constraint firstItem="peR-gq-5ag" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="FF2-t8-DaQ"/>
                 <constraint firstItem="hAJ-NG-fh6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="J0X-3V-5X7"/>
+                <constraint firstAttribute="bottom" secondItem="01X-rP-KKA" secondAttribute="bottom" id="K0O-Lh-wJR"/>
                 <constraint firstItem="JyM-fR-Gfj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OoG-S2-z0A"/>
                 <constraint firstItem="JyM-fR-Gfj" firstAttribute="top" secondItem="hAJ-NG-fh6" secondAttribute="bottom" constant="5" id="R0x-VA-N0i"/>
-                <constraint firstAttribute="bottom" secondItem="hIQ-y6-2pm" secondAttribute="bottom" constant="14.666666666666657" id="SU5-vo-Bgu"/>
+                <constraint firstAttribute="bottom" secondItem="hIQ-y6-2pm" secondAttribute="bottom" constant="26.666666666666657" id="SU5-vo-Bgu"/>
+                <constraint firstAttribute="trailing" secondItem="peR-gq-5ag" secondAttribute="trailing" constant="5" id="U7z-MT-rLQ"/>
                 <constraint firstItem="hIQ-y6-2pm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VSD-Gu-q1S"/>
+                <constraint firstItem="01X-rP-KKA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XtW-Ia-tEt"/>
                 <constraint firstAttribute="trailing" secondItem="hIQ-y6-2pm" secondAttribute="trailing" id="eV2-AU-9Zs"/>
                 <constraint firstAttribute="trailing" secondItem="hAJ-NG-fh6" secondAttribute="trailing" id="fHd-Yn-4K3"/>
                 <constraint firstAttribute="bottom" secondItem="hAJ-NG-fh6" secondAttribute="bottom" constant="96" id="gXV-ce-IK8"/>
-                <constraint firstItem="hIQ-y6-2pm" firstAttribute="top" secondItem="JyM-fR-Gfj" secondAttribute="bottom" constant="15" id="zNI-Dp-fZp"/>
+                <constraint firstItem="hIQ-y6-2pm" firstAttribute="top" secondItem="JyM-fR-Gfj" secondAttribute="bottom" constant="3" id="zNI-Dp-fZp"/>
             </constraints>
             <size key="customSize" width="259" height="217"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" systemColor="systemGray5Color"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="favoriteButton" destination="peR-gq-5ag" id="1G3-4K-81B"/>
                 <outlet property="productImage" destination="hAJ-NG-fh6" id="Hn6-uf-gQU"/>
                 <outlet property="productName" destination="JyM-fR-Gfj" id="ViH-9m-jjv"/>
                 <outlet property="productPrice" destination="hIQ-y6-2pm" id="TRw-G8-9ay"/>
@@ -59,4 +92,13 @@
             <point key="canvasLocation" x="281.67938931297709" y="42.95774647887324"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

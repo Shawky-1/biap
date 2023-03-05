@@ -33,9 +33,17 @@ class ProductsView: UIViewController {
     
     
     func setupUI(){
-        //collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
-//        collectionView.registerCell(cellClass: BrandsCell.self)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+        
+        
+    }
+    
+    @objc func cartButton(sender:UIBarButtonItem){
+        
+            
         
     }
     
@@ -71,7 +79,7 @@ extension ProductsView:UICollectionViewDataSource{
 extension ProductsView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: 150, height: 150)
-        return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/3)
+        return CGSize(width: ((collectionView.frame.size.width)-10)/2,height: collectionView.frame.size.height/2.8)
     }
 }
 

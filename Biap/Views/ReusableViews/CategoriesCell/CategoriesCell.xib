@@ -19,11 +19,23 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hpH-Nd-B36">
                         <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" systemColor="systemGray4Color"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksw-bA-NF9">
-                        <rect key="frame" x="0.0" y="45" width="114" height="38"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksw-bA-NF9">
+                        <rect key="frame" x="15" y="77.333333333333329" width="99" height="21.666666666666671"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -33,15 +45,24 @@
             <constraints>
                 <constraint firstItem="hpH-Nd-B36" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6d8-1N-xAr"/>
                 <constraint firstItem="hpH-Nd-B36" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9Pf-Ib-rVw"/>
-                <constraint firstAttribute="trailing" secondItem="Ksw-bA-NF9" secondAttribute="trailing" id="Dt2-Zm-SgK"/>
-                <constraint firstItem="Ksw-bA-NF9" firstAttribute="centerY" secondItem="hpH-Nd-B36" secondAttribute="centerY" constant="7" id="Gzc-FT-5LW"/>
-                <constraint firstItem="Ksw-bA-NF9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NMZ-Ks-wNe"/>
-                <constraint firstItem="Ksw-bA-NF9" firstAttribute="top" secondItem="hpH-Nd-B36" secondAttribute="bottom" constant="-69" id="PBB-dF-sjq"/>
-                <constraint firstAttribute="bottom" secondItem="Ksw-bA-NF9" secondAttribute="bottom" constant="31" id="Red-01-tfC"/>
+                <constraint firstItem="Ksw-bA-NF9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="FDI-ja-6nh"/>
+                <constraint firstAttribute="bottom" secondItem="Ksw-bA-NF9" secondAttribute="bottom" constant="15" id="gVR-Ed-MvL"/>
+                <constraint firstAttribute="trailing" secondItem="Ksw-bA-NF9" secondAttribute="trailing" id="hTs-dl-N7S"/>
                 <constraint firstAttribute="trailing" secondItem="hpH-Nd-B36" secondAttribute="trailing" id="jrr-yI-GfH"/>
                 <constraint firstAttribute="bottom" secondItem="hpH-Nd-B36" secondAttribute="bottom" id="rUP-R9-dqF"/>
             </constraints>
             <size key="customSize" width="159" height="145"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" systemColor="systemGray4Color"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="20"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="hpH-Nd-B36" id="5bY-DQ-3pX"/>
                 <outlet property="productName" destination="Ksw-bA-NF9" id="m7e-td-ud8"/>
@@ -50,6 +71,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
