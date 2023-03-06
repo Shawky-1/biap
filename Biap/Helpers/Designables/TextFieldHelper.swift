@@ -21,6 +21,7 @@ class TextField: UITextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
+    
 }
 
 class PasswordTextField: TextField {
@@ -35,14 +36,32 @@ class PasswordTextField: TextField {
         setup()
     }
     
+    let passwordPadding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 50)
+
+
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: passwordPadding)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: passwordPadding)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: passwordPadding)
+    }
+    
     private func setup() {
         self.isSecureTextEntry = true
         
         //show/hide button
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setImage(UIImage(named: "ic_visibility_off"), for: .normal)
         button.setImage(UIImage(named: "ic_visibility_on"), for: .selected)
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8.0, bottom: 0, right: 8.0)
+        button.imageView?.contentMode = .left
         rightView = button
+
         rightViewMode = .always
         button.addTarget(self, action: #selector(showHidePassword(_:)), for: .touchUpInside)
     }

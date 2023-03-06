@@ -11,6 +11,10 @@ struct CustomersResponse: Codable {
     let customers: [Customer]
 }
 
+struct CustomerResponse: Codable {
+    let customer: Customer
+}
+
 struct Customer: Codable {
     let id: Int
     let email: String
@@ -57,6 +61,33 @@ struct Customer: Codable {
         case taxExemptions = "tax_exemptions"
         case adminGraphqlApiId = "admin_graphql_api_id"
         case defaultAddress = "default_address"
+    }
+    init(email: String, firstName: String?, lastName: String?, note: String?, phone: String?) {
+        self.id = 0
+        self.email = email
+        self.acceptsMarketing = false
+        self.createdAt = ""
+        self.updatedAt = ""
+        self.firstName = firstName
+        self.lastName = lastName
+        self.ordersCount = 0
+        self.state = ""
+        self.totalSpent = ""
+        self.lastOrderId = 0
+        self.note = note
+        self.verifiedEmail = false
+        self.multipassIdentifier = ""
+        self.taxExempt = false
+        self.phone = phone
+        self.tags = ""
+        self.lastOrderName = ""
+        self.currency = ""
+        self.addresses = []
+        self.acceptsMarketingUpdatedAt = ""
+        self.marketingOptInLevel = ""
+        self.taxExemptions = [""]
+        self.adminGraphqlApiId = ""
+        self.defaultAddress = nil
     }
 }
 

@@ -25,27 +25,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Adidas-Logo-1971-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-5j-KyK">
-                    <rect key="frame" x="124" y="99" width="145" height="145"/>
+                    <rect key="frame" x="124" y="64" width="145" height="145"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nfq-5j-KyK" secondAttribute="height" multiplier="1:1" id="8rO-hn-8a8"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcM-Zu-Qem">
-                    <rect key="frame" x="24.999999999999993" y="274" width="116.33333333333331" height="30"/>
+                    <rect key="frame" x="24.999999999999993" y="239" width="116.33333333333331" height="30"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login or sign-up below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex5-SL-Yjy">
-                    <rect key="frame" x="25" y="309" width="224" height="20.333333333333314"/>
+                    <rect key="frame" x="25" y="274" width="224" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZJ-pp-FFz" customClass="PasswordTextField" customModule="Biap" customModuleProvider="target">
-                    <rect key="frame" x="25" y="471.66666666666669" width="343" height="47.000000000000057"/>
+                    <rect key="frame" x="25" y="428.33333333333331" width="343" height="38.333333333333314"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -60,13 +60,13 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S99-SK-wHx">
-                    <rect key="frame" x="25" y="359.33333333333331" width="43" height="20.333333333333314"/>
+                    <rect key="frame" x="25" y="324.33333333333331" width="43" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndM-YV-J9N">
-                    <rect key="frame" x="25" y="446.33333333333331" width="77.333333333333329" height="20.333333333333314"/>
+                    <rect key="frame" x="25" y="403" width="77.333333333333329" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -94,6 +94,9 @@
                             <color key="value" systemColor="labelColor"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didClickRegister:" destination="-1" eventType="touchUpInside" id="sFC-JZ-qBD"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpC-Eq-0MH">
                     <rect key="frame" x="25" y="607.66666666666663" width="343" height="51.333333333333371"/>
@@ -144,9 +147,9 @@
                     </constraints>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pig-uB-Ltl" customClass="TextField" customModule="Biap" customModuleProvider="target">
-                    <rect key="frame" x="25" y="384.66666666666669" width="343" height="46.666666666666686"/>
+                    <rect key="frame" x="25" y="349.66666666666669" width="343" height="38.333333333333314"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -191,7 +194,7 @@
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-yA-oKg">
-                    <rect key="frame" x="25" y="528.66666666666663" width="343" height="0.0"/>
+                    <rect key="frame" x="25" y="476.66666666666669" width="343" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -215,7 +218,7 @@
                 <constraint firstItem="dR6-rh-dxP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="JH8-SY-7GK"/>
                 <constraint firstItem="dR6-rh-dxP" firstAttribute="top" secondItem="jIG-g9-oXm" secondAttribute="bottom" constant="15" id="LYj-YK-4ia"/>
                 <constraint firstItem="aJX-yA-oKg" firstAttribute="leading" secondItem="BZJ-pp-FFz" secondAttribute="leading" id="Mbq-RW-f9a"/>
-                <constraint firstItem="nfq-5j-KyK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="RvY-kX-u3d"/>
+                <constraint firstItem="nfq-5j-KyK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="RvY-kX-u3d"/>
                 <constraint firstItem="Pig-uB-Ltl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="TdL-as-UKm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dR6-rh-dxP" secondAttribute="trailing" constant="25" id="Ts0-xg-i9b"/>
                 <constraint firstItem="ex5-SL-Yjy" firstAttribute="top" secondItem="XcM-Zu-Qem" secondAttribute="bottom" constant="5" id="W91-lz-6V3"/>
@@ -226,7 +229,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pig-uB-Ltl" secondAttribute="trailing" constant="25" id="Yvl-X8-lJT"/>
                 <constraint firstItem="7cy-1U-JYq" firstAttribute="trailing" secondItem="dR6-rh-dxP" secondAttribute="trailing" id="fTI-24-392"/>
                 <constraint firstItem="nfq-5j-KyK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.17" id="hI5-rd-w8w"/>
-                <constraint firstItem="Pig-uB-Ltl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.055" id="iDL-U2-yCM"/>
+                <constraint firstItem="Pig-uB-Ltl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.045" id="iDL-U2-yCM"/>
                 <constraint firstItem="ndM-YV-J9N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="iDO-e5-DpF"/>
                 <constraint firstItem="ndM-YV-J9N" firstAttribute="top" secondItem="Pig-uB-Ltl" secondAttribute="bottom" constant="15" id="iQ8-P6-Qqm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BZJ-pp-FFz" secondAttribute="trailing" constant="25" id="iWQ-tz-DfV"/>
@@ -247,10 +250,10 @@
     </objects>
     <designables>
         <designable name="BZJ-pp-FFz">
-            <size key="intrinsicContentSize" width="204" height="25.666666666666668"/>
+            <size key="intrinsicContentSize" width="160.33333333333334" height="22"/>
         </designable>
         <designable name="Pig-uB-Ltl">
-            <size key="intrinsicContentSize" width="166" height="25.666666666666668"/>
+            <size key="intrinsicContentSize" width="127.33333333333333" height="22"/>
         </designable>
     </designables>
     <resources>

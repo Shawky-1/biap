@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window?.rootViewController = TabBarVC
             } else {
                 let loginVC = LoginVC()
-                window?.rootViewController = loginVC
+                let navController = UINavigationController(rootViewController: loginVC)
+
+                window?.rootViewController = navController
             }
         } else {
             let walkthroughVC = LoginVC() // Instantiate your WalkthroughVC here
