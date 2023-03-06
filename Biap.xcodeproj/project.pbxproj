@@ -446,10 +446,7 @@
 		E28F534F29AF9A1200FB99EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				BCACC6D229B553AB0004589A /* CartView */,
-=======
->>>>>>> 2f134ce7d55ffb5e42d2537c2ada47590957669c
 				E2793B7729B106330060BE7B /* CustomTabbar */,
 				E2793B8029B2B2E70060BE7B /* Login */,
 				E2BDE00029B3BCE900CC5977 /* Register */,
@@ -515,11 +512,8 @@
 				BCFC56C129B122AF00C162A4 /* Products.swift */,
 				E2BDE00D29B3CC9E00CC5977 /* Customer.swift */,
 				9E997EBB29B3EB92008B74F7 /* Coupons.swift */,
-<<<<<<< HEAD
 				BCACC6D029B553270004589A /* cart.swift */,
-=======
 				E2D8127B29B54AA500F1A7E7 /* APIErrors.swift */,
->>>>>>> 2f134ce7d55ffb5e42d2537c2ada47590957669c
 			);
 			path = Models;
 			sourceTree = "<group>";
