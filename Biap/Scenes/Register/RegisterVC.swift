@@ -32,7 +32,7 @@ class RegisterVC: UIViewController {
             case .failure(let error):
                 if error is AppErrors {
                     
-                    self.presentAlertViewWithOneButtonMIV(alertTitle: nil, alertMessage: "This email or password is already in use.", btnOneTitle: "Ok") { _ in
+                    self.presentAlertViewWithOneButtonMIV(alertTitle: nil, alertMessage: "This email or phone is already in use.", btnOneTitle: "Ok") { _ in
                         self.resignFirstResponder()
                     }
                 } else {

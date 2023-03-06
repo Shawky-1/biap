@@ -13,6 +13,7 @@ class ProductCell: UICollectionViewCell {
     
     @IBOutlet weak var productName: UILabel!
     
+    @IBOutlet weak var favoriteButton: UIButton!
     
     @IBOutlet weak var productPrice: UILabel!
     override func awakeFromNib() {
@@ -20,6 +21,11 @@ class ProductCell: UICollectionViewCell {
         // Initialization code
     }
 
+    @IBAction func favoriteAction(_ sender: Any) {
+        
+    }
 }
+
+
 
 

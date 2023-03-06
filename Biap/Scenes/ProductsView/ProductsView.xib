@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HUF-uW-7gk">
-                    <rect key="frame" x="5" y="59" width="388" height="759"/>
+                    <rect key="frame" x="10" y="64" width="373" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eZB-DJ-LTh">
                         <size key="itemSize" width="128" height="128"/>
@@ -37,10 +37,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HUF-uW-7gk" secondAttribute="bottom" id="4bX-Mv-G8H"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HUF-uW-7gk" secondAttribute="trailing" id="bOb-BU-Mqe"/>
-                <constraint firstItem="HUF-uW-7gk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="ppG-Oy-W2I"/>
-                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="s1n-Az-xzw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HUF-uW-7gk" secondAttribute="trailing" constant="10" id="2JV-ca-5YI"/>
+                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="KGo-Lt-565"/>
+                <constraint firstItem="HUF-uW-7gk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="fxs-Ij-9La"/>
+                <constraint firstItem="HUF-uW-7gk" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="5" id="p3f-AK-h9N"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="-11.267605633802818"/>
         </view>

@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class Categories: UIViewController {
 
     
     var viewModel:productVM!
+    let imagesArr = ["Acs","Shoes","Tshirt"]
  
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,14 +27,21 @@ class Categories: UIViewController {
             guard let self = self else {return}
                 self.collectionView.reloadData()
         }
+        
     }
     
+  
     
     func setupUI(){
-        //collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
-//        collectionView.registerCell(cellClass: BrandsCell.self)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.register(UINib(nibName: "CategoriesCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCell")
+    }
+    
+    @objc func cartButton(sender:UIBarButtonItem){
         
+            
         
     }
     
@@ -57,6 +66,8 @@ extension Categories:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCell", for: indexPath) as! CategoriesCell
         
         cell.productName.text = viewModel.productTypesArr[indexPath.row]
+        cell.imageView.image = UIImage(named: imagesArr[indexPath.row])
+     
       
         return cell
     }
@@ -67,7 +78,7 @@ extension Categories:UICollectionViewDataSource{
 extension Categories:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-        return CGSize(width: (collectionView.bounds.width)-20, height: collectionView.bounds.height/4)
+        return CGSize(width: (collectionView.bounds.width)-20, height: collectionView.bounds.height/5)
     }
 }
 

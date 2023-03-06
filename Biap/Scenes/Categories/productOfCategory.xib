@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="Products Search" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-sb-Rsf">
+                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="BIAP Search" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-sb-Rsf">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <textInputTraits key="textInputTraits"/>
@@ -29,7 +29,7 @@
                     </connections>
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6mB-pQ-ndw">
-                    <rect key="frame" x="0.0" y="120" width="393" height="698"/>
+                    <rect key="frame" x="10" y="120" width="373" height="727"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M2w-Yl-G8W">
                         <size key="itemSize" width="128" height="128"/>
@@ -46,13 +46,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="6mB-pQ-ndw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="AVW-G6-olO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6mB-pQ-ndw" secondAttribute="trailing" constant="10" id="Ae3-TW-BId"/>
                 <constraint firstItem="6jL-sb-Rsf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jxj-zP-Gz7"/>
-                <constraint firstItem="6mB-pQ-ndw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Mcu-cK-JB2"/>
                 <constraint firstItem="6jL-sb-Rsf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ROR-kU-rdB"/>
                 <constraint firstItem="6jL-sb-Rsf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TJS-oN-N00"/>
-                <constraint firstItem="6mB-pQ-ndw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XPU-VU-EVa"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6mB-pQ-ndw" secondAttribute="bottom" id="xK1-dd-fdG"/>
-                <constraint firstItem="6mB-pQ-ndw" firstAttribute="top" secondItem="6jL-sb-Rsf" secondAttribute="bottom" constant="5" id="zRa-x4-e29"/>
+                <constraint firstItem="6mB-pQ-ndw" firstAttribute="top" secondItem="6jL-sb-Rsf" secondAttribute="bottom" constant="5" id="aK5-m1-9Pw"/>
+                <constraint firstAttribute="bottom" secondItem="6mB-pQ-ndw" secondAttribute="bottom" constant="5" id="jdR-C3-tZg"/>
             </constraints>
             <point key="canvasLocation" x="23.664122137404579" y="-11.267605633802818"/>
         </view>

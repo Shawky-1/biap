@@ -16,6 +16,7 @@ class productOfCategory: UIViewController {
     var productType = ""
     var viewModel:productVM!
     var filteredProducts:products?
+    var priceArr:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -27,14 +28,21 @@ class productOfCategory: UIViewController {
             guard let self = self else {return}
             self.filteredProducts = self.viewModel.listOfProducts
                 self.collectionView.reloadData()
+        
         }
-       
     }
 
     func setupUI(){
-        //collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
-//        collectionView.registerCell(cellClass: BrandsCell.self)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+    }
+    
+    @objc func cartButton(sender:UIBarButtonItem){
+        
+            
+        
     }
     
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
@@ -70,7 +78,7 @@ extension productOfCategory:UICollectionViewDataSource{
 extension productOfCategory:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: (collectionView.bounds.width/2.1),height: collectionView.frame.size.height/2.8)
+        return CGSize(width: ((collectionView.frame.size.width)-10)/2,height: collectionView.frame.size.height/2.8)
     }
 }
 

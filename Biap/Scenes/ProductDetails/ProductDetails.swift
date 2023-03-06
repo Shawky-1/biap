@@ -79,9 +79,14 @@ class ProductDetails: UIViewController {
     
     
     func setupUI(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         addButton.cornerRadius = addButton.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
-        
+    }
+    
+    @objc func cartButton(sender:UIBarButtonItem){
         
     }
     
