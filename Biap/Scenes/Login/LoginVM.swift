@@ -37,6 +37,9 @@ class LoginVM: ViewModel {
                     self.didLogin?(.failure(LoginError.invalidPassword))
                 }
                 
+            case .failure(let error as AppErrors):
+                print(error.localizedDescription)
+//                self.errorLbl.text = error.localizedDescription
             case .failure(let error):
                 self.didLogin?(.failure(error))
             }

@@ -30,7 +30,6 @@ class LoginVC: UIViewController {
             case .success(let message):
                 print(message)
                 self.viewModel.storeCustomer()
-                self.errorLbl.text = ""
                 self.navigateToHomeVC()
             case .failure(let error as LoginError):
                 print(error.localizedDescription)
@@ -43,6 +42,8 @@ class LoginVC: UIViewController {
     }
     
     func setupUI(){
+        self.title = "Login"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         loginBtn.cornerRadius = loginBtn.bounds.height / 2
         registerBtn.cornerRadius = loginBtn.bounds.height / 2
     }
@@ -60,5 +61,11 @@ class LoginVC: UIViewController {
         viewModel.login(email: emailTF.text ?? "", password: passwordTF.text ?? "")
     }
     
-
+    @IBAction func didClickRegister(_ sender: Any) {
+        let viewController = RegisterVC(nibName: "RegisterVC", bundle: nil)
+        viewController.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(viewController, animated: true)
+//        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }

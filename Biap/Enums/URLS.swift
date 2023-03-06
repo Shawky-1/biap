@@ -11,7 +11,7 @@ enum URLS {
     static let baseURL: String = "https://mad-ism202.myshopify.com/admin/api/2023-01"
     
     enum customer: String {
-        case newCustomer = "/customers"
+        case newCustomer = "/customers.json"
         case searchCustomer = "/customers/search.json"
     }
     
