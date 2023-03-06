@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mFW-jF-Ntw">
-                    <rect key="frame" x="0.0" y="119" width="393" height="699"/>
+                    <rect key="frame" x="0.0" y="60" width="393" height="792"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K7o-WY-cY1">
                         <size key="itemSize" width="128" height="128"/>
@@ -30,25 +30,28 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fh-lF-h64">
-                    <rect key="frame" x="339.33333333333331" y="59" width="53.666666666666686" height="52"/>
+                    <rect key="frame" x="339.33333333333331" y="0.0" width="53.666666666666686" height="52"/>
                     <color key="tintColor" systemColor="labelColor"/>
                     <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system"/>
+                    <connections>
+                        <action selector="cartPage:" destination="-1" eventType="touchUpInside" id="zOW-S8-mf8"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-89-YVr">
-                    <rect key="frame" x="289.66666666666669" y="59" width="49.666666666666686" height="52"/>
+                    <rect key="frame" x="289.66666666666669" y="0.0" width="49.666666666666686" height="52"/>
                     <color key="tintColor" systemColor="labelColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="v90-Qe-Zpq">
-                    <rect key="frame" x="10" y="59" width="52" height="52"/>
+                    <rect key="frame" x="10" y="0.0" width="52" height="52"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="52" id="0el-8d-xtb"/>
                         <constraint firstAttribute="height" constant="52" id="klF-3L-PLo"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIAP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-ET-36i">
-                    <rect key="frame" x="77" y="59" width="87" height="52"/>
+                    <rect key="frame" x="77" y="0.0" width="87" height="52"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="87" id="eeB-HI-9Co"/>
                     </constraints>

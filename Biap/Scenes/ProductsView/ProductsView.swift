@@ -67,7 +67,8 @@ extension ProductsView:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
         cell.productName.text = viewModel.listOfProducts?.products[indexPath.row].title
-        cell.productPrice.text = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price
+        
+        cell.productPrice.text = String(format: "%.2f", (viewModel.priceArr[indexPath.row]))
         let productImageUrl = URL(string: viewModel.listOfProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         return cell
@@ -93,7 +94,7 @@ extension ProductsView: UICollectionViewDelegate{
         
         vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
         vc.productN = viewModel.listOfProducts?.products[indexPath.row].title ?? ""
-        vc.price = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price ?? ""
+        vc.price = viewModel.priceArr[indexPath.row]
         vc.desc = viewModel.listOfProducts?.products[indexPath.row].body_html ?? ""
         
         self.navigationController?.pushViewController(vc, animated: true)

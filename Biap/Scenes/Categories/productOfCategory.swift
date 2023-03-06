@@ -16,7 +16,6 @@ class productOfCategory: UIViewController {
     var productType = ""
     var viewModel:productVM!
     var filteredProducts:products?
-    var priceArr:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -28,6 +27,10 @@ class productOfCategory: UIViewController {
             guard let self = self else {return}
             self.filteredProducts = self.viewModel.listOfProducts
                 self.collectionView.reloadData()
+            DispatchQueue.main.async {
+                
+            }
+            
         
         }
     }
@@ -65,10 +68,9 @@ extension productOfCategory:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
         cell.productName.text = filteredProducts?.products[indexPath.row].title
-        cell.productPrice.text = filteredProducts?.products[indexPath.row].variants?[0].price
+        cell.productPrice.text = String(format: "%.2f", (viewModel.priceArr[indexPath.row]))
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
-        
         return cell
     }
     
@@ -92,7 +94,7 @@ extension productOfCategory: UICollectionViewDelegate{
         
         vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
         vc.productN = viewModel.listOfProducts?.products[indexPath.row].title ?? ""
-        vc.price = viewModel.listOfProducts?.products[indexPath.row].variants?[0].price ?? ""
+        vc.price = viewModel.priceArr[indexPath.row]
         vc.desc = viewModel.listOfProducts?.products[indexPath.row].body_html ?? ""
         
         self.navigationController?.pushViewController(vc, animated: true)

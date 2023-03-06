@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import RealmSwift
 
 class ProductDetails: UIViewController {
     
@@ -20,12 +21,15 @@ class ProductDetails: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var favButton: UIButton!
     let myDropDown = DropDown()
     var viewModel:productVM!
     var id:Int = 0
     var productN = ""
-    var price = ""
+    var price = 0.0
     var desc:String = ""
+    var exist = false
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +46,12 @@ class ProductDetails: UIViewController {
             }
         }
         productName.text = productN
-        productPrice.text = price
+        productPrice.text = String(format: "%.2f", price)
         descriprion.text = desc
         descriprion.isEditable = false
     }
+    
+    
     
     
     
@@ -86,9 +92,42 @@ class ProductDetails: UIViewController {
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
     }
     
+    //bar button
     @objc func cartButton(sender:UIBarButtonItem){
         
     }
+    
+    
+    
+    @IBAction func addToCart(_ sender: Any) {
+        
+        let vc = CartViewController(nibName: "CartViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
+        let obj = Cart()
+        obj.name = productName.text
+        obj.color = selectColor.text
+        obj.size = selectSize.text
+        obj.image = viewModel.imgArr[0]
+        obj.price = price
+        realm.beginWrite()
+        realm.add(obj)
+        try! realm.commitWrite()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        if exist{
+            (sender as AnyObject).setImage(UIImage(systemName: "heart"), for: .normal)
+           
+       }else{
+           (sender as AnyObject).setImage(UIImage(systemName: "heart.fill"), for: .normal)
+           
+       }
+        exist = !exist
+    }
+    
+    
     
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
         HomeCompositionalLayoutHelper()

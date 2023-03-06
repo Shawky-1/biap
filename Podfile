@@ -13,7 +13,7 @@ target 'Biap' do
   pod 'Kingfisher'
   pod 'DropDown'
   pod 'ReachabilitySwift'
-
+  pod 'RealmSwift'
 
   target 'BiapTests' do
     inherit! :search_paths

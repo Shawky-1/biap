@@ -60,6 +60,15 @@ class HomeVC: UIViewController {
         collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
     
+    
+    
+    @IBAction func cartPage(_ sender: Any) {
+        let vc = CartViewController(nibName: "CartViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
 }
 

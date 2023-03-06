@@ -7,6 +7,11 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - ReachabilitySwift (5.0.0)
+  - Realm (10.36.0):
+    - Realm/Headers (= 10.36.0)
+  - Realm/Headers (10.36.0)
+  - RealmSwift (10.36.0):
+    - Realm (= 10.36.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -15,6 +20,7 @@ DEPENDENCIES:
   - Kingfisher
   - NVActivityIndicatorView
   - ReachabilitySwift
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
@@ -24,6 +30,8 @@ SPEC REPOS:
     - Kingfisher
     - NVActivityIndicatorView
     - ReachabilitySwift
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 8b7a946e9db6f76e93eaa0d4c84e3751633959c9
@@ -32,7 +40,9 @@ SPEC CHECKSUMS:
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Realm: 3fd136cb4c83a927482a7f1612496d37beed3cf5
+  RealmSwift: 513d4dcbf5bfc4d573454088b592685fc48dd716
 
-PODFILE CHECKSUM: 96fe97fef8be4005828af0e9d15eaf9b48570c32
+PODFILE CHECKSUM: 961960295cd9cc5345688640fbcab65b4f29dc8f
 
 COCOAPODS: 1.11.3

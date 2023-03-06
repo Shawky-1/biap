@@ -17,6 +17,7 @@ class productVM{
     var sizeArr:[String] = []
     var colorArr:[String] = []
     var productTypesArr:[String] = []
+    var priceArr:[Double] = [0.0]
     var bindResultToProductView:(() -> ()) = {}
     var listOfProducts:products?{
         didSet{
@@ -43,6 +44,11 @@ class productVM{
                         self.productTypesArr.append(each.product_type ?? "")
                     }
                         
+                }
+                self.priceArr.removeAll()
+                for each in self.listOfProducts!.products{
+                    let c = each.variants![0]
+                    self.priceArr.append(((c.price)! as NSString).doubleValue)
                 }
                 
             case .failure(let error):
