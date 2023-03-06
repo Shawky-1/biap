@@ -40,9 +40,10 @@ class Categories: UIViewController {
     }
     
     @objc func cartButton(sender:UIBarButtonItem){
+        let vc = CartViewController(nibName: "CartViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
         
-            
-        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {

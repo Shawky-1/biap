@@ -11,96 +11,111 @@ import Realm
 
 class CartViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+   
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var subTotal: UILabel!
     
-    var name:String = ""
-    var size:String = ""
-    var color:String = ""
-    var price:Double = 0.0
-    var image:String = ""
+
     var cartArray:[Cart] = []
-    var cartObj:Cart?
     let realm = try! Realm()
+    var sum:Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //try! Realm().deleteAll()
-        renderData()
-        collectionView.reloadData()
+        loadDatafromRealm()
+        tableView.reloadData()
     }
     
+
     
-    func renderData(){
+    func loadDatafromRealm(){
         let products = try! Realm().objects(Cart.self)
-        /*try! realm.write({
-            realm.deleteAll()
-        })*/
         for each in products{
             cartArray.append(each)
         }
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //cartArray.append(cartObj!)
-       
+        for each in cartArray{
+            sum += each.price
+        }
+        subTotal.text = String(format: "%.2f", sum)
         
     }
-
 
     func setupUI(){
       
         self.navigationController?.navigationBar.tintColor = UIColor.label
-        collectionView.register(UINib(nibName: "CartViewCell", bundle: nil), forCellWithReuseIdentifier: "CartViewCell")
+        tableView.registerCellNib(cellClass: ShoppingCartCell.self)
     }
 
 }
 
-extension CartViewController:UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension CartViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartArray.count
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartViewCell", for: indexPath) as! CartViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartCell", for: indexPath) as! ShoppingCartCell
         
         cell.productName.text = cartArray[indexPath.row].name
         cell.productSize.text = cartArray[indexPath.row].size
         cell.productColor.text = cartArray[indexPath.row].color
-       
         cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.row].price * ((cell.productQuantity.text)! as NSString).doubleValue)
-        //collectionView.reloadData()
+        cell.originalPrice = cell.productPrice.text!
+        
+        
+        cell.bindPricesToTableView = {[weak self] totalPrice in
+            let sum1 = self!.sum
+            self?.sum = sum1 + totalPrice
+            self?.subTotal.text = String(format: "%.2f", sum1 + totalPrice)
+        }
+    
         let productImageUrl = URL(string: cartArray[indexPath.row].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
-     
-      
+        
         return cell
     }
     
+   
+    
     
 }
 
-extension CartViewController:UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
-        return CGSize(width: (collectionView.bounds.width)-20, height: collectionView.bounds.height/4)
+extension CartViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.bounds.height/3.5
     }
-}
-
-
-/*extension CartViewController: UICollectionViewDelegate{
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        let vc = productOfCategory(nibName: "productOfCategory", bundle: nil)
-        vc.productType = viewModel.productTypesArr[indexPath.row]
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to delete this Product?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
+            self.cartArray.remove(at: indexPath.row)
+            
+            let products = try! Realm().objects(Cart.self)
+            
+            try! self.realm.write({
+                self.realm.delete(products[indexPath.row])
+            })
+            self.cartArray.removeAll()
+            for each in products{
+                self.cartArray.append(each)
+            }
+            self.sum = 0.0
+            for each in self.cartArray{
+                self.sum += each.price
+            }
+            self.subTotal.text = String(format: "%.2f", self.sum)
+            self.tableView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default,handler: nil))
+        
+        self.present(alert,animated: true,completion: nil)
+        
+        
     }
-    
-}*/
+}
 

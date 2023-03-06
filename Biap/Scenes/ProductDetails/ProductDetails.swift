@@ -25,9 +25,7 @@ class ProductDetails: UIViewController {
     let myDropDown = DropDown()
     var viewModel:productVM!
     var id:Int = 0
-    var productN = ""
     var price = 0.0
-    var desc:String = ""
     var exist = false
     let realm = try! Realm()
     
@@ -43,11 +41,12 @@ class ProductDetails: UIViewController {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.pageControl.numberOfPages = self.viewModel.imgArr.count
+                self.productName.text = self.viewModel.singleProduct?.product.title
+                self.productPrice.text = self.viewModel.singleProduct?.product.variants![0].price
+                self.descriprion.text = self.viewModel.singleProduct?.product.body_html
             }
         }
-        productName.text = productN
-        productPrice.text = String(format: "%.2f", price)
-        descriprion.text = desc
+        
         descriprion.isEditable = false
     }
     
@@ -94,7 +93,10 @@ class ProductDetails: UIViewController {
     
     //bar button
     @objc func cartButton(sender:UIBarButtonItem){
+        let vc = CartViewController(nibName: "CartViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
         
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -103,16 +105,29 @@ class ProductDetails: UIViewController {
         
         let vc = CartViewController(nibName: "CartViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
-        let obj = Cart()
-        obj.name = productName.text
-        obj.color = selectColor.text
-        obj.size = selectSize.text
-        obj.image = viewModel.imgArr[0]
-        obj.price = price
-        realm.beginWrite()
-        realm.add(obj)
-        try! realm.commitWrite()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if selectSize.text == "Select Size" || selectColor.text == "Select Color"{
+            let alert:UIAlertController = UIAlertController(title: "Warning!", message: "Please select Size and Color", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert,animated: true,completion: nil)
+        }else{
+            let alert:UIAlertController = UIAlertController(title: "", message: "Product added successfuly to shoping cart", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: { action in
+                let obj = Cart()
+                obj.name = self.productName.text
+                obj.color = self.selectColor.text
+                obj.size = self.selectSize.text
+                obj.image = self.viewModel.imgArr[0]
+                obj.price = self.price
+                obj.variantId = self.viewModel.singleProduct?.product.variants?[0].id ?? 0
+                obj.productId = self.id
+                self.realm.beginWrite()
+                self.realm.add(obj)
+                try! self.realm.commitWrite()
+            }))
+            self.present(alert,animated: true,completion: nil)
+        }
+        
+        
     }
     
     

@@ -42,9 +42,10 @@ class ProductsView: UIViewController {
     }
     
     @objc func cartButton(sender:UIBarButtonItem){
+        let vc = CartViewController(nibName: "CartViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
         
-            
-        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
@@ -90,13 +91,8 @@ extension ProductsView: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
-        
-        
         vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
-        vc.productN = viewModel.listOfProducts?.products[indexPath.row].title ?? ""
         vc.price = viewModel.priceArr[indexPath.row]
-        vc.desc = viewModel.listOfProducts?.products[indexPath.row].body_html ?? ""
-        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
