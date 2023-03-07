@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="153" id="WTu-lB-WqH" customClass="PaymentsCell" customModule="Biap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="563" height="153"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WTu-lB-WqH" id="vMe-gt-mee">
+                <rect key="frame" x="0.0" y="0.0" width="563" height="153"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio-empty" translatesAutoresizingMaskIntoConstraints="NO" id="oGz-Sd-nXQ">
+                        <rect key="frame" x="20" y="57.666666666666657" width="35" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="oGz-Sd-nXQ" secondAttribute="height" multiplier="35:38" id="Fi4-U1-L2L"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjQ-G5-tyR">
+                        <rect key="frame" x="75" y="65.666666666666671" width="468" height="21.666666666666671"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="TjQ-G5-tyR" secondAttribute="trailing" constant="20" id="0pB-ve-pew"/>
+                    <constraint firstItem="oGz-Sd-nXQ" firstAttribute="leading" secondItem="vMe-gt-mee" secondAttribute="leading" constant="20" id="6QG-Bj-nlV"/>
+                    <constraint firstItem="oGz-Sd-nXQ" firstAttribute="centerY" secondItem="vMe-gt-mee" secondAttribute="centerY" id="FuK-cs-Gel"/>
+                    <constraint firstItem="oGz-Sd-nXQ" firstAttribute="height" secondItem="vMe-gt-mee" secondAttribute="height" multiplier="0.248366" id="VBj-03-vCR"/>
+                    <constraint firstItem="TjQ-G5-tyR" firstAttribute="leading" secondItem="oGz-Sd-nXQ" secondAttribute="trailing" constant="20" id="fTi-0P-ev0"/>
+                    <constraint firstItem="TjQ-G5-tyR" firstAttribute="centerY" secondItem="vMe-gt-mee" secondAttribute="centerY" id="ljO-k0-KZa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="paymentOptionImage" destination="oGz-Sd-nXQ" id="DNJ-7T-KzX"/>
+                <outlet property="paymentOptionLabel" destination="TjQ-G5-tyR" id="J0z-Nb-As1"/>
+            </connections>
+            <point key="canvasLocation" x="133.58778625954199" y="65.140845070422543"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="radio-empty" width="700" height="700"/>
+    </resources>
+</document>

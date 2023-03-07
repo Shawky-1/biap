@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentOptions" customModule="Biap" customModuleProvider="target">
+            <connections>
+                <outlet property="paymentOptionsTable" destination="AjP-Sq-uTk" id="kuP-e0-2Lg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-Sq-uTk">
+                    <rect key="frame" x="0.0" y="80" width="393" height="622"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-DG-HHo">
+                    <rect key="frame" x="40" y="732" width="313" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="cMk-Wi-Ll3"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="CONTINUE TO PAYMENT">
+                        <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="continueToPayment:" destination="-1" eventType="touchUpInside" id="SIf-re-wkg"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnJ-BB-FGq">
+                    <rect key="frame" x="50" y="49.999999999999993" width="293" height="28.666666666666664"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WnJ-BB-FGq" secondAttribute="trailing" constant="50" id="2Bo-sN-csx"/>
+                <constraint firstItem="AjP-Sq-uTk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2yW-n1-RLr"/>
+                <constraint firstItem="WnJ-BB-FGq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="4sA-gK-Ut8"/>
+                <constraint firstAttribute="bottom" secondItem="eRJ-DG-HHo" secondAttribute="bottom" constant="70" id="B4r-vV-KCf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eRJ-DG-HHo" secondAttribute="trailing" constant="40" id="B7R-x5-xwl"/>
+                <constraint firstItem="AjP-Sq-uTk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="DGo-R0-kKs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AjP-Sq-uTk" secondAttribute="trailing" id="KvA-fp-GMj"/>
+                <constraint firstItem="WnJ-BB-FGq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Ldq-bZ-1gB"/>
+                <constraint firstItem="eRJ-DG-HHo" firstAttribute="top" secondItem="AjP-Sq-uTk" secondAttribute="bottom" constant="30" id="hiU-sJ-xUN"/>
+                <constraint firstItem="eRJ-DG-HHo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="kWD-wS-2LC"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
