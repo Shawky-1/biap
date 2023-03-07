@@ -17,8 +17,8 @@ class CustomTabbarVC: UITabBarController {
         homeNC.title = "Home"
         let recordsNC = UINavigationController(rootViewController: Categories())
         recordsNC.title = "Categories"
-        let visitsNC = UINavigationController(rootViewController: HomeVC())
-        visitsNC.title = "Home"
+        let visitsNC = UINavigationController(rootViewController: FavoritesView())
+        visitsNC.title = "Favorites"
         let profileNC = UINavigationController(rootViewController: HomeVC())
         profileNC.title = "Home"
 

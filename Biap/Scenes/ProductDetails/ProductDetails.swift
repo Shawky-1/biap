@@ -28,6 +28,7 @@ class ProductDetails: UIViewController {
     var price = 0.0
     var exist = false
     let realm = try! Realm()
+    var filteredId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,17 @@ class ProductDetails: UIViewController {
         descriprion.isEditable = false
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //favorite button appearence
+        for item in realm.objects(Favorite.self).filter("productId == %@",id){
+            if id == item.productId{
+                favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                exist = true
+            }
+        }
+        
+    }
     
     
     
@@ -95,7 +107,6 @@ class ProductDetails: UIViewController {
     @objc func cartButton(sender:UIBarButtonItem){
         let vc = CartViewController(nibName: "CartViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
-        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -105,13 +116,20 @@ class ProductDetails: UIViewController {
         
         let vc = CartViewController(nibName: "CartViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
+        
         if selectSize.text == "Select Size" || selectColor.text == "Select Color"{
             let alert:UIAlertController = UIAlertController(title: "Warning!", message: "Please select Size and Color", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default))
             self.present(alert,animated: true,completion: nil)
+            
         }else{
-            let alert:UIAlertController = UIAlertController(title: "", message: "Product added successfuly to shoping cart", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: { action in
+            let products = try! Realm().objects(Cart.self)
+
+            for item in products.filter("productId == %@",id){
+                filteredId = item.productId
+            }
+            
+            if filteredId == 0{
                 let obj = Cart()
                 obj.name = self.productName.text
                 obj.color = self.selectColor.text
@@ -123,21 +141,38 @@ class ProductDetails: UIViewController {
                 self.realm.beginWrite()
                 self.realm.add(obj)
                 try! self.realm.commitWrite()
-            }))
-            self.present(alert,animated: true,completion: nil)
+                let alert:UIAlertController = UIAlertController(title: "", message: "Item is added successfully to your shopping cart", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self.present(alert,animated: true,completion: nil)
+            }else{
+                let alert:UIAlertController = UIAlertController(title: "Warning", message: "Item is already exist in your shopping cart", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self.present(alert,animated: true,completion: nil)
+            }
         }
-        
-        
     }
     
     
     @IBAction func favoriteAction(_ sender: Any) {
         if exist{
             (sender as AnyObject).setImage(UIImage(systemName: "heart"), for: .normal)
-           
+           let delProduct = realm.objects(Favorite.self).filter("productId == %@",id)
+            try! self.realm.write({
+                self.realm.delete(delProduct)
+            })
        }else{
            (sender as AnyObject).setImage(UIImage(systemName: "heart.fill"), for: .normal)
-           
+           let obj = Favorite()
+           obj.name = self.productName.text
+           obj.color = self.selectColor.text
+           obj.size = self.selectSize.text
+           obj.image = self.viewModel.imgArr[0]
+           obj.price = self.price
+           obj.variantId = self.viewModel.singleProduct?.product.variants?[0].id ?? 0
+           obj.productId = self.id
+           self.realm.beginWrite()
+           self.realm.add(obj)
+           try! self.realm.commitWrite()
        }
         exist = !exist
     }
@@ -174,7 +209,6 @@ extension ProductDetails:UICollectionViewDataSource{
 
 extension ProductDetails:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //return CGSize(width: 150, height: 150)
         return CGSize(width: ((collectionView.bounds.width)),height: collectionView.bounds.height)
     }
     

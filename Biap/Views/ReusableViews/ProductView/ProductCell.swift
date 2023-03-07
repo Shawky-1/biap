@@ -16,10 +16,12 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     @IBOutlet weak var productPrice: UILabel!
+    
+    var bindAddActionToTableView:(() -> ())?
+    var bindDeleteActionToTableView:(() -> ())?
     var exist = false
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     
@@ -27,9 +29,10 @@ class ProductCell: UICollectionViewCell {
     @IBAction func favoriteAction(_ sender: Any) {
         if exist{
             (sender as AnyObject).setImage(UIImage(systemName: "heart"), for: .normal)
-           
+           bindDeleteActionToTableView!()
        }else{
            (sender as AnyObject).setImage(UIImage(systemName: "heart.fill"), for: .normal)
+           bindAddActionToTableView!()
            
        }
         exist = !exist

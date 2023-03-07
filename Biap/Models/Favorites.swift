@@ -1,14 +1,14 @@
 //
-//  cart.swift
+//  Favorites.swift
 //  Biap
 //
-//  Created by Abdelrahman on 06/03/2023.
+//  Created by Abdelrahman on 07/03/2023.
 //
 
 import Foundation
 import RealmSwift
 
-class Cart:Object{
+class Favorite:Object{
     @objc dynamic var name:String?
     @objc dynamic var size:String?
     @objc dynamic var color:String?

@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Adidas-Logo-1971-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-5j-KyK">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-5j-KyK">
                     <rect key="frame" x="124" y="64" width="145" height="145"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nfq-5j-KyK" secondAttribute="height" multiplier="1:1" id="8rO-hn-8a8"/>
@@ -250,14 +250,14 @@
     </objects>
     <designables>
         <designable name="BZJ-pp-FFz">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="220.33333333333334" height="22"/>
         </designable>
         <designable name="Pig-uB-Ltl">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="22"/>
+            <size key="intrinsicContentSize" width="147.33333333333334" height="22"/>
         </designable>
     </designables>
     <resources>
-        <image name="Adidas-Logo-1971-removebg-preview" width="666" height="375"/>
+        <image name="logo" width="285" height="258"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
