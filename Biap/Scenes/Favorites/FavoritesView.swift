@@ -88,14 +88,10 @@ extension FavoritesView:UITableViewDelegate{
         let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to delete this Product?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
-            self.favArray.remove(at: indexPath.row)
-            
             let products = try! Realm().objects(Favorite.self)
-            
             try! self.realm.write({
                 self.realm.delete(products[indexPath.row])
             })
-
             self.favArray.removeAll()
             for each in products{
                 self.favArray.append(each)
@@ -114,6 +110,7 @@ extension FavoritesView:UITableViewDelegate{
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
         vc.id =  favArray[indexPath.row].productId 
         vc.price = favArray[indexPath.row].price
+        vc.variantId = favArray[indexPath.row].variantId
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

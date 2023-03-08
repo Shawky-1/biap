@@ -71,9 +71,7 @@ extension ProductsView:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        
         cell.productName.text = filteredProducts?.products[indexPath.row].title
-        
         cell.productPrice.text = String(format: "%.2f", (viewModel.priceArr[indexPath.row]))
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
@@ -87,22 +85,19 @@ extension ProductsView:UICollectionViewDataSource{
             obj.image = self.filteredProducts?.products[indexPath.row].images[0].src
             obj.price = self.viewModel.priceArr[indexPath.row]
             obj.productId = (self.filteredProducts?.products[indexPath.row].id)!
-            self.realm.beginWrite()
-            self.realm.add(obj)
-            try! self.realm.commitWrite()
+            obj.variantId = self.filteredProducts?.products[indexPath.row].variants?[0].id ?? 0
+            RealmManager.saveDataToFavorites(obj: obj)
         }
         
         //delete object from favorites
         cell.bindDeleteActionToTableView = {[weak self] in
             guard let self = self else {return}
-            let delProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
-             try! self.realm.write({
-                 self.realm.delete(delProduct)
-             })
+            let filtredId = self.filteredProducts?.products[indexPath.row].id ?? 0
+            RealmManager.deleteDatafromFavorites(id: filtredId)
         }
         
         //fill the button if object is exist in favorites
-        var filteredProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
+        let filteredProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
         for item in filteredProduct{
             self.filteredId = item.productId
         }
@@ -121,7 +116,7 @@ extension ProductsView:UICollectionViewDataSource{
 
 extension ProductsView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //return CGSize(width: 150, height: 150)
+        
         return CGSize(width: ((collectionView.frame.size.width)-10)/2,height: collectionView.frame.size.height/2.8)
     }
 }
@@ -134,6 +129,7 @@ extension ProductsView: UICollectionViewDelegate{
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
         vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
         vc.price = viewModel.priceArr[indexPath.row]
+        vc.variantId = viewModel.listOfProducts?.products[indexPath.row].variants?[0].id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

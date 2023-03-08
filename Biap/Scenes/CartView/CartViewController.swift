@@ -33,10 +33,10 @@ class CartViewController: UIViewController {
     
     func loadDatafromRealm(){
         let products = try! Realm().objects(Cart.self)
+        cartArray.removeAll()
         for each in products{
             cartArray.append(each)
         }
-        
         for each in cartArray{
             sum += each.price
         }
@@ -114,10 +114,8 @@ extension CartViewController:UITableViewDelegate{
         let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to delete this Product?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
-            self.cartArray.remove(at: indexPath.row)
-            
+           
             let products = try! Realm().objects(Cart.self)
-            
             try! self.realm.write({
                 self.realm.delete(products[indexPath.row])
             })

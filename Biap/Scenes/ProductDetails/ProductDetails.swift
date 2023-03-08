@@ -25,6 +25,7 @@ class ProductDetails: UIViewController {
     let myDropDown = DropDown()
     var viewModel:productVM!
     var id:Int = 0
+    var variantId:Int = 0
     var price = 0.0
     var exist = false
     let realm = try! Realm()
@@ -124,11 +125,9 @@ class ProductDetails: UIViewController {
             
         }else{
             let products = try! Realm().objects(Cart.self)
-
             for item in products.filter("productId == %@",id){
                 filteredId = item.productId
             }
-            
             if filteredId == 0{
                 let obj = Cart()
                 obj.name = self.productName.text
@@ -136,11 +135,10 @@ class ProductDetails: UIViewController {
                 obj.size = self.selectSize.text
                 obj.image = self.viewModel.imgArr[0]
                 obj.price = self.price
-                obj.variantId = self.viewModel.singleProduct?.product.variants?[0].id ?? 0
+                obj.variantId = self.variantId
                 obj.productId = self.id
-                self.realm.beginWrite()
-                self.realm.add(obj)
-                try! self.realm.commitWrite()
+                RealmManager.saveDataToCart(obj: obj)
+              
                 let alert:UIAlertController = UIAlertController(title: "", message: "Item is added successfully to your shopping cart", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self.present(alert,animated: true,completion: nil)
@@ -156,10 +154,7 @@ class ProductDetails: UIViewController {
     @IBAction func favoriteAction(_ sender: Any) {
         if exist{
             (sender as AnyObject).setImage(UIImage(systemName: "heart"), for: .normal)
-           let delProduct = realm.objects(Favorite.self).filter("productId == %@",id)
-            try! self.realm.write({
-                self.realm.delete(delProduct)
-            })
+            RealmManager.deleteDatafromFavorites(id: id)
        }else{
            (sender as AnyObject).setImage(UIImage(systemName: "heart.fill"), for: .normal)
            let obj = Favorite()
@@ -168,11 +163,9 @@ class ProductDetails: UIViewController {
            obj.size = self.selectSize.text
            obj.image = self.viewModel.imgArr[0]
            obj.price = self.price
-           obj.variantId = self.viewModel.singleProduct?.product.variants?[0].id ?? 0
+           obj.variantId = self.variantId
            obj.productId = self.id
-           self.realm.beginWrite()
-           self.realm.add(obj)
-           try! self.realm.commitWrite()
+           RealmManager.saveDataToFavorites(obj: obj)
        }
         exist = !exist
     }
