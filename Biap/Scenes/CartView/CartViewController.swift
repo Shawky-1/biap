@@ -15,6 +15,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subTotal: UILabel!
     
+    @IBOutlet weak var checkOut: UIButton!
+    
 
     var cartArray:[Cart] = []
     let realm = try! Realm()
@@ -43,10 +45,21 @@ class CartViewController: UIViewController {
     }
 
     func setupUI(){
-      
         self.navigationController?.navigationBar.tintColor = UIColor.label
+        checkOut.cornerRadius = checkOut.bounds.height / 2
         tableView.registerCellNib(cellClass: ShoppingCartCell.self)
     }
+    
+    
+    @IBAction func checkOutAction(_ sender: Any) {
+        let vc = PaymentOptions(nibName: "PaymentOptions", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+
+
 
 }
 
@@ -84,7 +97,7 @@ extension CartViewController:UITableViewDataSource{
 
 extension CartViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.height/3.5
+        return tableView.frame.size.height/3.3
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

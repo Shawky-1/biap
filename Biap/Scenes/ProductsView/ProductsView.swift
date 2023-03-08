@@ -17,9 +17,10 @@ class ProductsView: UIViewController {
     var vendor:String = ""
     var filteredId:Int = 0
     
+    
     var viewModel:productVM!
     let realm = try! Realm()
-    
+    var filteredProducts:products?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ProductsView: UIViewController {
         let url = urls.productsViewUrl(vendor: editedVendor)
         viewModel.getSProduct(url:url)
         viewModel.bindResultToProductView = {[weak self] in
+            self?.filteredProducts = self?.viewModel.listOfProducts
                 self?.collectionView.reloadData()
         }
     }
@@ -60,7 +62,7 @@ class ProductsView: UIViewController {
 
 extension ProductsView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.listOfProducts?.products.count ?? 1
+        return filteredProducts?.products.count ?? 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -70,10 +72,10 @@ extension ProductsView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
-        cell.productName.text = viewModel.listOfProducts?.products[indexPath.row].title
+        cell.productName.text = filteredProducts?.products[indexPath.row].title
         
         cell.productPrice.text = String(format: "%.2f", (viewModel.priceArr[indexPath.row]))
-        let productImageUrl = URL(string: viewModel.listOfProducts?.products[indexPath.row].images[0].src ?? "")
+        let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         
         
@@ -81,10 +83,10 @@ extension ProductsView:UICollectionViewDataSource{
         cell.bindAddActionToTableView = {[weak self] in
             guard let self = self else {return}
             let obj = Favorite()
-            obj.name = self.viewModel.listOfProducts?.products[indexPath.row].title
-            obj.image = self.viewModel.listOfProducts?.products[indexPath.row].images[0].src
+            obj.name = self.filteredProducts?.products[indexPath.row].title
+            obj.image = self.filteredProducts?.products[indexPath.row].images[0].src
             obj.price = self.viewModel.priceArr[indexPath.row]
-            obj.productId = (self.viewModel.listOfProducts?.products[indexPath.row].id)!
+            obj.productId = (self.filteredProducts?.products[indexPath.row].id)!
             self.realm.beginWrite()
             self.realm.add(obj)
             try! self.realm.commitWrite()
@@ -93,21 +95,24 @@ extension ProductsView:UICollectionViewDataSource{
         //delete object from favorites
         cell.bindDeleteActionToTableView = {[weak self] in
             guard let self = self else {return}
-            let delProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.viewModel.listOfProducts?.products[indexPath.row].id ?? 0)
+            let delProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
              try! self.realm.write({
                  self.realm.delete(delProduct)
              })
         }
         
         //fill the button if object is exist in favorites
-            for item in self.realm.objects(Favorite.self).filter("productId == %@",self.viewModel.listOfProducts?.products[indexPath.row].id ?? 0){
-                self.filteredId = item.productId
-            }
-            if self.filteredId == self.viewModel.listOfProducts?.products[indexPath.row].id{
+        var filteredProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
+        for item in filteredProduct{
+            self.filteredId = item.productId
+        }
+        if filteredId ==  self.filteredProducts?.products[indexPath.row].id{
                 cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 cell.exist = true
-            //}
+        }else{
+            cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        self.filteredId = 0
         return cell
     }
     
@@ -133,5 +138,22 @@ extension ProductsView: UICollectionViewDelegate{
     }
     
 }
+
+
+extension ProductsView:UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredProducts = viewModel.listOfProducts
+            collectionView.reloadData()
+        } else {
+            filteredProducts!.products = viewModel.listOfProducts!.products.filter{
+                $0.title!.lowercased().contains(searchText.lowercased()) }
+            collectionView.reloadData()
+        }
+    }
+    
+}
+
 
 

@@ -40,9 +40,17 @@ class FavoritesView: UIViewController {
     }
 
     func setupUI(){
-      
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         tableView.registerCellNib(cellClass: FavoritesCell.self)
+    }
+    
+    //bar button
+    @objc func cartButton(sender:UIBarButtonItem){
+        let vc = CartViewController(nibName: "CartViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
@@ -70,7 +78,7 @@ extension FavoritesView:UITableViewDataSource{
 
 extension FavoritesView:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.height/5
+        return tableView.frame.size.height/6.5
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

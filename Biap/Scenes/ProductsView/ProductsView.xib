@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HUF-uW-7gk">
-                    <rect key="frame" x="10" y="64" width="373" height="759"/>
+                    <rect key="frame" x="10" y="115" width="373" height="708"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eZB-DJ-LTh">
                         <size key="itemSize" width="128" height="128"/>
@@ -33,12 +33,24 @@
                         <outlet property="delegate" destination="-1" id="Hof-OR-ugs"/>
                     </connections>
                 </collectionView>
+                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="BIAP Search" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-gR-MUx">
+                    <rect key="frame" x="10" y="59" width="373" height="51"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="dje-Jz-J6c"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HUF-uW-7gk" secondAttribute="trailing" constant="10" id="2JV-ca-5YI"/>
-                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="KGo-Lt-565"/>
+                <constraint firstItem="rmr-gR-MUx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="FCM-ed-Brr"/>
+                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="rmr-gR-MUx" secondAttribute="bottom" constant="5" id="JEH-fc-Eof"/>
+                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="KGo-Lt-565"/>
+                <constraint firstItem="rmr-gR-MUx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="X6l-PO-7Wl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rmr-gR-MUx" secondAttribute="trailing" constant="10" id="fsB-HY-dvX"/>
                 <constraint firstItem="HUF-uW-7gk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="fxs-Ij-9La"/>
                 <constraint firstItem="HUF-uW-7gk" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="5" id="p3f-AK-h9N"/>
             </constraints>
@@ -48,6 +60,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -30,10 +30,7 @@ class productOfCategory: UIViewController {
             guard let self = self else {return}
             self.filteredProducts = self.viewModel.listOfProducts
                 self.collectionView.reloadData()
-            DispatchQueue.main.async {
-                
-            }
-            
+  
         
         }
     }
@@ -76,14 +73,13 @@ extension productOfCategory:UICollectionViewDataSource{
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         
-        //save object to favorites
         cell.bindAddActionToTableView = {[weak self] in
             guard let self = self else {return}
             let obj = Favorite()
-            obj.name = self.viewModel.listOfProducts?.products[indexPath.row].title
-            obj.image = self.viewModel.listOfProducts?.products[indexPath.row].images[0].src
+            obj.name = self.filteredProducts?.products[indexPath.row].title
+            obj.image = self.filteredProducts?.products[indexPath.row].images[0].src
             obj.price = self.viewModel.priceArr[indexPath.row]
-            obj.productId = (self.viewModel.listOfProducts?.products[indexPath.row].id)!
+            obj.productId = (self.filteredProducts?.products[indexPath.row].id)!
             self.realm.beginWrite()
             self.realm.add(obj)
             try! self.realm.commitWrite()
@@ -92,22 +88,24 @@ extension productOfCategory:UICollectionViewDataSource{
         //delete object from favorites
         cell.bindDeleteActionToTableView = {[weak self] in
             guard let self = self else {return}
-            let delProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.viewModel.listOfProducts?.products[indexPath.row].id ?? 0)
+            let delProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
              try! self.realm.write({
                  self.realm.delete(delProduct)
              })
         }
         
         //fill the button if object is exist in favorites
-            for item in self.realm.objects(Favorite.self).filter("productId == %@",self.viewModel.listOfProducts?.products[indexPath.row].id ?? 0){
-                self.filteredId = item.productId
-            }
-            if self.filteredId == self.viewModel.listOfProducts?.products[indexPath.row].id{
+        var filteredProduct = self.realm.objects(Favorite.self).filter("productId == %@",self.filteredProducts?.products[indexPath.row].id ?? 0)
+        for item in filteredProduct{
+            self.filteredId = item.productId
+        }
+        if filteredId ==  self.filteredProducts?.products[indexPath.row].id{
                 cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 cell.exist = true
-            //}
+        }else{
+            cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
-        
+        self.filteredId = 0
         return cell
     }
     
