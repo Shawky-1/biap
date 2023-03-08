@@ -24,20 +24,20 @@
                             <constraint firstAttribute="height" constant="90" id="d9b-8p-9qd"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snb-mM-YiH">
-                        <rect key="frame" x="107.99999999999999" y="10" width="177.66666666666663" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snb-mM-YiH">
+                        <rect key="frame" x="107.99999999999999" y="9.9999999999999982" width="177.66666666666663" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocs-VC-kQo">
-                        <rect key="frame" x="110" y="45" width="64" height="21"/>
+                        <rect key="frame" x="141" y="45.333333333333336" width="44" height="21.000000000000007"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-wT-hFo">
-                        <rect key="frame" x="205" y="45" width="76" height="21"/>
+                        <rect key="frame" x="205" y="45.333333333333336" width="76" height="21.000000000000007"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="76" id="gMI-uW-7Z1"/>
                         </constraints>
@@ -46,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yq-7i-7bZ">
-                        <rect key="frame" x="110" y="81" width="67" height="21"/>
+                        <rect key="frame" x="141" y="81.333333333333329" width="67" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" systemColor="systemGreenColor"/>
                         <nil key="highlightedColor"/>
@@ -55,13 +55,13 @@
                 <constraints>
                     <constraint firstItem="4yq-7i-7bZ" firstAttribute="top" secondItem="ocs-VC-kQo" secondAttribute="bottom" constant="15" id="0Jg-Gc-iwQ"/>
                     <constraint firstItem="ocs-VC-kQo" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="15" id="1Xd-nt-xTz"/>
-                    <constraint firstItem="4yq-7i-7bZ" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="10" id="HHK-xC-0eS"/>
+                    <constraint firstItem="4yq-7i-7bZ" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="41" id="HHK-xC-0eS"/>
                     <constraint firstItem="Snb-mM-YiH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JKQ-k4-WwG"/>
                     <constraint firstAttribute="trailing" secondItem="Snb-mM-YiH" secondAttribute="trailing" constant="8" id="NGq-Vd-nfP"/>
                     <constraint firstAttribute="trailing" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="12.666666666666686" id="UTC-oy-sIz"/>
                     <constraint firstItem="SR1-wT-hFo" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="15" id="Z6h-tT-m0T"/>
-                    <constraint firstItem="ocs-VC-kQo" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="10" id="ffn-hP-a9n"/>
-                    <constraint firstItem="SR1-wT-hFo" firstAttribute="leading" secondItem="ocs-VC-kQo" secondAttribute="trailing" constant="31" id="lhr-cr-gPB"/>
+                    <constraint firstItem="ocs-VC-kQo" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="41" id="ffn-hP-a9n"/>
+                    <constraint firstItem="SR1-wT-hFo" firstAttribute="leading" secondItem="ocs-VC-kQo" secondAttribute="trailing" constant="20" id="lhr-cr-gPB"/>
                     <constraint firstItem="PzL-60-nen" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="r49-Ve-plK"/>
                     <constraint firstItem="PzL-60-nen" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sk9-a2-L5g"/>
                     <constraint firstItem="Snb-mM-YiH" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="7.9999999999999858" id="tsd-fn-JkL"/>

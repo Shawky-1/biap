@@ -80,7 +80,7 @@ extension FavoritesView:UITableViewDataSource{
 
 extension FavoritesView:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height/6.5
+        return tableView.frame.size.height/5.2
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
