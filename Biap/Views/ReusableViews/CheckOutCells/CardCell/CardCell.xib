@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardCell" rowHeight="251" id="KGk-i7-Jjw" customClass="CardCell" customModule="Biap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="409" height="251"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="409" height="251"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hQ-Go-SIe">
+                        <rect key="frame" x="10" y="10" width="389" height="231"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="75g-Ob-aeQ">
+                                <rect key="frame" x="10" y="10.000000000000004" width="369" height="62.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name on Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2g-85-RZS">
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Michel jackson" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="keU-Pu-cmK" customClass="TextField" customModule="Biap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28.333333333333336" width="369" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="systemGray2Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="keU-Pu-cmK" firstAttribute="leading" secondItem="75g-Ob-aeQ" secondAttribute="leading" id="33R-Ab-1mZ"/>
+                                    <constraint firstItem="Y2g-85-RZS" firstAttribute="leading" secondItem="75g-Ob-aeQ" secondAttribute="leading" id="Ppe-x9-b1d"/>
+                                    <constraint firstAttribute="trailing" secondItem="keU-Pu-cmK" secondAttribute="trailing" id="W6f-50-7Xu"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZWM-PK-11c">
+                                <rect key="frame" x="10" y="82.333333333333329" width="369" height="62.333333333333329"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE8-gs-atq">
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000 0000 0000 0000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dGW-pi-0sw" customClass="TextField" customModule="Biap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28.333333333333343" width="369" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="systemGray2Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nE8-gs-atq" firstAttribute="leading" secondItem="ZWM-PK-11c" secondAttribute="leading" id="Hvh-CI-whE"/>
+                                    <constraint firstItem="dGW-pi-0sw" firstAttribute="leading" secondItem="ZWM-PK-11c" secondAttribute="leading" id="Ism-ko-P9d"/>
+                                    <constraint firstAttribute="trailing" secondItem="dGW-pi-0sw" secondAttribute="trailing" id="WUi-BL-aOT"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kfj-q1-Y1s">
+                                <rect key="frame" x="10" y="154.66666666666666" width="369" height="66.333333333333343"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-6v-Acw">
+                                        <rect key="frame" x="0.0" y="0.0" width="179.66666666666666" height="54.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wu6-kp-HZY">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.66666666666666" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-g7-Sid" customClass="TextField" customModule="Biap" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.333333333333343" width="179.66666666666666" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemGray2Color"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sr7-ec-w6F">
+                                        <rect key="frame" x="189.66666666666663" y="0.0" width="179.33333333333337" height="54.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7R-bm-WsO">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.33333333333334" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wm9-qy-lPG" customClass="TextField" customModule="Biap" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.333333333333343" width="179.33333333333334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemGray2Color"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="75g-Ob-aeQ" firstAttribute="leading" secondItem="0hQ-Go-SIe" secondAttribute="leading" constant="10" id="0Tc-0j-egz"/>
+                            <constraint firstAttribute="bottom" secondItem="kfj-q1-Y1s" secondAttribute="bottom" constant="10" id="Ajk-vu-q5X"/>
+                            <constraint firstItem="ZWM-PK-11c" firstAttribute="trailing" secondItem="75g-Ob-aeQ" secondAttribute="trailing" id="EsB-rz-ijT"/>
+                            <constraint firstItem="kfj-q1-Y1s" firstAttribute="leading" secondItem="0hQ-Go-SIe" secondAttribute="leading" constant="10" id="OQc-NG-wpT"/>
+                            <constraint firstItem="kfj-q1-Y1s" firstAttribute="top" secondItem="ZWM-PK-11c" secondAttribute="bottom" constant="10" id="RrS-pr-agD"/>
+                            <constraint firstItem="ZWM-PK-11c" firstAttribute="top" secondItem="75g-Ob-aeQ" secondAttribute="bottom" constant="10" id="ZoF-ir-qXS"/>
+                            <constraint firstItem="75g-Ob-aeQ" firstAttribute="top" secondItem="0hQ-Go-SIe" secondAttribute="top" constant="10" id="g4h-jS-rfS"/>
+                            <constraint firstAttribute="trailing" secondItem="kfj-q1-Y1s" secondAttribute="trailing" constant="10" id="ilv-ic-a7w"/>
+                            <constraint firstItem="ZWM-PK-11c" firstAttribute="leading" secondItem="75g-Ob-aeQ" secondAttribute="leading" id="jAO-Tq-twi"/>
+                            <constraint firstAttribute="trailing" secondItem="75g-Ob-aeQ" secondAttribute="trailing" constant="10" id="tUV-Tw-LVf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                <point key="value" x="5" y="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0hQ-Go-SIe" secondAttribute="trailing" constant="10" id="9Gq-oi-zt8"/>
+                    <constraint firstItem="0hQ-Go-SIe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="IRf-ya-2PX"/>
+                    <constraint firstAttribute="bottom" secondItem="0hQ-Go-SIe" secondAttribute="bottom" constant="10" id="cZa-Zk-g1a"/>
+                    <constraint firstItem="0hQ-Go-SIe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xeh-6Q-HaG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="cardNumberTF" destination="dGW-pi-0sw" id="YeA-ox-CMW"/>
+                <outlet property="cardView" destination="0hQ-Go-SIe" id="1PA-0Y-3Vv"/>
+                <outlet property="cvvTF" destination="wm9-qy-lPG" id="mfm-6k-VB9"/>
+                <outlet property="expiryDateTF" destination="VPg-g7-Sid" id="t95-7o-E2p"/>
+                <outlet property="nameTF" destination="keU-Pu-cmK" id="3hO-G0-s38"/>
+            </connections>
+            <point key="canvasLocation" x="197.70992366412213" y="61.619718309859159"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="dGW-pi-0sw">
+            <size key="intrinsicContentSize" width="184.33333333333334" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

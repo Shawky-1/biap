@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-Sq-uTk">
-                    <rect key="frame" x="0.0" y="80" width="393" height="622"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="643"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-DG-HHo">
@@ -44,24 +44,15 @@
                         <action selector="continueToPayment:" destination="-1" eventType="touchUpInside" id="SIf-re-wkg"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnJ-BB-FGq">
-                    <rect key="frame" x="50" y="49.999999999999993" width="293" height="28.666666666666664"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WnJ-BB-FGq" secondAttribute="trailing" constant="50" id="2Bo-sN-csx"/>
                 <constraint firstItem="AjP-Sq-uTk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2yW-n1-RLr"/>
-                <constraint firstItem="WnJ-BB-FGq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="4sA-gK-Ut8"/>
                 <constraint firstAttribute="bottom" secondItem="eRJ-DG-HHo" secondAttribute="bottom" constant="70" id="B4r-vV-KCf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eRJ-DG-HHo" secondAttribute="trailing" constant="40" id="B7R-x5-xwl"/>
-                <constraint firstItem="AjP-Sq-uTk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="DGo-R0-kKs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AjP-Sq-uTk" secondAttribute="trailing" id="KvA-fp-GMj"/>
-                <constraint firstItem="WnJ-BB-FGq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Ldq-bZ-1gB"/>
+                <constraint firstItem="AjP-Sq-uTk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hGv-TW-foV"/>
                 <constraint firstItem="eRJ-DG-HHo" firstAttribute="top" secondItem="AjP-Sq-uTk" secondAttribute="bottom" constant="30" id="hiU-sJ-xUN"/>
                 <constraint firstItem="eRJ-DG-HHo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="kWD-wS-2LC"/>
             </constraints>

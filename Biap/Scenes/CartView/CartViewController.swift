@@ -52,10 +52,19 @@ class CartViewController: UIViewController {
     
     
     @IBAction func checkOutAction(_ sender: Any) {
-        let vc = PaymentOptions(nibName: "PaymentOptions", bundle: nil)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+        if (UserDefaults.standard.string(forKey: "email") != nil){
+            let vc = PaymentOptions(nibName: "PaymentOptions", bundle: nil)
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            self.presentAlertViewWithOneButtonMIV(alertTitle: "Invalid login.", alertMessage: "You need to be logged in in order to proceed to checkout.", btnOneTitle: "Login") { action in
+                
+                let vc = LoginVC(nibName: "LoginVC", bundle: nil)
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+                
+            }
+        }
     }
     
 

@@ -19,6 +19,8 @@ class FavoritesView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        debugPrint("Path to realm file: " + self.realm.configuration.fileURL!.absoluteString)
+
         
     }
     
@@ -93,6 +95,7 @@ extension FavoritesView:UITableViewDelegate{
             try! self.realm.write({
                 self.realm.delete(products[indexPath.row])
             })
+
             self.favArray.removeAll()
             for each in products{
                 self.favArray.append(each)

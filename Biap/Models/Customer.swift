@@ -92,35 +92,16 @@ struct Customer: Codable {
 }
 
 struct Address: Codable {
-    let id: Int
-    let customerId: Int
-    let firstName: String
-    let lastName: String
-    let company: String?
     let address1: String
-    let address2: String?
     let city: String
     let province: String
-    let country: String
-    let zip: String
-    let phone: String
+    let country: String? = "Egypt"
     let name: String
-    let provinceCode: String
-    let countryCode: String
-    let countryName: String
-    let isDefault: Bool
+    let isDefault: Bool = true
     
     enum CodingKeys: String, CodingKey {
-        case id, city, province, country, zip, phone, name
-        case customerId = "customer_id"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case company = "company"
+        case city, province, country, name
         case address1 = "address1"
-        case address2 = "address2"
-        case provinceCode = "province_code"
-        case countryCode = "country_code"
-        case countryName = "country_name"
         case isDefault = "default"
     }
 }

@@ -1,26 +1,27 @@
 //
-//  PaymentsCell.swift
+//  CardCell.swift
 //  Biap
 //
-//  Created by Bassant on 07/03/2023.
+//  Created by Ahmed Shawky on 08/03/2023.
 //
 
 import UIKit
 
-class PaymentsCell: UITableViewCell {
+class CardCell: UITableViewCell {
 
-    @IBOutlet weak var paymentOptionLabel: UILabel!
+    @IBOutlet weak var nameTF: TextField!
+    @IBOutlet weak var cardNumberTF: TextField!
+    @IBOutlet weak var expiryDateTF: TextField!
+    @IBOutlet weak var cvvTF: TextField!
     
-    @IBOutlet weak var paymentOptionImage: UIImageView!
-    
-    var isChecked = false
+    @IBOutlet weak var cardView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.cornerRadius = (self.bounds.height / 2 ) - 40
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

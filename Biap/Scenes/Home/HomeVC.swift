@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
         setupUI()
         viewModel.getCoupons()
         viewModel.getbrands()
+//        self.navigationController?.navigationBar.topItem?.rightBarButtonItems = []
         viewModel.bindResultToHomeView = {[weak self] in
             guard let self = self else {return}
             self.collectionView.reloadData()
