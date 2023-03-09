@@ -43,7 +43,7 @@ class MeViewController: UIViewController {
     
     
     func setupUI(){
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.fill") , style: .plain, target: self, action: #selector(settingButton))
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape") , style: .plain, target: self, action: #selector(settingButton))
         settingButton.tintColor = .label
         let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
         cartButton.tintColor = .label

@@ -13,24 +13,21 @@ class FavoritesView: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var emptyImage: UIImageView!
+    
     var favArray:[Favorite] = []
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        debugPrint("Path to realm file: " + self.realm.configuration.fileURL!.absoluteString)
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        //tableView.reloadData()
         loadDatafromRealm()
-        
+        tableView.reloadData()
     }
-    
-
     
     func loadDatafromRealm(){
         let products = try! Realm().objects(Favorite.self)
@@ -38,7 +35,10 @@ class FavoritesView: UIViewController {
         for each in products{
             favArray.append(each)
         }
-        tableView.reloadData()
+        if favArray.isEmpty{
+            tableView.isHidden = true
+            emptyImage.isHidden = false
+        }
     }
 
     func setupUI(){
@@ -70,20 +70,45 @@ extension FavoritesView:UITableViewDataSource{
         let productImageUrl = URL(string: favArray[indexPath.row].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         
+        
+        cell.bindDeleteToFavoritesView = {[weak self] in
+            guard let self = self else {return}
+            
+            let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to remove this Product from your Favorites ?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
+               
+                let products = try! Realm().objects(Favorite.self)
+                try! self.realm.write({
+                    self.realm.delete(products[indexPath.row])
+                })
+                self.favArray.removeAll()
+                for each in products{
+                    self.favArray.append(each)
+                }
+                
+                if self.favArray.isEmpty{
+                    self.tableView.isHidden = true
+                    self.emptyImage.isHidden = false
+                   }
+                self.tableView.reloadData()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .default,handler: nil))
+            
+            self.present(alert,animated: true,completion: nil)
+        }
+        
         return cell
     }
-    
-   
-    
-    
 }
 
 extension FavoritesView:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height/5.2
+        return tableView.frame.size.height/5.5
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to delete this Product?", preferredStyle: .alert)
         
@@ -97,6 +122,10 @@ extension FavoritesView:UITableViewDelegate{
                 self.favArray.append(each)
             }
             self.tableView.reloadData()
+            if self.favArray.isEmpty{
+                self.tableView.isHidden = true
+                self.emptyImage.isHidden = false
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .default,handler: nil))
@@ -104,7 +133,7 @@ extension FavoritesView:UITableViewDelegate{
         self.present(alert,animated: true,completion: nil)
         
         
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)

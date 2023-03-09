@@ -26,6 +26,7 @@
 		BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94611B29B0FB4E00994D80 /* ProductsView.xib */; };
 		BC94612929B114A500994D80 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94612729B114A500994D80 /* ProductCell.swift */; };
 		BC94612A29B114A500994D80 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94612829B114A500994D80 /* ProductCell.xib */; };
+		BC96103B29BA154500B1373C /* ProductDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC96103A29BA154500B1373C /* ProductDetailsVM.swift */; };
 		BC97717229B6466500832765 /* ShoppingCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97717029B6466500832765 /* ShoppingCartCell.swift */; };
 		BC97717329B6466500832765 /* ShoppingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC97717129B6466500832765 /* ShoppingCartCell.xib */; };
 		BC9869C529B8FC1800281CF8 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9869C429B8FC1800281CF8 /* RealmManager.swift */; };
@@ -145,6 +146,7 @@
 		BC94611B29B0FB4E00994D80 /* ProductsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsView.xib; sourceTree = "<group>"; };
 		BC94612729B114A500994D80 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		BC94612829B114A500994D80 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		BC96103A29BA154500B1373C /* ProductDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVM.swift; sourceTree = "<group>"; };
 		BC97717029B6466500832765 /* ShoppingCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartCell.swift; sourceTree = "<group>"; };
 		BC97717129B6466500832765 /* ShoppingCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartCell.xib; sourceTree = "<group>"; };
 		BC9869C429B8FC1800281CF8 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			children = (
 				BC9E6E6B29B271A9001E0FC4 /* ProductDetails.swift */,
 				BC9E6E6C29B271A9001E0FC4 /* ProductDetails.xib */,
+				BC96103A29BA154500B1373C /* ProductDetailsVM.swift */,
 			);
 			path = ProductDetails;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				E2793B7129B0DFCF0060BE7B /* UIStackView+Extensions.swift in Sources */,
 				E2D812D829B8E4B500F1A7E7 /* CheckoutVM.swift in Sources */,
 				E28F536429AFD0E000FB99EF /* ViewModel.swift in Sources */,
+				BC96103B29BA154500B1373C /* ProductDetailsVM.swift in Sources */,
 				BC94611C29B0FB4E00994D80 /* ProductsView.swift in Sources */,
 				E2207AC629B952AC0080437B /* SearchResultsVM.swift in Sources */,
 				BCA3BADE29B3DACF002D8A70 /* productOfCategory.swift in Sources */,

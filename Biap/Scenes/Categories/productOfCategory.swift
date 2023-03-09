@@ -19,19 +19,17 @@ class productOfCategory: UIViewController {
     var filteredProducts:products?
     let realm = try! Realm()
     var filteredId:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
        
         viewModel = productVM()
-        let url = urls.productsOfCategory(productType: productType)
-        viewModel.getSProduct(url:url)
+        viewModel.getSProduct(url:urls.productsOfCategory(productType: productType))
         viewModel.bindResultToProductView = {[weak self] in
             guard let self = self else {return}
             self.filteredProducts = self.viewModel.listOfProducts
                 self.collectionView.reloadData()
-  
-        
         }
     }
 
@@ -48,13 +46,10 @@ class productOfCategory: UIViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
-        HomeCompositionalLayoutHelper()
-    }()
-
-
 }
+
+
+
 extension productOfCategory:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredProducts?.products.count ?? 0
@@ -73,6 +68,7 @@ extension productOfCategory:UICollectionViewDataSource{
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         
+        //add object to favorites
         cell.bindAddActionToTableView = {[weak self] in
             guard let self = self else {return}
             let obj = Favorite()

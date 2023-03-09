@@ -20,26 +20,23 @@ class ProductDetails: UIViewController {
     @IBOutlet weak var descriprion: UITextView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var favButton: UIButton!
+    
     let myDropDown = DropDown()
-    var viewModel:productVM!
+    var viewModel:ProductDetailsVM!
     var id:Int = 0
     var variantId:Int = 0
     var price = 0.0
     var exist = false
-    let realm = try! Realm()
     var filteredId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = productVM()
+        viewModel = ProductDetailsVM()
         setupUI()
-        let url = urls.productDetailsUrl(id: id)
-        viewModel.fetchSingleProduct(url: url)
+        viewModel.fetchSingleProduct(url: urls.productDetailsUrl(id: id))
         viewModel.bindResultToProductView = {[weak self] in
             guard let self = self else {return}
-                
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.pageControl.numberOfPages = self.viewModel.imgArr.count
@@ -48,50 +45,26 @@ class ProductDetails: UIViewController {
                 self.descriprion.text = self.viewModel.singleProduct?.product.body_html
             }
         }
-        
-        descriprion.isEditable = false
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         //favorite button appearence
-        for item in realm.objects(Favorite.self).filter("productId == %@",id){
+        for item in try! Realm().objects(Favorite.self).filter("productId == %@",id){
             if id == item.productId{
                 favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 exist = true
             }
         }
-        
     }
     
-    
-    
-    
     @IBAction func selectSizeAction(_ sender: Any) {
-        myDropDown.anchorView = sender as? any AnchorView
-        myDropDown.dataSource = viewModel.sizeArr
-        myDropDown.bottomOffset = CGPoint(x: 0, y: (myDropDown.anchorView?.plainView.bounds.height)!)
-        myDropDown.topOffset = CGPoint(x: 0, y: -(myDropDown.anchorView?.plainView.bounds.height)!)
-        myDropDown.direction = .bottom
-        myDropDown.selectionAction = {(index: Int, item:String) in
-            self.selectSize.text = self.viewModel.sizeArr[index]
-            self.selectSize.textColor = nil
-        }
-        myDropDown.show()
+        viewModel.dropDown(array: viewModel.sizeArr, sender: sender, DropDown: myDropDown, label: selectSize)
     }
     
     
     @IBAction func selectColorAction(_ sender: Any) {
-        myDropDown.anchorView = sender as? any AnchorView
-        myDropDown.dataSource = viewModel.colorArr
-        myDropDown.bottomOffset = CGPoint(x: 0, y: (myDropDown.anchorView?.plainView.bounds.height)!)
-        myDropDown.topOffset = CGPoint(x: 0, y: -(myDropDown.anchorView?.plainView.bounds.height)!)
-        myDropDown.direction = .bottom
-        myDropDown.selectionAction = {(index: Int, item:String) in
-            self.selectColor.text = self.viewModel.colorArr[index]
-            self.selectColor.textColor = nil
-        }
-        myDropDown.show()
+        viewModel.dropDown(array: viewModel.colorArr, sender: sender, DropDown: myDropDown, label: selectColor)
     }
     
     
@@ -102,6 +75,7 @@ class ProductDetails: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.label
         addButton.cornerRadius = addButton.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
+        descriprion.isEditable = false
     }
     
     //bar button
@@ -169,12 +143,6 @@ class ProductDetails: UIViewController {
        }
         exist = !exist
     }
-    
-    
-    
-    private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
-        HomeCompositionalLayoutHelper()
-    }()
 
 }
 

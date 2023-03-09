@@ -20,6 +20,7 @@ class ShoppingCartCell: UITableViewCell {
     
     let realm = try! Realm()
     var bindPricesToTableView:((Double) -> ())?
+    var bindDeleteToTableView:(() -> ())?
     var oldValue:Double = 0.0
     
     
@@ -29,7 +30,8 @@ class ShoppingCartCell: UITableViewCell {
         stepper.autorepeat = true
         stepper.isContinuous = true
         stepper.maximumValue = 100
-        stepper.minimumValue = 1
+        stepper.minimumValue = 0
+        stepper.value = 1
         oldValue = stepper.value
         print(oldValue)
         
@@ -48,17 +50,21 @@ class ShoppingCartCell: UITableViewCell {
         productQuantity.text =  String(format: "%.0f", stepper.value)
 
         productPrice.text = String(format: "%.2f", ((originalPrice) as NSString).doubleValue * ((productQuantity.text)! as NSString).doubleValue)
-       var doubleProductPrice = ((productPrice.text)! as NSString).doubleValue
-        var doubleQuantity = ((productQuantity.text)! as NSString).doubleValue
-        var doubleOriginalPrice = ((originalPrice) as NSString).doubleValue
+        let doubleProductPrice = ((productPrice.text)! as NSString).doubleValue
+        let doubleOriginalPrice = ((originalPrice) as NSString).doubleValue
         
         if stepper.value > oldValue{
             oldValue = oldValue + 1
             bindPricesToTableView!(doubleProductPrice - (doubleOriginalPrice * (stepper.value - 1 )))
             
         }else{
-            oldValue = oldValue - 1
-            bindPricesToTableView!(doubleProductPrice - (doubleOriginalPrice * (stepper.value + 1 )))
+            if stepper.value == 0{
+                bindDeleteToTableView!()
+            }else{
+                oldValue = oldValue - 1
+                bindPricesToTableView!(doubleProductPrice - (doubleOriginalPrice * (stepper.value + 1 )))
+            }
+            
         }
         
     }

@@ -27,8 +27,7 @@ class ProductsView: UIViewController {
         setupUI()
         viewModel = productVM()
         let editedVendor = vendor.replacingOccurrences(of: " ", with: "+")
-        let url = urls.productsViewUrl(vendor: editedVendor)
-        viewModel.getSProduct(url:url)
+        viewModel.getSProduct(url:urls.productsViewUrl(vendor: editedVendor))
         viewModel.bindResultToProductView = {[weak self] in
             self?.filteredProducts = self?.viewModel.listOfProducts
                 self?.collectionView.reloadData()
@@ -42,22 +41,14 @@ class ProductsView: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
-        
-        
     }
     
     @objc func cartButton(sender:UIBarButtonItem){
         let vc = CartViewController(nibName: "CartViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
-        
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
-        HomeCompositionalLayoutHelper()
-    }()
-    
-    
+
 }
 
 extension ProductsView:UICollectionViewDataSource{
@@ -71,6 +62,7 @@ extension ProductsView:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        
         cell.productName.text = filteredProducts?.products[indexPath.row].title
         cell.productPrice.text = String(format: "%.2f", (viewModel.priceArr[indexPath.row]))
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
