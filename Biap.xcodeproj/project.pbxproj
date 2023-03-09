@@ -56,6 +56,11 @@
 		E2207AB729B8F1070080437B /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2207AB529B8F1070080437B /* AddressCell.swift */; };
 		E2207AB829B8F1070080437B /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2207AB629B8F1070080437B /* AddressCell.xib */; };
 		E2207ABA29B8F8580080437B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2207AB929B8F8580080437B /* Order.swift */; };
+		E2207ABE29B94D760080437B /* SearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2207ABC29B94D760080437B /* SearchResultsVC.swift */; };
+		E2207ABF29B94D760080437B /* SearchResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2207ABD29B94D760080437B /* SearchResultsVC.xib */; };
+		E2207AC329B94DF00080437B /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2207AC129B94DF00080437B /* SearchCell.swift */; };
+		E2207AC429B94DF00080437B /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2207AC229B94DF00080437B /* SearchCell.xib */; };
+		E2207AC629B952AC0080437B /* SearchResultsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2207AC529B952AC0080437B /* SearchResultsVM.swift */; };
 		E2793B5829AFD38C0060BE7B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B5629AFD38C0060BE7B /* HeaderView.swift */; };
 		E2793B5929AFD38C0060BE7B /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2793B5729AFD38C0060BE7B /* HeaderView.xib */; };
 		E2793B5B29AFD5DA0060BE7B /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B5A29AFD5DA0060BE7B /* Brands.swift */; };
@@ -172,6 +177,11 @@
 		E2207AB529B8F1070080437B /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		E2207AB629B8F1070080437B /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
 		E2207AB929B8F8580080437B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		E2207ABC29B94D760080437B /* SearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVC.swift; sourceTree = "<group>"; };
+		E2207ABD29B94D760080437B /* SearchResultsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsVC.xib; sourceTree = "<group>"; };
+		E2207AC129B94DF00080437B /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		E2207AC229B94DF00080437B /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		E2207AC529B952AC0080437B /* SearchResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVM.swift; sourceTree = "<group>"; };
 		E2793B5629AFD38C0060BE7B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E2793B5729AFD38C0060BE7B /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		E2793B5A29AFD5DA0060BE7B /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
@@ -426,6 +436,25 @@
 			path = AddressCell;
 			sourceTree = "<group>";
 		};
+		E2207ABB29B94D330080437B /* SearchResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				E2207ABC29B94D760080437B /* SearchResultsVC.swift */,
+				E2207AC529B952AC0080437B /* SearchResultsVM.swift */,
+				E2207ABD29B94D760080437B /* SearchResultsVC.xib */,
+			);
+			path = SearchResultsController;
+			sourceTree = "<group>";
+		};
+		E2207AC029B94DD90080437B /* SearchCell */ = {
+			isa = PBXGroup;
+			children = (
+				E2207AC129B94DF00080437B /* SearchCell.swift */,
+				E2207AC229B94DF00080437B /* SearchCell.xib */,
+			);
+			path = SearchCell;
+			sourceTree = "<group>";
+		};
 		E2793B5229AFD1CB0060BE7B /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +498,7 @@
 		E2793B6329B003D80060BE7B /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				E2207AC029B94DD90080437B /* SearchCell */,
 				BC9869CB29B9221F00281CF8 /* OrdersCell */,
 				E2D812D929B8EA1900F1A7E7 /* CheckOutCells */,
 				BC2F5EA229B78A03004D0243 /* FavoritesCell */,
@@ -570,6 +600,7 @@
 		E28F534F29AF9A1200FB99EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E2207ABB29B94D330080437B /* SearchResultsController */,
 				BC9869D129B9237800281CF8 /* SettingViewController */,
 				BC9869C629B912CE00281CF8 /* Me */,
 				E2D812D229B8E45800F1A7E7 /* Checkout */,
@@ -833,9 +864,11 @@
 				9ECD72BF29B75DBC008C90CA /* PaymentsCell.xib in Resources */,
 				E2D812DE29B8EA4500F1A7E7 /* CardCell.xib in Resources */,
 				BC97717329B6466500832765 /* ShoppingCartCell.xib in Resources */,
+				E2207ABF29B94D760080437B /* SearchResultsVC.xib in Resources */,
 				E2793B8A29B2B3C20060BE7B /* LoginVC.xib in Resources */,
 				BCA3BADF29B3DACF002D8A70 /* productOfCategory.xib in Resources */,
 				BC9E6E6E29B271A9001E0FC4 /* ProductDetails.xib in Resources */,
+				E2207AC429B94DF00080437B /* SearchCell.xib in Resources */,
 				BC2F5EA629B78A2E004D0243 /* FavoritesCell.xib in Resources */,
 				BCBC2D5A29B2785B00AAA541 /* ProductDetailsCell.xib in Resources */,
 				BCACC6D629B553F40004589A /* CartViewController.xib in Resources */,
@@ -985,7 +1018,9 @@
 				E2D812D829B8E4B500F1A7E7 /* CheckoutVM.swift in Sources */,
 				E28F536429AFD0E000FB99EF /* ViewModel.swift in Sources */,
 				BC94611C29B0FB4E00994D80 /* ProductsView.swift in Sources */,
+				E2207AC629B952AC0080437B /* SearchResultsVM.swift in Sources */,
 				BCA3BADE29B3DACF002D8A70 /* productOfCategory.swift in Sources */,
+				E2207AC329B94DF00080437B /* SearchCell.swift in Sources */,
 				BC9E6E6D29B271A9001E0FC4 /* ProductDetails.swift in Sources */,
 				E2207ABA29B8F8580080437B /* Order.swift in Sources */,
 				BCFC56C429B122FE00C162A4 /* ProductVM.swift in Sources */,
@@ -998,6 +1033,7 @@
 				BC9869C929B9130900281CF8 /* MeViewController.swift in Sources */,
 				BC9869D429B923AA00281CF8 /* SettingViewController.swift in Sources */,
 				E2793B7929B106510060BE7B /* CustomTabbarVC.swift in Sources */,
+				E2207ABE29B94D760080437B /* SearchResultsVC.swift in Sources */,
 				E2BDE00329B3BD0500CC5977 /* RegisterVC.swift in Sources */,
 				9E997EBC29B3EB92008B74F7 /* Coupons.swift in Sources */,
 				BC2F5EA529B78A2E004D0243 /* FavoritesCell.swift in Sources */,

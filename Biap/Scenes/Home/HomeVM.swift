@@ -11,6 +11,8 @@ import Foundation
 class homeVM: ViewModel{
     
     func viewDidLoad() {
+        getbrands()
+        getCoupons()
     }
     var adsArr:[coupon] = []
     var bindResultToHomeView:(() -> ()) = {}

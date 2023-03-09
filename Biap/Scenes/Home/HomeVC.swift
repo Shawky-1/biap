@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 
 class HomeVC: UIViewController {
+
+    
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.delegate = self
@@ -17,17 +19,15 @@ class HomeVC: UIViewController {
         }
     }
     
-    
     var viewModel:homeVM!
     var timer: Timer?
     var currentCellIndex = 0
-    
+    let search = UISearchController(searchResultsController: SearchResultsVC())
+
     override func viewDidLoad() {
         viewModel = homeVM()
         setupUI()
-        viewModel.getCoupons()
-        viewModel.getbrands()
-//        self.navigationController?.navigationBar.topItem?.rightBarButtonItems = []
+        viewModel.viewDidLoad()
         viewModel.bindResultToHomeView = {[weak self] in
             guard let self = self else {return}
             self.collectionView.reloadData()
@@ -35,8 +35,19 @@ class HomeVC: UIViewController {
     }
     
     func setupUI(){
+        self.title = "BIAP"
+
+        let cartIcon = UIBarButtonItem(image: UIImage(systemName: "cart" ), style: .plain, target: self, action: #selector(cartPage))
+        
+        cartIcon.tintColor = .black
+        
+        search.searchResultsUpdater = self
+        search.searchBar.placeholder = "Search for a product."
+        search.obscuresBackgroundDuringPresentation = true
+        navigationItem.searchController = search
+        
+        self.navigationItem.rightBarButtonItems = [cartIcon]
         collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
-//        collectionView.registerCell(cellClass: BrandsCell.self)
         collectionView.register(UINib(nibName: "BrandsCell", bundle: nil), forCellWithReuseIdentifier: "BrandsCell")
         collectionView.register(UINib(nibName: "CouponsCell", bundle: nil), forCellWithReuseIdentifier: "CouponsCell")
         startTimer()
@@ -152,5 +163,13 @@ extension HomeVC: UICollectionViewDelegate{
 
     }
     
+    
 }
 
+extension HomeVC: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        let vc = searchController.searchResultsController as? SearchResultsVC
+        vc?.viewModel.filterItems(for: text)
+    }
+}

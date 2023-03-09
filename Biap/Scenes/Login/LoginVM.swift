@@ -14,6 +14,7 @@ class LoginVM: ViewModel {
     
     func viewDidLoad() {
         //Setup
+        
     }
     func login(email: String, password: String) {
         do {
@@ -39,7 +40,7 @@ class LoginVM: ViewModel {
                 
             case .failure(let error as AppErrors):
                 print(error.localizedDescription)
-//                self.errorLbl.text = error.localizedDescription
+                //                self.errorLbl.text = error.localizedDescription
             case .failure(let error):
                 self.didLogin?(.failure(error))
             }

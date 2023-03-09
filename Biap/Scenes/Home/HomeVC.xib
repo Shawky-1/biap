@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mFW-jF-Ntw">
-                    <rect key="frame" x="0.0" y="60" width="393" height="792"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K7o-WY-cY1">
                         <size key="itemSize" width="128" height="128"/>
@@ -29,67 +29,19 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fh-lF-h64">
-                    <rect key="frame" x="339.33333333333331" y="0.0" width="53.666666666666686" height="52"/>
-                    <color key="tintColor" systemColor="labelColor"/>
-                    <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system"/>
-                    <connections>
-                        <action selector="cartPage:" destination="-1" eventType="touchUpInside" id="zOW-S8-mf8"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-89-YVr">
-                    <rect key="frame" x="289.66666666666669" y="0.0" width="49.666666666666686" height="52"/>
-                    <color key="tintColor" systemColor="labelColor"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
-                </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="v90-Qe-Zpq">
-                    <rect key="frame" x="10" y="0.0" width="52" height="52"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="52" id="0el-8d-xtb"/>
-                        <constraint firstAttribute="height" constant="52" id="klF-3L-PLo"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIAP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-ET-36i">
-                    <rect key="frame" x="77" y="0.0" width="87" height="52"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="87" id="eeB-HI-9Co"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="2fh-lF-h64" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1ne-Sq-LrR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mFW-jF-Ntw" secondAttribute="bottom" id="2gC-o6-xE5"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mFW-jF-Ntw" secondAttribute="trailing" id="4oU-ZQ-VpW"/>
-                <constraint firstItem="mFW-jF-Ntw" firstAttribute="top" secondItem="dfa-89-YVr" secondAttribute="bottom" constant="8" id="E6q-Lq-CzO"/>
-                <constraint firstItem="mFW-jF-Ntw" firstAttribute="top" secondItem="3iO-ET-36i" secondAttribute="bottom" constant="8" id="GhW-Fp-AAI"/>
-                <constraint firstItem="3iO-ET-36i" firstAttribute="leading" secondItem="v90-Qe-Zpq" secondAttribute="trailing" constant="15" id="I8b-lb-EKN"/>
-                <constraint firstItem="2fh-lF-h64" firstAttribute="leading" secondItem="dfa-89-YVr" secondAttribute="trailing" id="Nww-Nh-3DI"/>
-                <constraint firstItem="2fh-lF-h64" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="S1D-a7-RL2"/>
-                <constraint firstItem="mFW-jF-Ntw" firstAttribute="top" secondItem="2fh-lF-h64" secondAttribute="bottom" constant="8" id="Ui0-KZ-6lO"/>
-                <constraint firstItem="v90-Qe-Zpq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="YLe-rB-Unu"/>
-                <constraint firstItem="dfa-89-YVr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZNt-W7-2H2"/>
-                <constraint firstItem="v90-Qe-Zpq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eVI-b2-sOZ"/>
-                <constraint firstItem="mFW-jF-Ntw" firstAttribute="top" secondItem="v90-Qe-Zpq" secondAttribute="bottom" constant="8" id="hXl-6Z-9wF"/>
-                <constraint firstItem="mFW-jF-Ntw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="mID-aA-LHL"/>
+                <constraint firstItem="mFW-jF-Ntw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mID-aA-LHL"/>
                 <constraint firstItem="mFW-jF-Ntw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="v4S-Re-7eL"/>
-                <constraint firstItem="3iO-ET-36i" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vCf-I7-F8v"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
-        <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="logo2" width="163" height="163"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

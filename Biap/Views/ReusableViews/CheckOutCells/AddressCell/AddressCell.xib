@@ -130,6 +130,9 @@
         </tableViewCell>
     </objects>
     <designables>
+        <designable name="ZJ4-cb-I2w">
+            <size key="intrinsicContentSize" width="90" height="34"/>
+        </designable>
         <designable name="uDd-ql-aMV">
             <size key="intrinsicContentSize" width="81" height="34"/>
         </designable>
