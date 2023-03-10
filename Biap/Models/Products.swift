@@ -16,6 +16,7 @@ struct singleProduct:Codable{
 }
 
 struct properies:Codable{
+     
     let id:Int?
     let title:String?
     let body_html:String?

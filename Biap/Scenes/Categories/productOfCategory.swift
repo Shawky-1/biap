@@ -14,6 +14,8 @@ class productOfCategory: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var segementController: UISegmentedControl!
+    
     var productType = ""
     var viewModel:productVM!
     var filteredProducts:products?
@@ -46,6 +48,21 @@ class productOfCategory: UIViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    @IBAction func segementController(_ sender: Any) {
+        switch segementController.selectedSegmentIndex{
+        case 0:
+            filteredProducts = viewModel.listOfProducts
+            collectionView.reloadData()
+        case 1:
+            self.filteredProducts?.products.sort{($0.variants![0].price! as NSString).doubleValue < ($1.variants![0].price! as NSString).doubleValue}
+            collectionView.reloadData()
+        default:
+            self.filteredProducts?.products.sort{($0.variants![0].price! as NSString).doubleValue > ($1.variants![0].price! as NSString).doubleValue}
+            collectionView.reloadData()
+        }
+    }
 }
 
 
@@ -64,7 +81,7 @@ extension productOfCategory:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
         cell.productName.text = filteredProducts?.products[indexPath.row].title
-        cell.productPrice.text = String(format: "%.2f", (viewModel.priceArr[indexPath.row]))
+        cell.productPrice.text = filteredProducts?.products[indexPath.row].variants?[0].price
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         
