@@ -17,7 +17,10 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var checkOut: UIButton!
     
-
+    @IBOutlet weak var emptyImage: UIImageView!
+    
+    @IBOutlet weak var subTotalText: UILabel!
+    
     var cartArray:[Cart] = []
     let realm = try! Realm()
     var sum:Double = 0.0
@@ -29,8 +32,6 @@ class CartViewController: UIViewController {
         tableView.reloadData()
     }
     
-
-    
     func loadDatafromRealm(){
         let products = try! Realm().objects(Cart.self)
         cartArray.removeAll()
@@ -41,7 +42,13 @@ class CartViewController: UIViewController {
             sum += each.price
         }
         subTotal.text = String(format: "%.2f", sum)
-        
+        if cartArray.isEmpty{
+            tableView.isHidden = true
+            emptyImage.isHidden = false
+            checkOut.isHidden = true
+            subTotal.isHidden = true
+            subTotalText.isHidden = true
+        }
     }
 
     func setupUI(){
@@ -85,17 +92,54 @@ extension CartViewController:UITableViewDataSource{
         cell.productColor.text = cartArray[indexPath.row].color
         cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.row].price * ((cell.productQuantity.text)! as NSString).doubleValue)
         cell.originalPrice = cell.productPrice.text!
+        let productImageUrl = URL(string: cartArray[indexPath.row].image ?? "")
+        cell.productImage.kf.setImage(with: productImageUrl)
+            
         
+        //steper value = 0 delete the object
+        cell.bindDeleteToTableView = {[weak self] in
+            guard let self = self else {return}
+            
+            let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to remove this Product from your Shopping Cart ?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
+               
+                let products = try! Realm().objects(Cart.self)
+                try! self.realm.write({
+                    self.realm.delete(products[indexPath.row])
+                })
+                self.cartArray.removeAll()
+                for each in products{
+                    self.cartArray.append(each)
+                }
+                cell.stepper.value = 1
+                cell.productQuantity.text =  String(format: "%.0f", cell.stepper.value)
+                self.sum = 0.0
+                for each in self.cartArray{
+                    self.sum += each.price
+                }
+                self.subTotal.text = String(format: "%.2f", self.sum)
+                if self.cartArray.isEmpty{
+                    self.tableView.isHidden = true
+                    self.emptyImage.isHidden = false
+                    self.checkOut.isHidden = true
+                    self.subTotal.isHidden = true
+                    self.subTotalText.isHidden = true}
+                self.tableView.reloadData()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .default,handler: nil))
+            
+            self.present(alert,animated: true,completion: nil)
+        }
         
+        //bind Prices
         cell.bindPricesToTableView = {[weak self] totalPrice in
             let sum1 = self!.sum
             self?.sum = sum1 + totalPrice
             self?.subTotal.text = String(format: "%.2f", sum1 + totalPrice)
         }
     
-        let productImageUrl = URL(string: cartArray[indexPath.row].image ?? "")
-        cell.productImage.kf.setImage(with: productImageUrl)
-        
         return cell
     }
     
@@ -108,34 +152,6 @@ extension CartViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.size.height/3.3
     }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to delete this Product?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
-           
-            let products = try! Realm().objects(Cart.self)
-            try! self.realm.write({
-                self.realm.delete(products[indexPath.row])
-            })
-            self.cartArray.removeAll()
-            for each in products{
-                self.cartArray.append(each)
-            }
-            self.sum = 0.0
-            for each in self.cartArray{
-                self.sum += each.price
-            }
-            self.subTotal.text = String(format: "%.2f", self.sum)
-            self.tableView.reloadData()
-        }))
-        
-        alert.addAction(UIAlertAction(title: "No", style: .default,handler: nil))
-        
-        self.present(alert,animated: true,completion: nil)
-        
-        
-    }
+
 }
 

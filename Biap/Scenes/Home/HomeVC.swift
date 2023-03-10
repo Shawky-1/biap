@@ -39,7 +39,7 @@ class HomeVC: UIViewController {
 
         let cartIcon = UIBarButtonItem(image: UIImage(systemName: "cart" ), style: .plain, target: self, action: #selector(cartPage))
         
-        cartIcon.tintColor = .black
+        cartIcon.tintColor = .label
         
         search.searchResultsUpdater = self
         search.searchBar.placeholder = "Search for a product."

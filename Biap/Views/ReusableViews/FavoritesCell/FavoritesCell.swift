@@ -15,6 +15,8 @@ class FavoritesCell: UITableViewCell {
     
     @IBOutlet weak var productPrice: UILabel!
     
+    var bindDeleteToFavoritesView:(() -> ())?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +27,11 @@ class FavoritesCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    @IBAction func deleteFromFavorites(_ sender: Any) {
+        bindDeleteToFavoritesView!()
     }
     
 }

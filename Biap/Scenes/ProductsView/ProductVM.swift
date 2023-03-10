@@ -12,10 +12,7 @@ import Foundation
 
 class productVM{
     
-    var imgArr:[String] = []
     
-    var sizeArr:[String] = []
-    var colorArr:[String] = []
     var productTypesArr:[String] = []
     var priceArr:[Double] = [0.0]
     var bindResultToProductView:(() -> ()) = {}
@@ -23,14 +20,9 @@ class productVM{
         didSet{
             bindResultToProductView()
         }
-        
     }
     
-    var singleProduct:singleProduct?{
-        didSet{
-            bindResultToProductView()
-        }
-    }
+  
     
     
     func getSProduct(url:String){
@@ -57,35 +49,7 @@ class productVM{
         }
     }
     
-    
-    func fetchSingleProduct(url:String){
-        NetworkManger.fetchSingleProduct(url: url) { [weak self] result in
-            guard let self = self else {return}
-            switch result{
-            case .success(let product):
-                self.singleProduct = product
-                
-                for each in self.singleProduct!.product.images{
-                    self.imgArr.append(each.src)
-                }
-                
-                
-                for each in self.singleProduct!.product.options{
-                    if each.name == "Size"{
-                        let size = each.values!
-                        self.sizeArr.append(contentsOf: size)
-                    }
-                    if each.name == "Color"{
-                        let color = each.values!
-                        self.colorArr.append(contentsOf: color)
-                    }
-                }
-                
-            case .failure(let error):
-                print(String(describing: error))
-            }
-        }
-        }
+  
     
     
 

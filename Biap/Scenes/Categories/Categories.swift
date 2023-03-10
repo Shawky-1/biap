@@ -19,10 +19,9 @@ class Categories: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     setupUI()
+        setupUI()
         viewModel = productVM()
-        let url = urls.categoriesUrl()
-        viewModel.getSProduct(url:url)
+        viewModel.getSProduct(url:urls.categoriesUrl())
         viewModel.bindResultToProductView = {[weak self] in
             guard let self = self else {return}
                 self.collectionView.reloadData()
@@ -46,11 +45,6 @@ class Categories: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private lazy var compositionalLayoutHelper: HomeCompositionalLayoutHelper = {
-        HomeCompositionalLayoutHelper()
-    }()
-
-
 }
 
 
