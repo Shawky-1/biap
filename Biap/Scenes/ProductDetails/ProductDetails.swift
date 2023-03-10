@@ -74,6 +74,7 @@ class ProductDetails: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         addButton.cornerRadius = addButton.bounds.height / 2
+        pageControl.cornerRadius = pageControl.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
         descriprion.isEditable = false
     }

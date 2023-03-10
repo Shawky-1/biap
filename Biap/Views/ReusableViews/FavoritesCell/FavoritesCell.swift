@@ -15,12 +15,15 @@ class FavoritesCell: UITableViewCell {
     
     @IBOutlet weak var productPrice: UILabel!
     
+    @IBOutlet weak var addButton: UIButton!
+    
     var bindDeleteToFavoritesView:(() -> ())?
+    var bindAddToFavoritesView:(() -> ())?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        addButton.cornerRadius = addButton.bounds.height / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,6 +35,11 @@ class FavoritesCell: UITableViewCell {
     
     @IBAction func deleteFromFavorites(_ sender: Any) {
         bindDeleteToFavoritesView!()
+    }
+    
+    
+    @IBAction func addButton(_ sender: Any) {
+        bindAddToFavoritesView!()
     }
     
 }

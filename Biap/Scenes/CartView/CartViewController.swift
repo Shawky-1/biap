@@ -128,7 +128,11 @@ extension CartViewController:UITableViewDataSource{
                 self.tableView.reloadData()
             }))
             
-            alert.addAction(UIAlertAction(title: "No", style: .default,handler: nil))
+            alert.addAction(UIAlertAction(title: "No", style: .default,handler: { action in
+                cell.stepper.value = 1
+                cell.productQuantity.text =  String(format: "%.0f", cell.stepper.value)
+                cell.productPrice.text = String(format: "%.2f", self.cartArray[indexPath.row].price * ((cell.productQuantity.text)! as NSString).doubleValue)
+            }))
             
             self.present(alert,animated: true,completion: nil)
         }
@@ -150,7 +154,7 @@ extension CartViewController:UITableViewDataSource{
 
 extension CartViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height/3.3
+        return 175
     }
 
 }

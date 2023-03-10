@@ -15,10 +15,16 @@ class MeViewController: UIViewController {
     
     
     @IBOutlet weak var ordersTableView: UITableView!
-    
+    var viewModel:MeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel = MeViewModel()
+        viewModel.getOrders(url: urls.ordersUrl(id: 6863743451441))
+        viewModel.bindResultToMeView = {[weak self] in
+            guard let self = self else {return}
+            self.ordersTableView.reloadData()
+        }
     }
     
     @objc func settingButton(sender:UIBarButtonItem){
@@ -74,13 +80,19 @@ class MeViewController: UIViewController {
 
 extension MeViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.listOfOrders?.orders.count ?? 1
     }
+    
+ 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersCell", for: indexPath) as! OrdersCell
         
-        
+        cell.orderId.text = String(viewModel.listOfOrders?.orders[indexPath.row].id ?? 0)
+        cell.orderDate.text = viewModel.listOfOrders?.orders[indexPath.row].created_at
+        cell.totalPrice.text = viewModel.listOfOrders?.orders[indexPath.row].current_subtotal_price
+        cell.discount.text = viewModel.listOfOrders?.orders[indexPath.row].current_total_discounts
+        cell.priceAfterDiscount.text = viewModel.listOfOrders?.orders[indexPath.row].current_total_price
         return cell
     }
     
@@ -93,6 +105,6 @@ extension MeViewController:UITableViewDataSource{
 
 extension MeViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height/5.2
+        return 135
     }
 }

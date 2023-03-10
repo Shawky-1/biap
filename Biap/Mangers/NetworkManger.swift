@@ -163,6 +163,28 @@ class NetworkManger{
         
     }
     
+    static func fetchOrders(url:String,complition:@escaping (Result<orders, Error>)->Void){
+        let url = URL(string:url)
+        
+        
+        
+        AF.request(url!).validate().response { responseData in
+            
+            switch responseData.result{
+            case .success(let data):
+                do{
+                    let orders = try JSONDecoder().decode(orders.self, from: data!)
+                    complition(.success(orders))
+                    //print(Leagues)
+                }catch{
+                    complition(.failure(error))
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
+    
     
     static func CreateAddress(address: Address, completion: @escaping (Address?) -> ()) {
             

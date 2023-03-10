@@ -20,10 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="BIAP Search" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-sb-Rsf">
+                <searchBar contentMode="redraw" placeholder="BIAP Search" translatesAutoresizingMaskIntoConstraints="NO" id="6jL-sb-Rsf">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
                     <connections>
                         <outlet property="delegate" destination="-1" id="V2D-df-5lc"/>
                     </connections>

@@ -31,3 +31,16 @@ struct LineItem: Codable {
         case quantity
     }
 }
+
+struct orders:Codable{
+    let orders:[orderProperies]
+}
+
+struct orderProperies:Codable{
+    let id:Int?
+    let created_at:String?
+    let current_subtotal_price:String?
+    let current_total_discounts:String?
+    let current_total_price:String?
+}
+
