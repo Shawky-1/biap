@@ -12,7 +12,12 @@ import RealmSwift
 class ProductDetails: UIViewController {
     
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!{
+        didSet{
+            collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
+
+        }
+    }
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var selectSize: UILabel!

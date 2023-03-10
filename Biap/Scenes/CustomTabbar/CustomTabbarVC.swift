@@ -28,7 +28,7 @@ class CustomTabbarVC: UITabBarController {
         self.setViewControllers(tabBarList, animated: false)
         
         guard let items = self.tabBar.items else { return }
-        let images = ["home", "home", "home", "home"]
+        let images = ["house.fill", "rectangle.grid.2x2.fill", "heart.fill", "person.fill"]
         for x in 0...3 {
             items[x].image = UIImage(systemName: images[x])
         }

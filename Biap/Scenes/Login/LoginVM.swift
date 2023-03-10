@@ -57,6 +57,7 @@ class LoginVM: ViewModel {
         UserDefaults.standard.setValue(self.customer?.firstName, forKey: "firstName")
         UserDefaults.standard.setValue(self.customer?.lastName, forKey: "lastName")
         UserDefaults.standard.setValue(self.customer?.phone, forKey: "phone")
+        UserDefaults.standard.setValue(self.customer?.id, forKey: "id")
     }
 }
 

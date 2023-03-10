@@ -87,6 +87,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="favoriteButton" destination="peR-gq-5ag" id="1G3-4K-81B"/>
+                <outlet property="inStockLbl" destination="01X-rP-KKA" id="CRI-Dy-c11"/>
                 <outlet property="productImage" destination="hAJ-NG-fh6" id="Hn6-uf-gQU"/>
                 <outlet property="productName" destination="JyM-fR-Gfj" id="ViH-9m-jjv"/>
                 <outlet property="productPrice" destination="hIQ-y6-2pm" id="TRw-G8-9ay"/>

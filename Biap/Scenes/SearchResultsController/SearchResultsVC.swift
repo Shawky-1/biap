@@ -55,7 +55,6 @@ extension SearchResultsVC: UITableViewDataSource, UITableViewDelegate{
         productDetailsVC.variantId = viewModel.filteredItems[indexPath.row].variants?[0].id ?? 0
         productDetailsVC.hidesBottomBarWhenPushed = true
         self.present(productDetailsVC, animated: true)
-//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
 
     }
     

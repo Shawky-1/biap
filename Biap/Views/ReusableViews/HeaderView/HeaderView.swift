@@ -16,6 +16,7 @@ class HeaderView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        viewAllBtn.isHidden = true
     }
     
     @IBAction func didClickViewAll(_ sender: Any) {

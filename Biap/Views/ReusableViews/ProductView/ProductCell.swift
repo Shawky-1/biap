@@ -11,6 +11,7 @@ class ProductCell: UICollectionViewCell {
 
     @IBOutlet weak var productImage: UIImageView!
     
+    @IBOutlet weak var inStockLbl: UILabel!
     @IBOutlet weak var productName: UILabel!
     
     @IBOutlet weak var favoriteButton: UIButton!

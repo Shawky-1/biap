@@ -50,6 +50,7 @@ class HomeVC: UIViewController {
         collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
         collectionView.register(UINib(nibName: "BrandsCell", bundle: nil), forCellWithReuseIdentifier: "BrandsCell")
         collectionView.register(UINib(nibName: "CouponsCell", bundle: nil), forCellWithReuseIdentifier: "CouponsCell")
+        collectionView.register(UINib(nibName: "FeaturedCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedCell")
         startTimer()
         
     }
@@ -69,7 +70,7 @@ class HomeVC: UIViewController {
         }else{
             currentCellIndex = 0
         }
-        collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+//        collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     
@@ -86,13 +87,14 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
             
         case 0: return viewModel.adsArr.count
         case 1: return viewModel.listOfBrands?.smart_collections.count ?? 1
+        case 2: return viewModel.trendingProducts.count
         default: return 10
         }
     }
@@ -108,11 +110,17 @@ extension HomeVC: UICollectionViewDataSource{
 
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCell", for: indexPath) as! BrandsCell
-            cell.brandName.text = viewModel.listOfBrands?.smart_collections[indexPath.row].title
+//            cell.brandName.text = viewModel.listOfBrands?.smart_collections[indexPath.row].title
             let brandImageUrl = URL(string: viewModel.listOfBrands?.smart_collections[indexPath.row].image.src ?? "")
             cell.brandImageV.kf.setImage(with: brandImageUrl)
             return cell
         
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedCell", for: indexPath) as! FeaturedCell
+            
+            cell.configureCell(product: viewModel.trendingProducts[indexPath.row])
+            
+            return cell
         default:
            
             return UICollectionViewCell()
@@ -134,6 +142,8 @@ extension HomeVC: UICollectionViewDataSource{
             view.didClickViewAll = { id in
                 print("case 1")
             }
+        case 2:
+            view.headerLbl.text = "Featured products"
         default:
             view.headerLbl.text = ""
             view.viewAllBtn.isHidden = true
