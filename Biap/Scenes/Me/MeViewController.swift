@@ -29,7 +29,7 @@ class MeViewController: UIViewController {
             
         } else {
             //navigate to  setting page
-            let vc = SettingViewController(nibName: "SettingViewController", bundle: nil)
+            let vc = SettingsView(nibName: "SettingsView", bundle: nil)
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }

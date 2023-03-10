@@ -162,6 +162,40 @@ class NetworkManger{
         
         
     }
+    
+    
+    static func CreateAddress(address: Address, completion: @escaping (Address?) -> ()) {
+            
+        let url = URLS.baseURL +  "/customers/\(address.customerId)/addresses.json"
+        let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,
+                                    "Content-Type": "application/json"]
+        let parameters: [String: Any] = ["customer_address": ["customer_id": address.customerId,
+                                                              "address1": address.address1!,
+                                                              "city": address.city!,
+                                                              "country": address.country!]]
+            
+        AF.request(url, method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: headers).validate(statusCode: 200 ..< 300).response { response in
+           
+            
+            switch response.result {
+            case .success(let data):
+                do {
+                    let addResp = try JSONDecoder().decode(AddressResponse.self, from: data!)
+                    completion(addResp.customer_address)
+                } catch let error {
+                    print(error.localizedDescription)
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil)
+                
+            }
+        }
+    }
 }
 
 enum AppErrors: Error {
