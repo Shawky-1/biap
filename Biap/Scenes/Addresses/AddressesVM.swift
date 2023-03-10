@@ -17,9 +17,9 @@ class AddressesVM{
         }
     }
     
-    func createAddress(adr: Address) {
-        NetworkManger.CreateAddress(address: adr) { [weak self] (result: Address?) in
-            self?.customerAdr = result
-        }
-    }
+//    func createAddress(adr: Address) {
+//        NetworkManger.CreateAddress(address: adr) { [weak self] (result: Address?) in
+//            self?.customerAdr = result
+//        }
+//    }
 }

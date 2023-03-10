@@ -100,18 +100,18 @@ struct Address: Codable {
     let customerId: Int
     let firstName: String
     let lastName: String
-    let company: String
+    let company: String?
     let address1: String?
-    let address2: String
+    let address2: String?
     let city: String?
-    let province: String
+    let province: String?
     let country: String? = "Egypt"
-    let zip: String
-    let phone: String
+    let zip: String?
+    let phone: String?
     let name: String
-    let provinceCode: String
-    let countryCode: String
-    let countryName: String
+    let provinceCode: String?
+    let countryCode: String?
+    let countryName: String?
     let isDefault: Bool = true
     
     enum CodingKeys: String, CodingKey {

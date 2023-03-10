@@ -52,6 +52,7 @@ class LoginVM: ViewModel {
     }
     
     func storeCustomer(){
+        UserDefaults.standard.setValue(self.customer?.id, forKey: "id")
         UserDefaults.standard.setValue(self.customer?.email, forKey: "email")
         UserDefaults.standard.setValue(self.customer?.firstName, forKey: "firstName")
         UserDefaults.standard.setValue(self.customer?.lastName, forKey: "lastName")

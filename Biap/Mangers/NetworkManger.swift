@@ -40,7 +40,6 @@ class NetworkManger{
                     let customerResponse = try JSONDecoder().decode(CustomerResponse.self, from: data!)
                     completion(.success(customerResponse.customer))
                 } catch let error {
-                    print(error.localizedDescription)
                     if let apiError = error as? APIError {
                         completion(.failure(apiError))
                     } else {
@@ -186,34 +185,34 @@ class NetworkManger{
     }
     
     
-    static func CreateAddress(address: Address, completion: @escaping (Address?) -> ()) {
+    static func CreateAddress(address: Address, completion: @escaping (Result<Address, Error>) -> ()) {
             
         let url = URLS.baseURL +  "/customers/\(address.customerId)/addresses.json"
         let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,
                                     "Content-Type": "application/json"]
-        let parameters: [String: Any] = ["customer_address": ["customer_id": address.customerId,
+        let parameters: [String: Any] = ["address": ["customer_id": address.customerId,
                                                               "address1": address.address1!,
                                                               "city": address.city!,
                                                               "country": address.country!]]
-            
+            dump(parameters)
         AF.request(url, method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default,
-                   headers: headers).validate(statusCode: 200 ..< 300).response { response in
+                   headers: headers).validate(statusCode: 200 ..< 550).response { response in
            
             
             switch response.result {
             case .success(let data):
                 do {
                     let addResp = try JSONDecoder().decode(AddressResponse.self, from: data!)
-                    completion(addResp.customer_address)
+                    completion(.success(addResp.customer_address))
                 } catch let error {
                     print(error.localizedDescription)
                     print(error)
                 }
             case .failure(let error):
                 print(error)
-                completion(nil)
+                completion(.failure(error))
                 
             }
         }

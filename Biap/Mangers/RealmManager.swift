@@ -51,6 +51,13 @@ class RealmManager {
     func getObject<T: Object>(_ type: T.Type, primaryKey: Any) -> T? {
         return realm.object(ofType: type, forPrimaryKey: primaryKey)
     }
+    
+    func deleteAll() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
 }
 
 

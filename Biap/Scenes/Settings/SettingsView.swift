@@ -29,6 +29,20 @@ class SettingsView: UIViewController {
 
         
     }
+    
+    
+    @IBAction func didClickLogOut(_ sender: Any) {
+        UserDefaults.standard.setValue(nil, forKey: "id")
+        UserDefaults.standard.setValue(nil, forKey: "email")
+        UserDefaults.standard.setValue(nil, forKey: "firstName")
+        UserDefaults.standard.setValue(nil, forKey: "lastName")
+        UserDefaults.standard.setValue(nil, forKey: "phone")
+        RealmManager.shared.deleteAll()
+        let login = LoginVC(nibName: "LoginVC", bundle: nil)
+        login.modalPresentationStyle = .fullScreen
+        self.present(login, animated: true, completion: nil)
+    }
+    
 }
 
 extension SettingsView: UITableViewDelegate, UITableViewDataSource{

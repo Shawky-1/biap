@@ -13,6 +13,7 @@ class homeVM: ViewModel{
     func viewDidLoad() {
         getbrands()
         getCoupons()
+        createAddress()
     }
     var adsArr:[coupon] = []
     var bindResultToHomeView:(() -> ()) = {}
@@ -38,5 +39,17 @@ class homeVM: ViewModel{
         adsArr.append(coupon(code: "VFSSW20", image: "ad1"))
         adsArr.append(coupon(code: "EFYSS10", image: "ad2"))
         adsArr.append(coupon(code: "SUVXX50", image: "ad3"))
+    }
+    
+    func createAddress(){
+        let address = Address(customerID: 6867977863473, Address1: "Address5", City: "Cairo", Country: "Egypt")
+        NetworkManger.CreateAddress(address: address) { result in
+            switch result {
+            case .success(let address):
+                dump(address)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
     }
 }
