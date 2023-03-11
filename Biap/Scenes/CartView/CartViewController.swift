@@ -27,9 +27,13 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupUI()
         loadDatafromRealm()
         tableView.reloadData()
+
     }
     
     func loadDatafromRealm(){
@@ -61,6 +65,7 @@ class CartViewController: UIViewController {
     @IBAction func checkOutAction(_ sender: Any) {
         if (UserDefaults.standard.string(forKey: "email") != nil){
             let vc = PaymentOptions(nibName: "PaymentOptions", bundle: nil)
+            vc.cart = self.cartArray
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
@@ -86,12 +91,15 @@ extension CartViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartCell", for: indexPath) as! ShoppingCartCell
-        
+        cell.item = cartArray[indexPath.row]
         cell.productName.text = cartArray[indexPath.row].name
         cell.productSize.text = cartArray[indexPath.row].size
         cell.productColor.text = cartArray[indexPath.row].color
         cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.row].price * ((cell.productQuantity.text)! as NSString).doubleValue)
         cell.originalPrice = cell.productPrice.text!
+//        cell.productQuantity.text = String(cartArray[indexPath.row].quantity)
+//        cell.stepper.value = Double(cartArray[indexPath.row].quantity)
+        
         let productImageUrl = URL(string: cartArray[indexPath.row].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
             
@@ -139,9 +147,16 @@ extension CartViewController:UITableViewDataSource{
         
         //bind Prices
         cell.bindPricesToTableView = {[weak self] totalPrice in
-            let sum1 = self!.sum
-            self?.sum = sum1 + totalPrice
-            self?.subTotal.text = String(format: "%.2f", sum1 + totalPrice)
+            guard let self = self else {return}
+            if let product = try! Realm().objects(Cart.self).filter("variantId == %@", cell.item.variantId).first{
+                try! self.realm.write({
+                    product.quantity = Int(cell.stepper.value)
+                })
+            }
+
+            let sum1 = self.sum
+            self.sum = sum1 + totalPrice
+            self.subTotal.text = String(format: "%.2f", sum1 + totalPrice)
         }
     
         return cell

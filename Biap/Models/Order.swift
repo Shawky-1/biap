@@ -44,3 +44,28 @@ struct orderProperies:Codable{
     let current_total_price:String?
 }
 
+
+
+struct OrderResponse: Decodable {
+    let id: Int
+    let confirmed: Bool
+    let contactEmail: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case order
+    }
+    
+    enum OrderCodingKeys: String, CodingKey {
+        case id
+        case confirmed
+        case contactEmail = "contact_email"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let orderValues = try values.nestedContainer(keyedBy: OrderCodingKeys.self, forKey: .order)
+        id = try orderValues.decode(Int.self, forKey: .id)
+        confirmed = try orderValues.decode(Bool.self, forKey: .confirmed)
+        contactEmail = try orderValues.decodeIfPresent(String.self, forKey: .contactEmail)
+    }
+}

@@ -22,6 +22,7 @@ class ShoppingCartCell: UITableViewCell {
     var bindPricesToTableView:((Double) -> ())?
     var bindDeleteToTableView:(() -> ())?
     var oldValue:Double = 0.0
+    var item: Cart!
     
     
     var originalPrice:String = ""

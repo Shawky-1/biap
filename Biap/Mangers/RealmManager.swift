@@ -81,6 +81,13 @@ extension RealmManager{
              try! Realm().delete(delProduct)
          })
     }
+    
+    static func deleteCart(){
+        let delProduct = try! Realm().objects(Cart.self)
+         try! Realm().write({
+             try! Realm().delete(delProduct)
+         })
+    }
 }
 
 

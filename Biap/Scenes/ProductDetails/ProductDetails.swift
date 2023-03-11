@@ -117,6 +117,7 @@ class ProductDetails: UIViewController {
                 obj.price = self.price
                 obj.variantId = self.variantId
                 obj.productId = self.id
+                obj.quantity = 1
                 RealmManager.saveDataToCart(obj: obj)
               
                 let alert:UIAlertController = UIAlertController(title: "", message: "Item is added successfully to your shopping cart", preferredStyle: .alert)

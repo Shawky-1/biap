@@ -206,6 +206,7 @@
 		E2207AC529B952AC0080437B /* SearchResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVM.swift; sourceTree = "<group>"; };
 		E2300B3529B97E9A00A60BDC /* FeaturedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCell.swift; sourceTree = "<group>"; };
 		E2300B3629B97E9A00A60BDC /* FeaturedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedCell.xib; sourceTree = "<group>"; };
+		E25E2B0529BCCC6C007F1791 /* Biap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biap.entitlements; sourceTree = "<group>"; };
 		E2793B5629AFD38C0060BE7B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E2793B5729AFD38C0060BE7B /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		E2793B5A29AFD5DA0060BE7B /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
@@ -633,6 +634,7 @@
 		E28F531E29AE7D1500FB99EF /* Biap */ = {
 			isa = PBXGroup;
 			children = (
+				E25E2B0529BCCC6C007F1791 /* Biap.entitlements */,
 				E28F535429AF9A9C00FB99EF /* Utilities */,
 				E2793B5C29B002160060BE7B /* Helpers */,
 				E28F536229AFD0D000FB99EF /* Protocols */,
@@ -1316,6 +1318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Biap/Biap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQP2A9KA89;
@@ -1330,7 +1333,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.Biap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedAlabiad.Biap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1344,6 +1347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Biap/Biap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQP2A9KA89;
@@ -1358,7 +1362,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.AhmedShawky.Biap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedAlabiad.Biap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
