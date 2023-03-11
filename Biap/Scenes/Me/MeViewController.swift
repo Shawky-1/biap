@@ -20,7 +20,8 @@ class MeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         viewModel = MeViewModel()
-        viewModel.getOrders(url: urls.ordersUrl(id: 6863743451441))
+        let id = UserDefaults.standard.string(forKey: "id") ?? ""
+        viewModel.getOrders(url: urls.ordersUrl(id: id/*"6863743451441"*/))
         viewModel.bindResultToMeView = {[weak self] in
             guard let self = self else {return}
             self.ordersTableView.reloadData()
@@ -53,6 +54,8 @@ class MeViewController: UIViewController {
         settingButton.tintColor = .label
         let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
         cartButton.tintColor = .label
+        ordersTableView.allowsSelection = false
+        self.title = "Account"
         navigationItem.rightBarButtonItems = [settingButton,cartButton]
         registerButton.cornerRadius = registerButton.bounds.height / 2
         ordersTableView.registerCellNib(cellClass: OrdersCell.self)

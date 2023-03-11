@@ -54,10 +54,10 @@
             <size key="customSize" width="159" height="145"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                    <color key="value" systemColor="systemGray4Color"/>
+                    <color key="value" systemColor="systemGray2Color"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                    <real key="value" value="1"/>
+                    <real key="value" value="2"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <real key="value" value="20"/>
@@ -71,6 +71,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

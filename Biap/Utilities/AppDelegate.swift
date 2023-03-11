@@ -20,11 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults.standard
         // Check if Walkthrough is completed
-        defaults.setValue(true, forKey: "WalkthroughCompleted")
+        
         if defaults.bool(forKey: "WalkthroughCompleted") {
             // Check if email exists
             if defaults.string(forKey: "email") != nil {
                 let TabBarVC = CustomTabbarVC()
+                TabBarVC.tabBar.tintColor = UIColor.label
                 window?.rootViewController = TabBarVC
             } else {
                 let loginVC = LoginVC()
@@ -33,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window?.rootViewController = navController
             }
         } else {
-            let walkthroughVC = LoginVC() // Instantiate your WalkthroughVC here
+            let walkthroughVC = Walkthrough()
+            defaults.setValue(true, forKey: "WalkthroughCompleted")
             let navController = UINavigationController(rootViewController: walkthroughVC)
             window?.rootViewController = navController
         }

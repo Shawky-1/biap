@@ -22,6 +22,7 @@ class ProductsView: UIViewController {
     var viewModel:productVM!
     let realm = try! Realm()
     var filteredProducts:products?
+    let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +39,27 @@ class ProductsView: UIViewController {
     
     
     func setupUI(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
-        self.navigationItem.rightBarButtonItem?.tintColor = .label
-        self.navigationController?.navigationBar.tintColor = UIColor.label
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass") , style: .plain, target: self, action: #selector(searchButton))
+        searchButton.tintColor = .label
+        let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        cartButton.tintColor = .label
+        navigationItem.rightBarButtonItems = [cartButton,searchButton]
+        searchBar.delegate = self
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
     }
     
     @objc func cartButton(sender:UIBarButtonItem){
         let vc = CartViewController(nibName: "CartViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
+        
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func searchButton(sender:UIBarButtonItem){
+        navigationItem.titleView = searchBar
+        searchBar.showsCancelButton = true
+        navigationItem.rightBarButtonItems = nil
+        searchBar.becomeFirstResponder()
+ 
     }
     
     @IBAction func segmentController(_ sender: Any) {
@@ -135,9 +147,9 @@ extension ProductsView: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
-        vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
+        vc.id = filteredProducts?.products[indexPath.row].id ?? 0
         vc.price = viewModel.priceArr[indexPath.row]
-        vc.variantId = viewModel.listOfProducts?.products[indexPath.row].variants?[0].id ?? 0
+        vc.variantId = filteredProducts?.products[indexPath.row].variants?[0].id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -155,6 +167,17 @@ extension ProductsView:UISearchBarDelegate{
                 $0.title!.lowercased().contains(searchText.lowercased()) }
             collectionView.reloadData()
         }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationItem.titleView = nil
+        searchBar.text = ""
+        filteredProducts = viewModel.listOfProducts
+        collectionView.reloadData()
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass") , style: .plain, target: self, action: #selector(searchButton))
+        searchButton.tintColor = .label
+        let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
+        cartButton.tintColor = .label
+        navigationItem.rightBarButtonItems = [cartButton,searchButton]
     }
     
 }
