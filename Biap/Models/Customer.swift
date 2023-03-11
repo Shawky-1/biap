@@ -95,6 +95,10 @@ struct AddressResponse: Codable{
     let customer_address: Address
 }
 
+struct ListOfAddresses: Codable{
+    let addresses: [Address]
+}
+
 struct Address: Codable {
     let id: Int
     let customerId: Int
