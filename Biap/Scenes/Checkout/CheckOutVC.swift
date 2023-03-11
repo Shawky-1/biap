@@ -16,12 +16,35 @@ class CheckOutVC: UIViewController {
         }
     }
     
+    var viewModel: CheckOutVM!
+    @IBOutlet weak var titleLbl: UILabel!
     var payWithCard:Bool = false
-//    var customer:Customer
-//    var order:String // OF type order in future
-
-
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Checkout"
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.titleLbl.text = "Total ammount: \(viewModel.totalAmmount())"
+        viewModel.orderSucessful = {bool in
+            if bool {
+                self.presentAlertViewWithOneButtonMIV(alertTitle: "Order", alertMessage: "Order Created sucessfully!", btnOneTitle: "Ok") { action in
+                    RealmManager.deleteCart()
+                    self.navigationController?.popViewController(animated: true)
+                    
+                }
+            } else {
+                self.presentAlertViewWithOneButtonMIV(alertTitle: "Order", alertMessage: "Error creating the order.", btnOneTitle: "Ok") { action in
+                    
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func didClickCheckout(_ sender: Any) {
+        viewModel.createOrder()
+    }
+    
 }
 
 extension CheckOutVC: UITableViewDataSource, UITableViewDelegate{

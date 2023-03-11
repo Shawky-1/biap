@@ -20,41 +20,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-Sq-uTk">
-                    <rect key="frame" x="0.0" y="59" width="393" height="643"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-DG-HHo">
-                    <rect key="frame" x="40" y="732" width="313" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="cMk-Wi-Ll3"/>
-                    </constraints>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="CONTINUE TO PAYMENT">
-                        <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </buttonConfiguration>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="25"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="continueToPayment:" destination="-1" eventType="touchUpInside" id="SIf-re-wkg"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="AjP-Sq-uTk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2yW-n1-RLr"/>
-                <constraint firstAttribute="bottom" secondItem="eRJ-DG-HHo" secondAttribute="bottom" constant="70" id="B4r-vV-KCf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eRJ-DG-HHo" secondAttribute="trailing" constant="40" id="B7R-x5-xwl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AjP-Sq-uTk" secondAttribute="bottom" id="3JR-gp-TUo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AjP-Sq-uTk" secondAttribute="trailing" id="KvA-fp-GMj"/>
                 <constraint firstItem="AjP-Sq-uTk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hGv-TW-foV"/>
-                <constraint firstItem="eRJ-DG-HHo" firstAttribute="top" secondItem="AjP-Sq-uTk" secondAttribute="bottom" constant="30" id="hiU-sJ-xUN"/>
-                <constraint firstItem="eRJ-DG-HHo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="kWD-wS-2LC"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

@@ -48,6 +48,8 @@ class FavoritesView: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         tableView.registerCellNib(cellClass: FavoritesCell.self)
+        self.title = "Favorites"
+        tableView.allowsSelection = false
     }
     
     //bar button
@@ -121,6 +123,7 @@ extension FavoritesView:UITableViewDelegate{
         return 138
     }
     
+
    
 }
 

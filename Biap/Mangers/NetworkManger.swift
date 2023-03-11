@@ -12,20 +12,20 @@ class NetworkManger{
     static let AFSession = Alamofire.Session()
     
     static func CreateCustomer(customer: Customer, completion: @escaping (Result<Customer, Error>) -> ()) {
-            
+        
         let url = URLS.baseURL + URLS.customer.newCustomer.rawValue
         let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,
                                     "Content-Type": "application/json"
         ]
         let parameters: [String: Any] = ["customer": ["first_name": customer.firstName!,
-                                                       "last_name" : customer.lastName!,
-                                                       "email": customer.email,
-                                                       "note": customer.note!,
-                                                       "phone": customer.phone!]]
+                                                      "last_name" : customer.lastName!,
+                                                      "email": customer.email,
+                                                      "note": customer.note!,
+                                                      "phone": customer.phone!]]
         dump(url)
         dump(headers)
         dump(parameters)
-            
+        
         AF.request(url, method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default,
@@ -65,9 +65,9 @@ class NetworkManger{
             }
         }
     }
-
-
-
+    
+    
+    
     
     static func searchCustomer(email: String, complition: @escaping(Result<Customer, Error>) -> ()){
         let url = URLS.baseURL + URLS.customer.searchCustomer.rawValue
@@ -93,7 +93,7 @@ class NetworkManger{
             }
         }
     }
-
+    
     
     
     
@@ -206,20 +206,20 @@ class NetworkManger{
     }
     
     static func CreateAddress(address: Address, completion: @escaping (Result<Address, Error>) -> ()) {
-            
+        
         let url = URLS.baseURL +  "/customers/\(address.customerId)/addresses.json"
         let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,
                                     "Content-Type": "application/json"]
         let parameters: [String: Any] = ["address": ["customer_id": address.customerId,
-                                                              "address1": address.address1!,
-                                                              "city": address.city!,
-                                                              "country": address.country!]]
-            dump(parameters)
+                                                     "address1": address.address1!,
+                                                     "city": address.city!,
+                                                     "country": address.country!]]
+        dump(parameters)
         AF.request(url, method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default,
                    headers: headers).validate(statusCode: 200 ..< 550).response { response in
-           
+            
             
             switch response.result {
             case .success(let data):
@@ -237,10 +237,52 @@ class NetworkManger{
             }
         }
     }
+    
+    static func createOrder(lineItems: [LineItem], completion: @escaping (Result<OrderResponse, Error>) -> ()) {
+        let url = URLS.baseURL + "/orders.json"
+        let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,
+                                    "Content-Type": "application/json"]
+        let userID = UserDefaults.standard.integer(forKey: "id")
+        
+        let lineItemDicts = lineItems.map { item in
+            ["variant_id": item.variantID, "quantity": item.quantity]
+        }
+        
+        let parameters: [String: Any] = [
+            "order": [
+                "line_items": lineItemDicts,
+                "customer": [
+                    "id": userID
+                ]
+            ]
+        ]
+        print(userID)
+        print(parameters)
+        print(url)
+        
+        AF.request(url, method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: headers).validate(statusCode: 200 ..< 501).response { response in
+            switch response.result {
+            case .success(let data):
+                if let order = try? JSONDecoder().decode(OrderResponse.self, from: data!) {
+                    completion(.success(order))
+                } else {
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to decode Order"])
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+
+        }
+    }
 }
 
-enum AppErrors: Error {
 
+enum AppErrors: Error {
+    
     case serverError(Error)
     case noCustomers
     case invalidResponse

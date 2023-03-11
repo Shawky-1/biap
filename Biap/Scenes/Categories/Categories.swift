@@ -36,6 +36,7 @@ class Categories: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.register(UINib(nibName: "CategoriesCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCell")
+        self.title = "Categories"
     }
     
     @objc func cartButton(sender:UIBarButtonItem){

@@ -16,6 +16,7 @@ class Cart:Object{
     @objc dynamic var variantId:Int = 0
     @objc dynamic var productId:Int = 0
     @objc dynamic var price:Double = 0.0
+    @objc dynamic var quantity:Int = 1
     
     /*init(name: String? = nil, size: String? = nil, color: String? = nil, image: String? = nil, variantId: Int, productId: Int, price: Double) {
         self.name = name

@@ -78,6 +78,7 @@ class ProductDetails: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
+        self.title = "Product Details"
         addButton.cornerRadius = addButton.bounds.height / 2
         pageControl.cornerRadius = pageControl.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
@@ -117,6 +118,7 @@ class ProductDetails: UIViewController {
                 obj.price = self.price
                 obj.variantId = self.variantId
                 obj.productId = self.id
+                obj.quantity = 1
                 RealmManager.saveDataToCart(obj: obj)
               
                 let alert:UIAlertController = UIAlertController(title: "", message: "Item is added successfully to your shopping cart", preferredStyle: .alert)
