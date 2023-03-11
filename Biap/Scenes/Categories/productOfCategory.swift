@@ -145,9 +145,9 @@ extension productOfCategory: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
-        vc.id =  viewModel.listOfProducts?.products[indexPath.row].id ?? 0
+        vc.id = filteredProducts?.products[indexPath.row].id ?? 0
         vc.price = viewModel.priceArr[indexPath.row]
-        vc.variantId = viewModel.listOfProducts?.products[indexPath.row].variants?[0].id ?? 0
+        vc.variantId = filteredProducts?.products[indexPath.row].variants?[0].id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -167,6 +167,9 @@ extension productOfCategory:UISearchBarDelegate{
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         navigationItem.titleView = nil
+        searchBar.text = ""
+        filteredProducts = viewModel.listOfProducts
+        collectionView.reloadData()
         let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass") , style: .plain, target: self, action: #selector(searchButton))
         searchButton.tintColor = .label
         let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))

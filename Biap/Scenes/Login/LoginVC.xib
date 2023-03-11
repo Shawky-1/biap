@@ -24,8 +24,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-5j-KyK">
-                    <rect key="frame" x="124" y="65.000000000000014" width="145" height="143.33333333333331"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-5j-KyK">
+                    <rect key="frame" x="124" y="64" width="145" height="145"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nfq-5j-KyK" secondAttribute="height" multiplier="1:1" id="8rO-hn-8a8"/>
                     </constraints>
@@ -250,14 +250,14 @@
     </objects>
     <designables>
         <designable name="BZJ-pp-FFz">
-            <size key="intrinsicContentSize" width="220.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="160.33333333333334" height="22"/>
         </designable>
         <designable name="Pig-uB-Ltl">
-            <size key="intrinsicContentSize" width="147.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="127.33333333333333" height="22"/>
         </designable>
     </designables>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="logo2" width="163" height="163"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

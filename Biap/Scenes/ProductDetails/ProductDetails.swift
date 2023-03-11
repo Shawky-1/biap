@@ -78,6 +78,7 @@ class ProductDetails: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
+        self.title = "Product Details"
         addButton.cornerRadius = addButton.bounds.height / 2
         pageControl.cornerRadius = pageControl.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
