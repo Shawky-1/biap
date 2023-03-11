@@ -93,7 +93,7 @@ class HomeCompositionalLayoutHelper {
         
         
         let horizontalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.4))
-        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [largelItem, vertialGroup])
+        let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizontalGroupSize, subitems: [largelItem])
         
         //Section
         let section = NSCollectionLayoutSection(group: horizontalGroup)

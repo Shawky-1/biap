@@ -88,21 +88,24 @@ class CartViewController: UIViewController {
 
 extension CartViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartArray.count
+        1
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        cartArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCartCell", for: indexPath) as! ShoppingCartCell
-        cell.item = cartArray[indexPath.row]
-        cell.productName.text = cartArray[indexPath.row].name
-        cell.productSize.text = cartArray[indexPath.row].size
-        cell.productColor.text = cartArray[indexPath.row].color
-        cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.row].price * ((cell.productQuantity.text)! as NSString).doubleValue)
+        cell.item = cartArray[indexPath.section]
+        cell.productName.text = cartArray[indexPath.section].name
+        cell.productSize.text = cartArray[indexPath.section].size
+        cell.productColor.text = cartArray[indexPath.section].color
+        cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.section].price * ((cell.productQuantity.text)! as NSString).doubleValue)
         cell.originalPrice = cell.productPrice.text!
 //        cell.productQuantity.text = String(cartArray[indexPath.row].quantity)
 //        cell.stepper.value = Double(cartArray[indexPath.row].quantity)
         
-        let productImageUrl = URL(string: cartArray[indexPath.row].image ?? "")
+        let productImageUrl = URL(string: cartArray[indexPath.section].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
             
         
@@ -116,7 +119,7 @@ extension CartViewController:UITableViewDataSource{
                
                 let products = try! Realm().objects(Cart.self)
                 try! self.realm.write({
-                    self.realm.delete(products[indexPath.row])
+                    self.realm.delete(products[indexPath.section])
                 })
                 self.cartArray.removeAll()
                 for each in products{
@@ -141,7 +144,7 @@ extension CartViewController:UITableViewDataSource{
             alert.addAction(UIAlertAction(title: "No", style: .default,handler: { action in
                 cell.stepper.value = 1
                 cell.productQuantity.text =  String(format: "%.0f", cell.stepper.value)
-                cell.productPrice.text = String(format: "%.2f", self.cartArray[indexPath.row].price * ((cell.productQuantity.text)! as NSString).doubleValue)
+                cell.productPrice.text = String(format: "%.2f", self.cartArray[indexPath.section].price * ((cell.productQuantity.text)! as NSString).doubleValue)
             }))
             
             self.present(alert,animated: true,completion: nil)
@@ -165,8 +168,14 @@ extension CartViewController:UITableViewDataSource{
     }
     
    
-    
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
 }
 
 extension CartViewController:UITableViewDelegate{

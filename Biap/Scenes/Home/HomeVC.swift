@@ -168,6 +168,14 @@ extension HomeVC: UICollectionViewDelegate{
             VC.hidesBottomBarWhenPushed = true
             VC.vendor =  viewModel.listOfBrands?.smart_collections[indexPath.row].title ?? ""
             self.navigationController?.pushViewController(VC, animated: true)
+        case 2:
+            let productDetailsVC = ProductDetails(nibName: "ProductDetails", bundle: nil)
+            productDetailsVC.id = viewModel.trendingProducts[indexPath.row].id ?? 0
+            let price = viewModel.trendingProducts[indexPath.row].variants?[0].price ?? ""
+            productDetailsVC.price = Double(price) ?? 0.0
+            productDetailsVC.variantId = viewModel.trendingProducts[indexPath.row].variants?[0].id ?? 0
+            productDetailsVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(productDetailsVC, animated: true)
         default:
             break
         }

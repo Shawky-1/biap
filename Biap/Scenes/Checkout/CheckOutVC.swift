@@ -49,7 +49,7 @@ class CheckOutVC: UIViewController {
 
 extension CheckOutVC: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -64,12 +64,6 @@ extension CheckOutVC: UITableViewDataSource, UITableViewDelegate{
             } else {
                 return UITableViewCell()
             }
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as! AddressCell
-            return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as! AddressCell
-            return cell
         default:
             return UITableViewCell()
         }
@@ -83,10 +77,6 @@ extension CheckOutVC: UITableViewDataSource, UITableViewDelegate{
             } else {
                 return ""
             }
-        case 1:
-            return "Shipping details"
-        case 2:
-            return "Billing Details"
         default:
             return ""
         }
@@ -100,8 +90,6 @@ extension CheckOutVC: UITableViewDataSource, UITableViewDelegate{
             } else {
                 return 0
             }
-        case 1:
-            return self.view.bounds.height / 3.5
         default:
             return self.view.bounds.height / 3.5
 

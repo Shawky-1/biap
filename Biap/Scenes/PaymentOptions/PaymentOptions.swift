@@ -57,11 +57,6 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
         let option = Payments[indexPath.section].options[indexPath.row]
         cell.paymentOptionLabel.text = option
         
-//        if option == selectedOption {
-//            cell.paymentOptionImage.image = UIImage(named: "radio-filled")
-//            cell.isChecked = true
-//            paymentOptionsTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-//        }
         cell.selectionStyle = .none
         
         return cell
@@ -74,27 +69,16 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
         checkOutVM.cart = self.cart
         let checkOutVC = CheckOutVC()
         checkOutVC.viewModel = checkOutVM
-        if indexPath.row == 0{
+        if indexPath.section == 0{
             checkOutVC.payWithCard = true
             self.navigationController?.pushViewController(checkOutVC, animated: true)
-        } else if indexPath.row == 1 {
-            checkOutVC.payWithCard = true
+        } else if indexPath.section == 1 {
+            checkOutVC.payWithCard = false
             self.navigationController?.pushViewController(checkOutVC, animated: true)
             
         }
-//        if cell.isChecked == false{
-//            cell.paymentOptionImage.image = UIImage(named: "radio-filled")
-//        }else{
-//            cell.paymentOptionImage.image = UIImage(named: "radio-empty")
-//        }
-//        cell.isChecked = !cell.isChecked
     }
     
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        let cell = paymentOptionsTable.cellForRow(at: indexPath) as! PaymentsCell
-//        cell.paymentOptionImage.image = UIImage(named: "radio-empty")
-//        cell.isChecked = false
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100

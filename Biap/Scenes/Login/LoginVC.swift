@@ -52,6 +52,8 @@ class LoginVC: UIViewController {
     func navigateToHomeVC(){
         let viewController = CustomTabbarVC(nibName: "CustomTabbarVC", bundle: nil)
         viewController.modalPresentationStyle = .fullScreen
+        viewController.tabBar.tintColor = UIColor.label
+
         self.present(viewController, animated: true, completion: nil)
     }
     

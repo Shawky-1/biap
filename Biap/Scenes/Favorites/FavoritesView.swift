@@ -63,15 +63,18 @@ class FavoritesView: UIViewController {
 
 extension FavoritesView:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favArray.count
+        return 1
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        favArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesCell
         
-        cell.productName.text = favArray[indexPath.row].name
-        cell.productPrice.text = String(format: "%.2f", favArray[indexPath.row].price)
-        let productImageUrl = URL(string: favArray[indexPath.row].image ?? "")
+        cell.productName.text = favArray[indexPath.section].name
+        cell.productPrice.text = String(format: "%.2f", favArray[indexPath.section].price)
+        let productImageUrl = URL(string: favArray[indexPath.section].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         
         
@@ -84,7 +87,7 @@ extension FavoritesView:UITableViewDataSource{
                
                 let products = try! Realm().objects(Favorite.self)
                 try! self.realm.write({
-                    self.realm.delete(products[indexPath.row])
+                    self.realm.delete(products[indexPath.section])
                 })
                 self.favArray.removeAll()
                 for each in products{
@@ -106,15 +109,24 @@ extension FavoritesView:UITableViewDataSource{
         cell.bindAddToFavoritesView = {[weak self] in
             guard let self = self else {return}
             let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
-            vc.id =  self.favArray[indexPath.row].productId
-            vc.price = self.favArray[indexPath.row].price
-            vc.variantId = self.favArray[indexPath.row].variantId
+            vc.id =  self.favArray[indexPath.section].productId
+            vc.price = self.favArray[indexPath.section].price
+            vc.variantId = self.favArray[indexPath.section].variantId
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
            
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
 }
 
