@@ -46,6 +46,7 @@ class LoginVC: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         loginBtn.cornerRadius = loginBtn.bounds.height / 2
         registerBtn.cornerRadius = loginBtn.bounds.height / 2
+        navigationItem.hidesBackButton = true
     }
     
     func navigateToHomeVC(){
