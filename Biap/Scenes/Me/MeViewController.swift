@@ -21,7 +21,7 @@ class MeViewController: UIViewController {
         setupUI()
         viewModel = MeViewModel()
         let id = UserDefaults.standard.string(forKey: "id") ?? ""
-        viewModel.getOrders(url: urls.ordersUrl(id: id/*"6863743451441"*/))
+        viewModel.getOrders(url: urls.ordersUrl(id: id))
         viewModel.bindResultToMeView = {[weak self] in
             guard let self = self else {return}
             self.ordersTableView.reloadData()
