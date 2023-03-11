@@ -48,7 +48,13 @@ class urls{
         return url
     }
     
-    static func ordersUrl(id:String) -> String{
+    static func customerAddresses(customerID:Int) -> String {
+        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/customers/\(customerID)/addresses.json?"
+        
+        return url
+    }
+    
+    static func ordersUrl(id:Int) -> String{
         let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/orders.json?customer_id=\(id)"
         
         return url

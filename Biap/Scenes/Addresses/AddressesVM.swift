@@ -9,17 +9,24 @@ import Foundation
 
 class AddressesVM{
     
-    var getAddress: (() -> ()) = {}
+    var bindResultToAddressesView:(() -> ()) = {}
     
-    var customerAdr :Address!{
+    var listOfaddresses:ListOfAddresses!{
         didSet{
-            getAddress()
+            bindResultToAddressesView()
         }
     }
     
-//    func createAddress(adr: Address) {
-//        NetworkManger.CreateAddress(address: adr) { [weak self] (result: Address?) in
-//            self?.customerAdr = result
-//        }
-//    }
+    func getListOfAddresses(url:String){
+        NetworkManger.fetchAddresses(url: url) { [weak self] result in
+            guard let self = self else {return}
+            switch result{
+            case .success(let addresses):
+                self.listOfaddresses = addresses
+                
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
 }
