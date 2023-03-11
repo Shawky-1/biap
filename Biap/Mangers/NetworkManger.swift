@@ -193,7 +193,6 @@ class NetworkManger{
                 do{
                     let addr = try JSONDecoder().decode(ListOfAddresses.self, from: data!)
                     complition(.success(addr))
-                    print(addr)
                 }catch{
                     complition(.failure(error))
                 }

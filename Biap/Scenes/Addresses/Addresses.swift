@@ -22,6 +22,7 @@ class Addresses: UIViewController {
         addressesTable.delegate = self
         addressesTable.dataSource = self
         addressesTable.register(UINib(nibName: "SettingsAddressCell", bundle: nil), forCellReuseIdentifier: "SettingsAddressCell")
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         
     }
     
@@ -44,15 +45,19 @@ class Addresses: UIViewController {
 
 extension Addresses: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         addresses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = addressesTable.dequeueReusableCell(withIdentifier: "SettingsAddressCell", for: indexPath) as! SettingsAddressCell
         
-        cell.country.text = addresses?[indexPath.row].country
-        cell.city.text = addresses?[indexPath.row].city
-        cell.address.text = addresses?[indexPath.row].address1
+        cell.country.text = addresses?[indexPath.section].country
+        cell.city.text = addresses?[indexPath.section].city
+        cell.address.text = addresses?[indexPath.section].address1
         
         
         return cell
@@ -60,6 +65,15 @@ extension Addresses: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
     

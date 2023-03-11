@@ -20,24 +20,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XHp-3U-Vn6">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="722"/>
+                    <rect key="frame" x="10" y="69" width="373" height="659"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZS-bO-SfH">
                     <rect key="frame" x="40" y="738" width="313" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="RiG-me-fC5"/>
                         <constraint firstAttribute="width" constant="313" id="or3-8x-Ebl"/>
                     </constraints>
+                    <color key="tintColor" systemColor="systemBackgroundColor"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="ADD NEW ADDRESS">
-                        <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <attributedString key="attributedTitle">
+                            <fragment content="ADD NEW ADDRESS">
+                                <attributes>
+                                    <font key="NSFont" size="19" name="Helvetica-Bold"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                     </buttonConfiguration>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" systemColor="labelColor"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -48,18 +60,21 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="XHp-3U-Vn6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="161-Ra-uqW"/>
                 <constraint firstItem="UZS-bO-SfH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="Erd-qU-CMS"/>
+                <constraint firstItem="UZS-bO-SfH" firstAttribute="top" secondItem="XHp-3U-Vn6" secondAttribute="bottom" constant="10" id="GSE-Yb-JUN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UZS-bO-SfH" secondAttribute="bottom" constant="30" id="MM4-Mv-7KH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UZS-bO-SfH" secondAttribute="trailing" constant="40" id="PTk-xX-dDD"/>
-                <constraint firstAttribute="bottom" secondItem="XHp-3U-Vn6" secondAttribute="bottom" constant="130" id="bMf-M6-4zx"/>
-                <constraint firstItem="XHp-3U-Vn6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dpB-Lq-Gce"/>
-                <constraint firstItem="XHp-3U-Vn6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="l3y-ey-rFZ"/>
+                <constraint firstItem="XHp-3U-Vn6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="RNu-kl-bKt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XHp-3U-Vn6" secondAttribute="trailing" constant="10" id="gqU-7t-zOt"/>
+                <constraint firstItem="XHp-3U-Vn6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="n6K-DN-5Jf"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

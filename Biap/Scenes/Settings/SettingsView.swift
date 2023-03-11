@@ -24,7 +24,7 @@ class SettingsView: UIViewController {
         settingsTable.delegate = self
         settingsTable.dataSource = self
         settingsTable.register(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "SettingsCell")
-        
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         settingsTable.backgroundColor = .quaternarySystemFill
 
         
@@ -32,15 +32,25 @@ class SettingsView: UIViewController {
     
     
     @IBAction func didClickLogOut(_ sender: Any) {
-        UserDefaults.standard.setValue(nil, forKey: "id")
-        UserDefaults.standard.setValue(nil, forKey: "email")
-        UserDefaults.standard.setValue(nil, forKey: "firstName")
-        UserDefaults.standard.setValue(nil, forKey: "lastName")
-        UserDefaults.standard.setValue(nil, forKey: "phone")
-        RealmManager.shared.deleteAll()
-        let login = LoginVC(nibName: "LoginVC", bundle: nil)
-        login.modalPresentationStyle = .fullScreen
-        self.present(login, animated: true, completion: nil)
+        let alert:UIAlertController = UIAlertController(title: "LogOut!", message: "Do you really want to LogOut?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
+            UserDefaults.standard.setValue(nil, forKey: "id")
+            UserDefaults.standard.setValue(nil, forKey: "email")
+            UserDefaults.standard.setValue(nil, forKey: "firstName")
+            UserDefaults.standard.setValue(nil, forKey: "lastName")
+            UserDefaults.standard.setValue(nil, forKey: "phone")
+            RealmManager.shared.deleteAll()
+            let login = LoginVC(nibName: "LoginVC", bundle: nil)
+            login.modalPresentationStyle = .fullScreen
+            self.present(login, animated: true, completion: nil)
+         
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default,handler: { action in
+        }))
+        
+        self.present(alert,animated: true,completion: nil)
     }
     
 }

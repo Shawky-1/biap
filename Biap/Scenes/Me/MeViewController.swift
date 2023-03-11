@@ -15,15 +15,25 @@ class MeViewController: UIViewController {
     
     
     @IBOutlet weak var ordersTableView: UITableView!
+    
+    @IBOutlet weak var EmptyPlaceholder: UIImageView!
     var viewModel:MeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel = MeViewModel()
         let id = UserDefaults.standard.string(forKey: "id") ?? ""
         viewModel.getOrders(url: urls.ordersUrl(id: id))
         viewModel.bindResultToMeView = {[weak self] in
             guard let self = self else {return}
+            if self.viewModel.listOfOrders.orders.isEmpty{
+                self.ordersTableView.isHidden = true
+                self.EmptyPlaceholder.isHidden = false
+            }
             self.ordersTableView.reloadData()
         }
     }

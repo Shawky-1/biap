@@ -128,6 +128,7 @@ extension ProductsView:UICollectionViewDataSource{
             cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
         self.filteredId = 0
+        
         return cell
     }
     

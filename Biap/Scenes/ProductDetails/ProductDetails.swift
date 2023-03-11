@@ -83,6 +83,7 @@ class ProductDetails: UIViewController {
         pageControl.cornerRadius = pageControl.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
         descriprion.isEditable = false
+        descriprion.isSelectable = false
     }
     
     //bar button
