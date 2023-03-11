@@ -25,7 +25,7 @@ class PaymentOptions: UIViewController {
         super.viewDidLoad()
         
         self.title = "Payment options"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        //self.navigationController?.navigationBar.prefersLargeTitles = true
         paymentOptionsTable.delegate = self
         paymentOptionsTable.dataSource = self
         

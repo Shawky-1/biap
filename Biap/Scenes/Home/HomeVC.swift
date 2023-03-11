@@ -47,6 +47,7 @@ class HomeVC: UIViewController {
         navigationItem.searchController = search
         
         self.navigationItem.rightBarButtonItems = [cartIcon]
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
         collectionView.register(UINib(nibName: "BrandsCell", bundle: nil), forCellWithReuseIdentifier: "BrandsCell")
         collectionView.register(UINib(nibName: "CouponsCell", bundle: nil), forCellWithReuseIdentifier: "CouponsCell")

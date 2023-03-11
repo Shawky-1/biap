@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Check if email exists
             if defaults.string(forKey: "email") != nil {
                 let TabBarVC = CustomTabbarVC()
+                TabBarVC.tabBar.tintColor = UIColor.label
                 window?.rootViewController = TabBarVC
             } else {
                 let loginVC = LoginVC()

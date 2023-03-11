@@ -55,6 +55,8 @@ class CartViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.label
         checkOut.cornerRadius = checkOut.bounds.height / 2
         tableView.registerCellNib(cellClass: ShoppingCartCell.self)
+        self.title = "Shopping Cart"
+        tableView.allowsSelection = false
     }
     
     

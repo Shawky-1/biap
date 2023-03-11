@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HUF-uW-7gk">
-                    <rect key="frame" x="10" y="140" width="373" height="683"/>
+                    <rect key="frame" x="10" y="110" width="373" height="713"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eZB-DJ-LTh">
                         <size key="itemSize" width="128" height="128"/>
@@ -34,19 +34,8 @@
                         <outlet property="delegate" destination="-1" id="Hof-OR-ugs"/>
                     </connections>
                 </collectionView>
-                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="BIAP Search" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-gR-MUx">
-                    <rect key="frame" x="3" y="59" width="388" height="40"/>
-                    <color key="backgroundColor" systemColor="systemGray6Color"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="af4-8o-tg3"/>
-                    </constraints>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="dje-Jz-J6c"/>
-                    </connections>
-                </searchBar>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aSU-Im-3GE">
-                    <rect key="frame" x="50" y="104" width="333" height="32"/>
+                    <rect key="frame" x="50" y="69" width="333" height="32"/>
                     <segments>
                         <segment title="Rating"/>
                         <segment title="Price : L To H"/>
@@ -57,7 +46,7 @@
                     </connections>
                 </segmentedControl>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sort" translatesAutoresizingMaskIntoConstraints="NO" id="4vo-9L-8dZ">
-                    <rect key="frame" x="10" y="104" width="35" height="31"/>
+                    <rect key="frame" x="10" y="69" width="35" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="0T7-bz-azz"/>
                         <constraint firstAttribute="width" constant="35" id="oTg-rI-CVA"/>
@@ -68,17 +57,14 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HUF-uW-7gk" secondAttribute="trailing" constant="10" id="2JV-ca-5YI"/>
-                <constraint firstItem="4vo-9L-8dZ" firstAttribute="top" secondItem="rmr-gR-MUx" secondAttribute="bottom" constant="5" id="2a8-Q3-UvY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aSU-Im-3GE" secondAttribute="trailing" constant="10" id="C69-5V-fjI"/>
-                <constraint firstItem="rmr-gR-MUx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="FCM-ed-Brr"/>
-                <constraint firstItem="rmr-gR-MUx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="X6l-PO-7Wl"/>
-                <constraint firstItem="aSU-Im-3GE" firstAttribute="top" secondItem="rmr-gR-MUx" secondAttribute="bottom" constant="5" id="XcA-d9-DIq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rmr-gR-MUx" secondAttribute="trailing" constant="2" id="fsB-HY-dvX"/>
+                <constraint firstItem="4vo-9L-8dZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="dqO-bw-JSr"/>
                 <constraint firstItem="aSU-Im-3GE" firstAttribute="leading" secondItem="4vo-9L-8dZ" secondAttribute="trailing" constant="5" id="fx4-DM-T0U"/>
                 <constraint firstItem="HUF-uW-7gk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="fxs-Ij-9La"/>
                 <constraint firstItem="4vo-9L-8dZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="h7F-Tk-7MA"/>
+                <constraint firstItem="aSU-Im-3GE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="iEu-x2-pDo"/>
                 <constraint firstItem="HUF-uW-7gk" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="5" id="p3f-AK-h9N"/>
-                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="aSU-Im-3GE" secondAttribute="bottom" constant="5" id="qcN-lq-iDv"/>
+                <constraint firstItem="HUF-uW-7gk" firstAttribute="top" secondItem="aSU-Im-3GE" secondAttribute="bottom" constant="10" id="qcN-lq-iDv"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="-11.267605633802818"/>
         </view>
@@ -87,9 +73,6 @@
         <image name="sort" width="360" height="360"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
