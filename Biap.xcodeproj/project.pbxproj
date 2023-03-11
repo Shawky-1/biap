@@ -10,6 +10,10 @@
 		657B0C9F670CFCB3F9667730 /* Pods_Biap_BiapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */; };
 		6F03947FFE3D78CE93EE2D9C /* Pods_BiapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4268A41E84F53E90D014887D /* Pods_BiapTests.framework */; };
 		8B1912CAEBC3E2B6BAED2EED /* Pods_Biap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD92C732119FFF8952511E4 /* Pods_Biap.framework */; };
+		9E3CA23529BC8F760066930F /* Walkthrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA23329BC8F760066930F /* Walkthrough.swift */; };
+		9E3CA23629BC8F760066930F /* Walkthrough.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3CA23429BC8F760066930F /* Walkthrough.xib */; };
+		9E3CA23A29BC90720066930F /* WalkthroughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA23829BC90720066930F /* WalkthroughCell.swift */; };
+		9E3CA23B29BC90720066930F /* WalkthroughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3CA23929BC90720066930F /* WalkthroughCell.xib */; };
 		9E997EBC29B3EB92008B74F7 /* Coupons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E997EBB29B3EB92008B74F7 /* Coupons.swift */; };
 		9E997EC029B3EC1E008B74F7 /* CouponsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E997EBE29B3EC1E008B74F7 /* CouponsCell.swift */; };
 		9E997EC129B3EC1E008B74F7 /* CouponsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E997EBF29B3EC1E008B74F7 /* CouponsCell.xib */; };
@@ -139,6 +143,10 @@
 		5BD92C732119FFF8952511E4 /* Pods_Biap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844327E2F44A34E27A0510D9 /* Pods_Biap_BiapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biap_BiapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95079B974D7A62FD560890AE /* Pods-Biap-BiapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E3CA23329BC8F760066930F /* Walkthrough.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walkthrough.swift; sourceTree = "<group>"; };
+		9E3CA23429BC8F760066930F /* Walkthrough.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Walkthrough.xib; sourceTree = "<group>"; };
+		9E3CA23829BC90720066930F /* WalkthroughCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughCell.swift; sourceTree = "<group>"; };
+		9E3CA23929BC90720066930F /* WalkthroughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalkthroughCell.xib; sourceTree = "<group>"; };
 		9E997EBB29B3EB92008B74F7 /* Coupons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupons.swift; sourceTree = "<group>"; };
 		9E997EBE29B3EC1E008B74F7 /* CouponsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponsCell.swift; sourceTree = "<group>"; };
 		9E997EBF29B3EC1E008B74F7 /* CouponsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponsCell.xib; sourceTree = "<group>"; };
@@ -302,6 +310,24 @@
 				4268A41E84F53E90D014887D /* Pods_BiapTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E3CA23229BC8F010066930F /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CA23329BC8F760066930F /* Walkthrough.swift */,
+				9E3CA23429BC8F760066930F /* Walkthrough.xib */,
+			);
+			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		9E3CA23729BC902D0066930F /* WalkthroughCell */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CA23829BC90720066930F /* WalkthroughCell.swift */,
+				9E3CA23929BC90720066930F /* WalkthroughCell.xib */,
+			);
+			path = WalkthroughCell;
 			sourceTree = "<group>";
 		};
 		9E997EBD29B3EC1E008B74F7 /* CouponsCell */ = {
@@ -562,6 +588,7 @@
 		E2793B6329B003D80060BE7B /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E3CA23729BC902D0066930F /* WalkthroughCell */,
 				9ED2735629B9C585000F8311 /* SettingsCell */,
 				E2300B3029B97E1200A60BDC /* FeaturedCell */,
 				E2207AC029B94DD90080437B /* SearchCell */,
@@ -666,6 +693,7 @@
 		E28F534F29AF9A1200FB99EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9E3CA23229BC8F010066930F /* Walkthrough */,
 				9E9CEFEF29BAE8C0004A037F /* Addresses */,
 				9ED2735B29BA775E000F8311 /* Information */,
 				9ED2734F29B9C225000F8311 /* Settings */,
@@ -930,6 +958,7 @@
 				BC94612A29B114A500994D80 /* ProductCell.xib in Resources */,
 				E2793B6729B0D55C0060BE7B /* BrandsCell.xib in Resources */,
 				9ECD72BF29B75DBC008C90CA /* PaymentsCell.xib in Resources */,
+				9E3CA23629BC8F760066930F /* Walkthrough.xib in Resources */,
 				E2D812DE29B8EA4500F1A7E7 /* CardCell.xib in Resources */,
 				BC97717329B6466500832765 /* ShoppingCartCell.xib in Resources */,
 				E2207ABF29B94D760080437B /* SearchResultsVC.xib in Resources */,
@@ -944,6 +973,7 @@
 				9E9CEFF329BAE8E9004A037F /* Addresses.xib in Resources */,
 				BCBC2D5A29B2785B00AAA541 /* ProductDetailsCell.xib in Resources */,
 				BCACC6D629B553F40004589A /* CartViewController.xib in Resources */,
+				9E3CA23B29BC90720066930F /* WalkthroughCell.xib in Resources */,
 				E2BDE00429B3BD0500CC5977 /* RegisterVC.xib in Resources */,
 				E2207AB829B8F1070080437B /* AddressCell.xib in Resources */,
 				E2793B7629B0EDD50060BE7B /* ProductDetailsVC.xib in Resources */,
@@ -1129,6 +1159,7 @@
 				E21F0EFC29B524F200BA1A32 /* MIValidations.swift in Sources */,
 				E28F535229AF9A2D00FB99EF /* HomeVM.swift in Sources */,
 				9E997EC029B3EC1E008B74F7 /* CouponsCell.swift in Sources */,
+				9E3CA23A29BC90720066930F /* WalkthroughCell.swift in Sources */,
 				E2793B5829AFD38C0060BE7B /* HeaderView.swift in Sources */,
 				E2793B6E29B0DFCF0060BE7B /* UIColor+Extensions.swift in Sources */,
 				E2BDE01129B3D63F00CC5977 /* LoginValidator.swift in Sources */,
@@ -1142,6 +1173,7 @@
 				E21F0EFE29B5255500BA1A32 /* RegisterVM.swift in Sources */,
 				BC9869CF29B9224D00281CF8 /* OrdersCell.swift in Sources */,
 				E21F0EFA29B3EEAA00BA1A32 /* LoginErrors.swift in Sources */,
+				9E3CA23529BC8F760066930F /* Walkthrough.swift in Sources */,
 				E2793B7529B0EDD50060BE7B /* ProductDetailsVC.swift in Sources */,
 				BCACC6D129B553270004589A /* cart.swift in Sources */,
 				E28F532029AE7D1500FB99EF /* AppDelegate.swift in Sources */,
