@@ -7,11 +7,16 @@
 
 import UIKit
 import Foundation
+import Reachability
 
 class SettingsView: UIViewController {
     
     
     @IBOutlet weak var settingsTable: UITableView!
+    
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
+    
+    @IBOutlet weak var logOut: UIButton!
     
     var viewModel: SettingsVM?
     
@@ -26,8 +31,19 @@ class SettingsView: UIViewController {
         settingsTable.register(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "SettingsCell")
         self.navigationController?.navigationBar.tintColor = UIColor.label
         settingsTable.backgroundColor = .quaternarySystemFill
+        checkConnection()
 
         
+    }
+    
+    func checkConnection(){
+        let reachability = try! Reachability()
+        
+        if reachability.connection == .unavailable {
+            self.settingsTable.isHidden = true
+            self.imagePlaceHolder.isHidden = false
+            logOut.isHidden = true
+        }
     }
     
     

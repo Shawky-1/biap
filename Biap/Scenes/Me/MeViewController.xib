@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController" customModule="Biap" customModuleProvider="target">
             <connections>
                 <outlet property="EmptyPlaceholder" destination="fli-xq-MLe" id="SbF-3i-6AK"/>
+                <outlet property="imagePlaceHolder" destination="Csr-jx-7eu" id="fOB-gJ-fQ5"/>
                 <outlet property="ordersTableView" destination="fII-aM-eCc" id="S3f-Py-hKI"/>
                 <outlet property="registerButton" destination="mzs-95-Hyp" id="twv-Qq-pjR"/>
                 <outlet property="userName" destination="DUC-6f-liO" id="2FM-k0-CN1"/>
@@ -22,6 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet" translatesAutoresizingMaskIntoConstraints="NO" id="Csr-jx-7eu">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gXD-Se-alM">
                     <rect key="frame" x="15" y="75" width="50" height="48.666666666666671"/>
                     <color key="tintColor" systemColor="labelColor"/>
@@ -91,9 +95,11 @@
                 <constraint firstItem="mzs-95-Hyp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="55" id="7p6-Qg-qwh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fII-aM-eCc" secondAttribute="bottom" id="DUc-k2-DNf"/>
                 <constraint firstItem="fII-aM-eCc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Fxh-ty-FHa"/>
+                <constraint firstItem="Csr-jx-7eu" firstAttribute="top" secondItem="mzs-95-Hyp" secondAttribute="bottom" constant="-145" id="HON-2v-TLb"/>
                 <constraint firstItem="DUC-6f-liO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="MiI-DK-S2a"/>
                 <constraint firstItem="mzs-95-Hyp" firstAttribute="top" secondItem="gXD-Se-alM" secondAttribute="bottom" constant="30" id="Nkz-bL-d39"/>
                 <constraint firstItem="jb8-cF-llD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="R9H-Md-oCT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Csr-jx-7eu" secondAttribute="trailing" id="TkE-J2-O1r"/>
                 <constraint firstItem="jb8-cF-llD" firstAttribute="leading" secondItem="gXD-Se-alM" secondAttribute="trailing" constant="15" id="WWg-Wm-rZK"/>
                 <constraint firstItem="gXD-Se-alM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="Y2X-xz-i0S"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fli-xq-MLe" secondAttribute="bottom" id="a2s-YR-iCk"/>
@@ -101,14 +107,17 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fII-aM-eCc" secondAttribute="trailing" constant="15" id="ep4-uG-Y6w"/>
                 <constraint firstItem="fli-xq-MLe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hdf-Cw-pba"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mzs-95-Hyp" secondAttribute="trailing" constant="55" id="qLK-4M-bxz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Csr-jx-7eu" secondAttribute="bottom" id="uxk-Jl-2Ij"/>
                 <constraint firstItem="fli-xq-MLe" firstAttribute="top" secondItem="mzs-95-Hyp" secondAttribute="bottom" id="wFg-uK-eQc"/>
                 <constraint firstItem="gXD-Se-alM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="wcF-p8-FIx"/>
                 <constraint firstItem="fII-aM-eCc" firstAttribute="top" secondItem="gXD-Se-alM" secondAttribute="bottom" constant="30" id="xvu-4U-Njk"/>
+                <constraint firstItem="Csr-jx-7eu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zHk-24-mKz"/>
             </constraints>
             <point key="canvasLocation" x="32.824427480916029" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="no_internet" width="166.66667175292969" height="166.66667175292969"/>
         <image name="orders" width="376" height="664"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">

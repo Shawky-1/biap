@@ -7,10 +7,12 @@
 
 import UIKit
 import Kingfisher
+import Reachability
 
 class HomeVC: UIViewController {
 
     
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.delegate = self
@@ -26,11 +28,23 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         viewModel = homeVM()
+        checkConnection()
         setupUI()
         viewModel.viewDidLoad()
         viewModel.bindResultToHomeView = {[weak self] in
             guard let self = self else {return}
             self.collectionView.reloadData()
+        }
+    }
+    
+    func checkConnection(){
+        let reachability = try! Reachability()
+        
+        if reachability.connection == .unavailable {
+            self.collectionView.isHidden = true
+            self.imagePlaceHolder.isHidden = false
+           //self.hidesBottomBarWhenPushed = true
+            self.search.searchBar.isHidden = true
         }
     }
     

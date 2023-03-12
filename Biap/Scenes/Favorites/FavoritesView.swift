@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import Realm
+import Reachability
 
 class FavoritesView: UIViewController {
     
@@ -15,6 +16,7 @@ class FavoritesView: UIViewController {
     
     @IBOutlet weak var emptyImage: UIImageView!
     
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
     var favArray:[Favorite] = []
     let realm = try! Realm()
     
@@ -26,6 +28,7 @@ class FavoritesView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         loadDatafromRealm()
         tableView.reloadData()
+        checkConnection()
     }
     
     func loadDatafromRealm(){
@@ -39,6 +42,17 @@ class FavoritesView: UIViewController {
             emptyImage.isHidden = false
         }else{
             tableView.isHidden = false
+            emptyImage.isHidden = true
+        }
+    }
+    
+    
+    func checkConnection(){
+        let reachability = try! Reachability()
+        
+        if reachability.connection == .unavailable {
+            self.tableView.isHidden = true
+            self.imagePlaceHolder.isHidden = false
             emptyImage.isHidden = true
         }
     }

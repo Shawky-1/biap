@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="checkOut" destination="1Yf-DY-gsn" id="w43-jg-cYH"/>
                 <outlet property="emptyImage" destination="SzE-LL-B4q" id="Ye5-Qn-kv7"/>
+                <outlet property="imagePlaceHolder" destination="Epx-9c-32h" id="i6m-iW-bSg"/>
                 <outlet property="subTotal" destination="dvi-88-fJ5" id="rDB-uh-d7T"/>
                 <outlet property="subTotalText" destination="AiV-mL-PmV" id="dJc-9J-xM0"/>
                 <outlet property="tableView" destination="j6t-8u-Lay" id="Kxj-r9-I0j"/>
@@ -23,6 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet" translatesAutoresizingMaskIntoConstraints="NO" id="Epx-9c-32h">
+                    <rect key="frame" x="0.0" y="59" width="393" height="745"/>
+                </imageView>
                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyCart" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-LL-B4q">
                     <rect key="frame" x="0.0" y="59" width="393" height="646"/>
                 </imageView>
@@ -88,21 +92,26 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="j6t-8u-Lay" secondAttribute="bottom" constant="121" id="IUc-Zl-nqU"/>
                 <constraint firstItem="1Yf-DY-gsn" firstAttribute="top" secondItem="AiV-mL-PmV" secondAttribute="bottom" constant="2" id="Oxk-Si-5HI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Yf-DY-gsn" secondAttribute="bottom" constant="14" id="Qtm-Zi-d1M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Epx-9c-32h" secondAttribute="trailing" id="aK2-il-f80"/>
+                <constraint firstItem="Epx-9c-32h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bQe-om-cqg"/>
                 <constraint firstItem="j6t-8u-Lay" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="bZr-tE-PTu"/>
                 <constraint firstItem="SzE-LL-B4q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gFi-t6-cjf"/>
                 <constraint firstItem="AiV-mL-PmV" firstAttribute="top" secondItem="SzE-LL-B4q" secondAttribute="bottom" id="h0u-nB-790"/>
+                <constraint firstItem="Epx-9c-32h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hB2-lZ-HB3"/>
                 <constraint firstItem="1Yf-DY-gsn" firstAttribute="top" secondItem="dvi-88-fJ5" secondAttribute="bottom" constant="2" id="jmc-zm-pSf"/>
                 <constraint firstItem="SzE-LL-B4q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jvv-Xx-jbP"/>
                 <constraint firstItem="dvi-88-fJ5" firstAttribute="leading" secondItem="AiV-mL-PmV" secondAttribute="trailing" constant="10" id="lcZ-nN-qbu"/>
                 <constraint firstItem="dvi-88-fJ5" firstAttribute="top" secondItem="j6t-8u-Lay" secondAttribute="bottom" constant="8" id="mW2-a1-bPF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j6t-8u-Lay" secondAttribute="trailing" constant="10" id="omN-dF-OJn"/>
                 <constraint firstItem="1Yf-DY-gsn" firstAttribute="centerX" secondItem="j6t-8u-Lay" secondAttribute="centerX" id="q4R-vQ-JdR"/>
+                <constraint firstItem="AiV-mL-PmV" firstAttribute="top" secondItem="Epx-9c-32h" secondAttribute="bottom" constant="-99" id="ybN-LQ-1j8"/>
             </constraints>
             <point key="canvasLocation" x="113.74045801526717" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
         <image name="emptyCart" width="534" height="428"/>
+        <image name="no_internet" width="166.66667175292969" height="166.66667175292969"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

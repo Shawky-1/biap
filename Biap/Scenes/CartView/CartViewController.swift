@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 import Realm
-
+import Reachability
 class CartViewController: UIViewController {
     
    
@@ -20,6 +20,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var emptyImage: UIImageView!
     
     @IBOutlet weak var subTotalText: UILabel!
+    
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
     
     var cartArray:[Cart] = []
     let realm = try! Realm()
@@ -33,6 +35,7 @@ class CartViewController: UIViewController {
         setupUI()
         loadDatafromRealm()
         tableView.reloadData()
+        checkConnection()
 
     }
     
@@ -52,6 +55,19 @@ class CartViewController: UIViewController {
             checkOut.isHidden = true
             subTotal.isHidden = true
             subTotalText.isHidden = true
+        }
+    }
+    
+    func checkConnection(){
+        let reachability = try! Reachability()
+        
+        if reachability.connection == .unavailable {
+            self.tableView.isHidden = true
+            self.imagePlaceHolder.isHidden = false
+            checkOut.isHidden = true
+            subTotal.isHidden = true
+            subTotalText.isHidden = true
+            emptyImage.isHidden = true
         }
     }
 

@@ -6,17 +6,16 @@
 //
 
 import UIKit
+import Reachability
 
 class MeViewController: UIViewController {
     
     @IBOutlet weak var userName: UILabel!
-    
     @IBOutlet weak var registerButton: UIButton!
-    
-    
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var ordersTableView: UITableView!
-    
     @IBOutlet weak var EmptyPlaceholder: UIImageView!
+    
     var viewModel:MeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +35,7 @@ class MeViewController: UIViewController {
             }
             self.ordersTableView.reloadData()
         }
+        checkConnection()
     }
     
     @objc func settingButton(sender:UIBarButtonItem){
@@ -57,6 +57,17 @@ class MeViewController: UIViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func checkConnection(){
+        let reachability = try! Reachability()
+        
+        if reachability.connection == .unavailable {
+            self.ordersTableView.isHidden = true
+            self.imagePlaceHolder.isHidden = false
+      
+        }
+    }
+    
     
     
     func setupUI(){

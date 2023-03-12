@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Reachability
 
 class Categories: UIViewController {
 
@@ -15,10 +16,12 @@ class Categories: UIViewController {
     let imagesArr = ["Acs","Shoes","Tshirt"]
  
     
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkConnection()
         setupUI()
         viewModel = productVM()
         viewModel.getSProduct(url:urls.categoriesUrl())
@@ -27,6 +30,16 @@ class Categories: UIViewController {
                 self.collectionView.reloadData()
         }
         
+    }
+    
+    func checkConnection(){
+        let reachability = try! Reachability()
+        
+        if reachability.connection == .unavailable {
+            self.collectionView.isHidden = true
+            self.imagePlaceHolder.isHidden = false
+      
+        }
     }
     
   

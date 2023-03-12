@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsView" customModule="Biap" customModuleProvider="target">
             <connections>
+                <outlet property="imagePlaceHolder" destination="J7e-ol-s1F" id="5yb-MU-0gP"/>
+                <outlet property="logOut" destination="soj-h6-qT4" id="I7A-5H-zYl"/>
                 <outlet property="settingsTable" destination="YCe-fV-z18" id="6eB-na-yUw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet" translatesAutoresizingMaskIntoConstraints="NO" id="J7e-ol-s1F">
+                    <rect key="frame" x="0.0" y="59" width="393" height="743"/>
+                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YCe-fV-z18">
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,15 +67,20 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="YCe-fV-z18" secondAttribute="bottom" id="8il-O5-EMh"/>
                 <constraint firstItem="YCe-fV-z18" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="BZn-PT-Z9J"/>
+                <constraint firstItem="soj-h6-qT4" firstAttribute="top" secondItem="J7e-ol-s1F" secondAttribute="bottom" constant="-94" id="GpQ-bh-FVK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J7e-ol-s1F" secondAttribute="trailing" id="d3r-fv-mXq"/>
                 <constraint firstItem="soj-h6-qT4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="nT1-FM-9Ig"/>
                 <constraint firstItem="YCe-fV-z18" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qC2-39-5R5"/>
                 <constraint firstItem="YCe-fV-z18" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qVm-4c-7YA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="soj-h6-qT4" secondAttribute="bottom" constant="60" id="t8C-Tv-0wG"/>
+                <constraint firstItem="J7e-ol-s1F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="trz-Gm-HOd"/>
+                <constraint firstItem="J7e-ol-s1F" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zoi-fd-tr1"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="no_internet" width="166.66667175292969" height="166.66667175292969"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
