@@ -11,8 +11,6 @@ import RealmSwift
 class productOfCategory: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     @IBOutlet weak var segementController: UISegmentedControl!
     
     var productType = ""

@@ -14,13 +14,9 @@ class CartViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subTotal: UILabel!
-    
     @IBOutlet weak var checkOut: UIButton!
-    
     @IBOutlet weak var emptyImage: UIImageView!
-    
     @IBOutlet weak var subTotalText: UILabel!
-    
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     
     var cartArray:[Cart] = []

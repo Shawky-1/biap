@@ -13,10 +13,9 @@ import Reachability
 class FavoritesView: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var emptyImage: UIImageView!
-    
     @IBOutlet weak var imagePlaceHolder: UIImageView!
+    
     var favArray:[Favorite] = []
     let realm = try! Realm()
     

@@ -13,9 +13,7 @@ class SettingsView: UIViewController {
     
     
     @IBOutlet weak var settingsTable: UITableView!
-    
     @IBOutlet weak var imagePlaceHolder: UIImageView!
-    
     @IBOutlet weak var logOut: UIButton!
     
     var viewModel: SettingsVM?
