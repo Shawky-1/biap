@@ -76,17 +76,27 @@ class ProductDetails: UIViewController {
     
     @IBAction func selectSizeAction(_ sender: Any) {
         viewModel.dropDown(array: viewModel.sizeArr, sender: sender, DropDown: myDropDown, label: selectSize)
-        for i in 0..<self.viewModel.sizeArr.count{
-            if self.selectSize.text == self.viewModel.sizeArr[i]{
-                self.variantId = self.viewModel.vartantsArr[i]
+        myDropDown.selectionAction = {(index: Int, item:String) in
+            self.selectSize.text = self.viewModel.sizeArr[index]
+            self.selectSize.textColor = nil
+            DispatchQueue.main.async {
+                for i in 0..<self.viewModel.sizeArr.count{
+                    if  self.selectSize.text == self.viewModel.sizeArr[i]{
+                        self.variantId = self.viewModel.vartantsArr[i]
+                    }
+                }
             }
         }
-    
     }
     
     
     @IBAction func selectColorAction(_ sender: Any) {
         viewModel.dropDown(array: viewModel.colorArr, sender: sender, DropDown: myDropDown, label: selectColor)
+        myDropDown.selectionAction = {(index: Int, item:String) in
+            self.selectColor.text = self.viewModel.colorArr[index]
+            self.selectColor.textColor = nil
+  
+        }
     }
     
     
@@ -147,11 +157,11 @@ class ProductDetails: UIViewController {
                     obj.price = egp_Price
                 }
                 obj.currency = self.Currency.text
-                obj.variantId = self.variantId
+                obj.variantId = variantId
                 obj.productId = self.id
-                obj.quantity = 1
+                //obj.quantity = 1
                 RealmManager.saveDataToCart(obj: obj)
-              
+                
                 let alert:UIAlertController = UIAlertController(title: "", message: "Item is added successfully to your shopping cart", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self.present(alert,animated: true,completion: nil)
@@ -160,6 +170,7 @@ class ProductDetails: UIViewController {
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self.present(alert,animated: true,completion: nil)
             }
+            filteredId = 0
         }
     }
     

@@ -65,10 +65,15 @@ class ProductDetailsVM{
         DropDown.topOffset = CGPoint(x: 0, y: -(DropDown.anchorView?.plainView.bounds.height)!)
         DropDown.direction = .bottom
         
-        DropDown.selectionAction = {(index: Int, item:String) in
+        /*DropDown.selectionAction = {(index: Int, item:String) in
             label.text = array[index]
             label.textColor = nil
-        }
+            for i in 0..<self.sizeArr.count{
+                if label.text == self.sizeArr[i]{
+                    self.variantId = self.vartantsArr[i]
+                }
+            }
+        }*/
         DropDown.show()
     }
 

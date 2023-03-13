@@ -67,6 +67,7 @@ class CartViewController: UIViewController {
             subTotal.isHidden = true
             subTotalText.isHidden = true
             emptyImage.isHidden = true
+            Currency.isHidden = true
         }
     }
 
@@ -163,7 +164,9 @@ extension CartViewController:UITableViewDataSource{
                     self.emptyImage.isHidden = false
                     self.checkOut.isHidden = true
                     self.subTotal.isHidden = true
-                    self.subTotalText.isHidden = true}
+                    self.subTotalText.isHidden = true
+                    self.Currency.isHidden = true
+                }
                 self.tableView.reloadData()
             }))
             
@@ -234,7 +237,9 @@ extension CartViewController:UITableViewDelegate{
                 self.emptyImage.isHidden = false
                 self.checkOut.isHidden = true
                 self.subTotal.isHidden = true
-                self.subTotalText.isHidden = true}
+                self.subTotalText.isHidden = true
+                self.Currency.isHidden = true
+            }
             self.tableView.reloadData()
         }))
         
