@@ -237,6 +237,28 @@ class NetworkManger{
         }
     }
     
+    static func deleteAddress(address: Address, completion: @escaping (Result<Address, Error>) -> ()) {
+        
+        let url = URLS.baseURL +  "/customers/\(address.customerId)/addresses/\(address.id).json"
+        let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,
+                                    "Content-Type": "application/json"]
+
+        AF.request(url, method: .delete,
+                   parameters: nil,
+                   encoding: JSONEncoding.default,
+                   headers: headers).validate(statusCode: 200 ..< 550).response { response in
+            
+            switch response.result {
+            case .success(_):
+                    completion(.success(address))
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+                
+            }
+        }
+    }
+    
     static func createOrder(lineItems: [LineItem], completion: @escaping (Result<OrderResponse, Error>) -> ()) {
         let url = URLS.baseURL + "/orders.json"
         let headers: HTTPHeaders = [Tokens.headerToken: Tokens.secretToken,

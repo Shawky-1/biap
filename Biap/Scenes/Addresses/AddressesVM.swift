@@ -10,10 +10,17 @@ import Foundation
 class AddressesVM{
     
     var bindResultToAddressesView:(() -> ()) = {}
+    var deletedAddress:(() -> ()) = {}
     
     var listOfaddresses:ListOfAddresses!{
         didSet{
             bindResultToAddressesView()
+        }
+    }
+    
+    var addressToDelete:Address!{
+        didSet{
+            deletedAddress()
         }
     }
     
@@ -26,6 +33,18 @@ class AddressesVM{
                 
             case .failure(let error):
                 print(String(describing: error))
+            }
+        }
+    }
+    
+    func deleteAddress(address: Address){
+        NetworkManger.deleteAddress(address: address) { result in
+            switch(result){
+            case .success(_):
+                self.addressToDelete = address
+                print("address deleted")
+            case .failure(let error):
+                print(error)
             }
         }
     }

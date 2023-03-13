@@ -28,7 +28,7 @@ class Addresses: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        viewModel?.getListOfAddresses(url:urls.customerAddresses(customerID: 6869254013233))
+        viewModel?.getListOfAddresses(url:urls.customerAddresses(customerID: UserDefaults.standard.integer(forKey: "id")))
         
         viewModel?.bindResultToAddressesView = {[weak self] in
             self?.addresses = self?.viewModel?.listOfaddresses.addresses
@@ -58,10 +58,21 @@ extension Addresses: UITableViewDelegate, UITableViewDataSource{
         cell.country.text = addresses?[indexPath.section].country
         cell.city.text = addresses?[indexPath.section].city
         cell.address.text = addresses?[indexPath.section].address1
+        cell.deleteBtn.addTarget(self, action: #selector(didDeleteAddress), for: .touchUpInside)
+        cell.deleteBtn.tag = indexPath.section
         
         
         return cell
     }
+    
+    @objc func didDeleteAddress(sender: UIButton){
+        viewModel?.deleteAddress(address: addresses![sender.tag])
+        viewModel?.deletedAddress = {[weak self] in
+            self?.addresses?.remove(at: sender.tag)
+            self?.addressesTable.reloadData()
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120.0

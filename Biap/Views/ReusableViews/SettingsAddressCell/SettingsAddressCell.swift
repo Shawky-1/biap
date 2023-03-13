@@ -12,6 +12,7 @@ class SettingsAddressCell: UITableViewCell {
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var city: UILabel!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -344,8 +344,8 @@
 		9E3CA23C29BD057A0066930F /* NewAddress */ = {
 			isa = PBXGroup;
 			children = (
-				9E3CA23D29BD057A0066930F /* NewAddressVM.swift */,
 				9E3CA23E29BD057A0066930F /* NewAddress.swift */,
+				9E3CA23D29BD057A0066930F /* NewAddressVM.swift */,
 				9E3CA23F29BD057A0066930F /* NewAddress.xib */,
 			);
 			path = NewAddress;

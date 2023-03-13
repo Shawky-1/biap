@@ -63,11 +63,19 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDR-R9-6Rl">
+                        <rect key="frame" x="424" y="53.333333333333329" width="48" height="34.333333333333329"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title=""/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="J1X-mD-lNR" firstAttribute="leading" secondItem="jIj-CK-r1m" secondAttribute="trailing" constant="30" id="4WU-Ee-HGK"/>
                     <constraint firstItem="jIj-CK-r1m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7Kg-N9-B0g"/>
+                    <constraint firstAttribute="trailing" secondItem="FDR-R9-6Rl" secondAttribute="trailing" constant="10" id="Fd0-WP-zYb"/>
+                    <constraint firstItem="FDR-R9-6Rl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IdG-e5-iBJ"/>
                     <constraint firstItem="J1X-mD-lNR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OZm-Y7-MWN"/>
                     <constraint firstItem="jIj-CK-r1m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="kNe-rM-qMJ"/>
                 </constraints>
@@ -88,11 +96,13 @@
                 <outlet property="address" destination="aNM-0r-Xou" id="794-kr-hF4"/>
                 <outlet property="city" destination="BM5-3o-r7Q" id="ggv-pb-y5K"/>
                 <outlet property="country" destination="zvB-L9-QCr" id="7aa-Tc-W7r"/>
+                <outlet property="deleteBtn" destination="FDR-R9-6Rl" id="vc9-in-tYR"/>
             </connections>
             <point key="canvasLocation" x="186.25954198473281" y="22.887323943661972"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

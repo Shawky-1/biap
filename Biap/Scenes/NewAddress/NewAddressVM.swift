@@ -24,7 +24,7 @@ class NewAddressVM{
             switch result {
             case .success(let address):
                 self.customerAdr = address
-                //dump(address)
+                dump(address)
             case .failure(let error):
                 //print(String(describing: error))
                 print(error.localizedDescription)

@@ -27,9 +27,19 @@ class NewAddress: UIViewController {
 
     @IBAction func addAddress(_ sender: Any) {
         
-        addr = Address(customerID: 6869254013233, Address1: addressTF.text, City: cityTF.text, Country: countryTF.text)
-        viewModel?.createAddress(adr: addr!)
-        self.navigationController?.popViewController(animated: true)
+        addr = Address(customerID: UserDefaults.standard.integer(forKey: "id"), Address1: addressTF.text, City: cityTF.text, Country: countryTF.text)
+        
+        let validationArr: [ValidationModel] = [
+            ValidationModel(validation: .notEmpty , value: countryTF.text, message: "Please enter country"),
+            ValidationModel(validation: .notEmpty , value: cityTF.text, message: "Please enter city"),
+            ValidationModel(validation: .notEmpty , value: addressTF.text, message: "please enter your address"),
+            ValidationModel(validation: .mobileNumber , value: phoneTF.text, message: CBlankPhoneNumber)]
+        
+        if MIValidation.isValidData(validationArr){
+            
+            viewModel?.createAddress(adr: addr!)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
