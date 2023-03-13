@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-wT-hFo">
-                        <rect key="frame" x="222" y="44.333333333333336" width="131" height="21.000000000000007"/>
+                        <rect key="frame" x="222" y="44.333333333333336" width="71" height="21.000000000000007"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -78,31 +78,40 @@
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" image="trash" catalog="system"/>
+                        <state key="normal" image="heart.fill" catalog="system"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="deleteFromFavorites:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RlZ-vk-rHE"/>
+                            <action selector="deleteFromFavorites:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="f8b-JE-eTu"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQr-7A-BMt">
+                        <rect key="frame" x="295" y="44.333333333333336" width="42" height="21.000000000000007"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PzL-60-nen" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="2oh-wW-Prj"/>
                     <constraint firstItem="gFH-l2-bpG" firstAttribute="leading" secondItem="AIR-OP-SVe" secondAttribute="trailing" constant="20" id="2ue-RW-z0V"/>
                     <constraint firstAttribute="bottom" secondItem="PzL-60-nen" secondAttribute="bottom" constant="14" id="81N-At-QXO"/>
                     <constraint firstItem="gFH-l2-bpG" firstAttribute="top" secondItem="SR1-wT-hFo" secondAttribute="bottom" constant="10" id="AzY-wo-aTL"/>
+                    <constraint firstItem="gFH-l2-bpG" firstAttribute="top" secondItem="FQr-7A-BMt" secondAttribute="bottom" constant="10" id="EqO-pp-j1W"/>
                     <constraint firstItem="PzL-60-nen" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="LPi-KJ-p72"/>
                     <constraint firstItem="SR1-wT-hFo" firstAttribute="leading" secondItem="ocs-VC-kQo" secondAttribute="trailing" constant="8" id="P9F-yN-a3b"/>
                     <constraint firstAttribute="trailing" secondItem="Snb-mM-YiH" secondAttribute="trailing" constant="30" id="SfY-DB-RzE"/>
-                    <constraint firstAttribute="trailing" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="20" id="TdW-jY-ZP1"/>
+                    <constraint firstAttribute="trailing" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="80" id="TdW-jY-ZP1"/>
                     <constraint firstItem="Snb-mM-YiH" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="20" id="XRz-ir-W5d"/>
                     <constraint firstItem="SR1-wT-hFo" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="10" id="cm3-BW-3Vd"/>
                     <constraint firstItem="Snb-mM-YiH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="eXK-iJ-ikh"/>
                     <constraint firstItem="ocs-VC-kQo" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="10" id="hcF-OZ-Ada"/>
+                    <constraint firstItem="FQr-7A-BMt" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="10" id="kxz-oz-7F1"/>
                     <constraint firstItem="ocs-VC-kQo" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="30" id="p99-Zk-1Um"/>
+                    <constraint firstItem="FQr-7A-BMt" firstAttribute="leading" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="2" id="qjU-Ef-TgJ"/>
                     <constraint firstItem="AIR-OP-SVe" firstAttribute="top" secondItem="ocs-VC-kQo" secondAttribute="bottom" constant="10" id="rAO-GO-iAc"/>
                     <constraint firstItem="AIR-OP-SVe" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="30" id="wrO-wt-YEc"/>
                 </constraints>
@@ -121,6 +130,7 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="Currency" destination="FQr-7A-BMt" id="vVW-cR-MI6"/>
                 <outlet property="addButton" destination="AIR-OP-SVe" id="QDt-cH-AkG"/>
                 <outlet property="productImage" destination="PzL-60-nen" id="t5M-3b-wgX"/>
                 <outlet property="productName" destination="Snb-mM-YiH" id="OM9-4I-ee7"/>
@@ -130,7 +140,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="trash" catalog="system" width="117" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

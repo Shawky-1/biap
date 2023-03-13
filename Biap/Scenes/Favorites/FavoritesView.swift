@@ -18,6 +18,7 @@ class FavoritesView: UIViewController {
     
     var favArray:[Favorite] = []
     let realm = try! Realm()
+    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,11 @@ extension FavoritesView:UITableViewDataSource{
         
         cell.productName.text = favArray[indexPath.section].name
         cell.productPrice.text = String(format: "%.2f", favArray[indexPath.section].price)
+        if currency == ""{
+            cell.Currency.text = "USD"
+        }else{
+            cell.Currency.text = favArray[indexPath.section].currency
+        }
         let productImageUrl = URL(string: favArray[indexPath.section].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         

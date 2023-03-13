@@ -26,6 +26,7 @@ class ProductDetails: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var Currency: UILabel!
     
     let myDropDown = DropDown()
     var viewModel:ProductDetailsVM!
@@ -34,6 +35,7 @@ class ProductDetails: UIViewController {
     var price = 0.0
     var exist = false
     var filteredId = 0
+    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +48,17 @@ class ProductDetails: UIViewController {
                 self.collectionView.reloadData()
                 self.pageControl.numberOfPages = self.viewModel.imgArr.count
                 self.productName.text = self.viewModel.singleProduct?.product.title
-                self.productPrice.text = self.viewModel.singleProduct?.product.variants![0].price
+                if self.currency == "USD" || self.currency == ""{
+                    self.productPrice.text = self.viewModel.singleProduct?.product.variants![0].price
+                }else{
+                    let price = self.viewModel.singleProduct?.product.variants![0].price
+                    let egp_Price =  (((price)! as NSString).doubleValue) * 30
+                    self.productPrice.text = String(egp_Price)
+                }
                 self.descriprion.text = self.viewModel.singleProduct?.product.body_html
+                //self.Currency.text = self.currency
+                
+            
             }
         }
     }
@@ -65,6 +76,12 @@ class ProductDetails: UIViewController {
     
     @IBAction func selectSizeAction(_ sender: Any) {
         viewModel.dropDown(array: viewModel.sizeArr, sender: sender, DropDown: myDropDown, label: selectSize)
+        for i in 0..<self.viewModel.sizeArr.count{
+            if self.selectSize.text == self.viewModel.sizeArr[i]{
+                self.variantId = self.viewModel.vartantsArr[i]
+            }
+        }
+    
     }
     
     
@@ -84,6 +101,11 @@ class ProductDetails: UIViewController {
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
         descriprion.isEditable = false
         descriprion.isSelectable = false
+        if currency == ""{
+            self.Currency.text = "USD"
+        }else{
+            self.Currency.text = currency
+        }
     }
     
     //bar button
@@ -107,8 +129,8 @@ class ProductDetails: UIViewController {
             
         }else{
             let products = try! Realm().objects(Cart.self)
-            for item in products.filter("productId == %@",id){
-                filteredId = item.productId
+            for item in products.filter("variantId == %@",variantId){
+                filteredId = item.variantId
             }
             if filteredId == 0{
                 let obj = Cart()
@@ -116,7 +138,15 @@ class ProductDetails: UIViewController {
                 obj.color = self.selectColor.text
                 obj.size = self.selectSize.text
                 obj.image = self.viewModel.imgArr[0]
-                obj.price = self.price
+                if self.currency == "USD" || currency == ""{
+                    let usdPrice = (((self.viewModel.singleProduct?.product.variants![0].price)! as NSString).doubleValue)
+                    obj.price = usdPrice
+                }else{
+                    let price = self.viewModel.singleProduct?.product.variants![0].price
+                    let egp_Price =  (((price)! as NSString).doubleValue) * 30
+                    obj.price = egp_Price
+                }
+                obj.currency = self.Currency.text
                 obj.variantId = self.variantId
                 obj.productId = self.id
                 obj.quantity = 1
@@ -145,7 +175,15 @@ class ProductDetails: UIViewController {
            obj.color = self.selectColor.text
            obj.size = self.selectSize.text
            obj.image = self.viewModel.imgArr[0]
-           obj.price = self.price
+           if self.currency == "USD" || currency == ""{
+               let usdPrice = (((self.viewModel.singleProduct?.product.variants![0].price)! as NSString).doubleValue)
+               obj.price = usdPrice
+           }else{
+               let price = self.viewModel.singleProduct?.product.variants![0].price
+               let egp_Price =  (((price)! as NSString).doubleValue) * 30
+               obj.price = egp_Price
+           }
+           obj.currency = self.Currency.text
            obj.variantId = self.variantId
            obj.productId = self.id
            RealmManager.saveDataToFavorites(obj: obj)

@@ -17,6 +17,9 @@ class FavoritesCell: UITableViewCell {
     
     @IBOutlet weak var addButton: UIButton!
     
+    @IBOutlet weak var Currency: UILabel!
+    
+    
     var bindDeleteToFavoritesView:(() -> ())?
     var bindAddToFavoritesView:(() -> ())?
     
