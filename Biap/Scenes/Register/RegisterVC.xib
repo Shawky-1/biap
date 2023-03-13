@@ -312,22 +312,22 @@
     </objects>
     <designables>
         <designable name="4PG-gS-cLS">
-            <size key="intrinsicContentSize" width="147.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="127.33333333333333" height="22"/>
         </designable>
         <designable name="Tyz-wr-dxi">
-            <size key="intrinsicContentSize" width="180.66666666666666" height="22"/>
+            <size key="intrinsicContentSize" width="160.66666666666666" height="22"/>
         </designable>
         <designable name="ZfI-KA-ADj">
-            <size key="intrinsicContentSize" width="217" height="22"/>
+            <size key="intrinsicContentSize" width="197" height="22"/>
         </designable>
         <designable name="cVV-YE-KIA">
-            <size key="intrinsicContentSize" width="220.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="160.33333333333334" height="22"/>
         </designable>
         <designable name="kJf-vf-LAJ">
-            <size key="intrinsicContentSize" width="241.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="181.33333333333334" height="22"/>
         </designable>
         <designable name="lWT-BG-OdH">
-            <size key="intrinsicContentSize" width="183" height="22"/>
+            <size key="intrinsicContentSize" width="163" height="22"/>
         </designable>
     </designables>
     <resources>

@@ -29,7 +29,7 @@ class CheckOutVC: UIViewController {
             if bool {
                 self.presentAlertViewWithOneButtonMIV(alertTitle: "Order", alertMessage: "Order Created sucessfully!", btnOneTitle: "Ok") { action in
                     RealmManager.deleteCart()
-                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popToRootViewController(animated: true)
                     
                 }
             } else {

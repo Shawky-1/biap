@@ -40,9 +40,10 @@ class MeViewController: UIViewController {
     
     @objc func settingButton(sender:UIBarButtonItem){
         if (UserDefaults.standard.string(forKey: "email") == nil){
-            let vc = LoginVC(nibName: "LoginVC", bundle: nil)
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+            let loginVC = LoginVC()
+            let navController = UINavigationController(rootViewController: loginVC)
+            navController.modalPresentationStyle = .fullScreen
+            self.present(navController, animated: true)
             
         } else {
             //navigate to  setting page
@@ -93,9 +94,10 @@ class MeViewController: UIViewController {
     
     
     @IBAction func registerAction(_ sender: Any) {
-        let vc = LoginVC(nibName: "LoginVC", bundle: nil)
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        let loginVC = LoginVC()
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
     
 

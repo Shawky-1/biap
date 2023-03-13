@@ -56,30 +56,30 @@ class RegisterVC: UIViewController {
     
     @IBAction func didClickLogin(_ sender: Any) {
         let arrValidationModel: [ValidationModel] = [
-                    ValidationModel(validation: .msgRange , value: firstNameTF.text?.trim, message: "Please enter your first name."),
-                    ValidationModel(validation: .msgRange , value: lastNameTF.text?.trim, message: "Please enter your last name."),
-                    ValidationModel(validation: .email , value: emailTF.text?.trim, message: CBlankEmail),
-                    ValidationModel(validation: .password , value: passwordTF.text?.trim, message: CBlankPswd),
-                    ValidationModel(validation: .mobileNumber , value: phoneTF.text?.trim, message: CBlankPhoneNumber)]
-                
-                // Check Validation Of SignUp
-                
-                if MIValidation.isValidData(arrValidationModel) {
-                    if passwordTF.text?.trim != confirmPasswordTF.text?.trim{
-                        presentAlertViewWithOneButtonMIV(alertTitle: nil, alertMessage: "Passwords doesn't match", btnOneTitle: "Ok", btnOneTapped: nil)
-                        self.view.endEditing(true)
-                        return
-                    }
-                    let customer = Customer(email: emailTF.text?.trim ?? "",
-                                            firstName: firstNameTF.text?.trim ?? "",
-                                            lastName: lastNameTF.text?.trim ?? "",
-                                            note: passwordTF.text?.trim ?? "",
-                                            phone: phoneTF.text?.trim ?? "")
-                    viewModel.createCustomer(customer: customer)
-                    self.view.endEditing(true)
-                    
-                    
-                }
+            ValidationModel(validation: .msgRange , value: firstNameTF.text?.trim, message: "Please enter your first name."),
+            ValidationModel(validation: .msgRange , value: lastNameTF.text?.trim, message: "Please enter your last name."),
+            ValidationModel(validation: .email , value: emailTF.text?.trim, message: CBlankEmail),
+            ValidationModel(validation: .password , value: passwordTF.text?.trim, message: CBlankPswd),
+            ValidationModel(validation: .mobileNumber , value: phoneTF.text?.trim, message: CBlankPhoneNumber)]
+        
+        // Check Validation Of SignUp
+        
+        if MIValidation.isValidData(arrValidationModel) {
+            if passwordTF.text?.trim != confirmPasswordTF.text?.trim{
+                presentAlertViewWithOneButtonMIV(alertTitle: nil, alertMessage: "Passwords doesn't match", btnOneTitle: "Ok", btnOneTapped: nil)
+                self.view.endEditing(true)
+                return
+            }
+            let customer = Customer(email: emailTF.text?.trim ?? "",
+                                    firstName: firstNameTF.text?.trim ?? "",
+                                    lastName: lastNameTF.text?.trim ?? "",
+                                    note: passwordTF.text?.trim ?? "",
+                                    phone: phoneTF.text?.trim ?? "")
+            viewModel.createCustomer(customer: customer)
+            self.view.endEditing(true)
+            
+            
+        }
     }
 }
 

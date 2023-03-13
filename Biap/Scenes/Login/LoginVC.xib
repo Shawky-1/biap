@@ -166,16 +166,10 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-en-faJ">
-                    <rect key="frame" x="35.333333333333343" y="763" width="322.66666666666663" height="31.333333333333371"/>
+                    <rect key="frame" x="210.33333333333337" y="773" width="157.66666666666663" height="31.333333333333371"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn5-1N-MKO">
-                            <rect key="frame" x="0.0" y="0.0" width="165" height="31.333333333333332"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua2-6e-WtL">
-                            <rect key="frame" x="165" y="0.0" width="157.66666666666663" height="31.333333333333332"/>
+                            <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="31.333333333333332"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Continue as a guest">
@@ -191,9 +185,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="ua2-6e-WtL" firstAttribute="height" secondItem="zn5-1N-MKO" secondAttribute="height" id="wKW-k0-0Lg"/>
-                    </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-yA-oKg">
                     <rect key="frame" x="25" y="476.66666666666669" width="343" height="0.0"/>
@@ -225,10 +216,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dR6-rh-dxP" secondAttribute="trailing" constant="25" id="Ts0-xg-i9b"/>
                 <constraint firstItem="ex5-SL-Yjy" firstAttribute="top" secondItem="XcM-Zu-Qem" secondAttribute="bottom" constant="5" id="W91-lz-6V3"/>
                 <constraint firstItem="Pig-uB-Ltl" firstAttribute="top" secondItem="S99-SK-wHx" secondAttribute="bottom" constant="5" id="Wiw-XG-odR"/>
-                <constraint firstItem="R0c-en-faJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XD7-N6-q4V"/>
                 <constraint firstItem="S99-SK-wHx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="XnL-e3-sEj"/>
                 <constraint firstItem="aJX-yA-oKg" firstAttribute="trailing" secondItem="BZJ-pp-FFz" secondAttribute="trailing" id="YOt-cZ-JRT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pig-uB-Ltl" secondAttribute="trailing" constant="25" id="Yvl-X8-lJT"/>
+                <constraint firstItem="R0c-en-faJ" firstAttribute="trailing" secondItem="QpC-Eq-0MH" secondAttribute="trailing" id="Zli-ic-3vI"/>
                 <constraint firstItem="7cy-1U-JYq" firstAttribute="trailing" secondItem="dR6-rh-dxP" secondAttribute="trailing" id="fTI-24-392"/>
                 <constraint firstItem="nfq-5j-KyK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.17" id="hI5-rd-w8w"/>
                 <constraint firstItem="Pig-uB-Ltl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.045" id="iDL-U2-yCM"/>
@@ -244,7 +235,7 @@
                 <constraint firstItem="aJX-yA-oKg" firstAttribute="top" secondItem="BZJ-pp-FFz" secondAttribute="bottom" constant="10" id="qeh-0A-bYu"/>
                 <constraint firstItem="QpC-Eq-0MH" firstAttribute="trailing" secondItem="dR6-rh-dxP" secondAttribute="trailing" id="r9N-xp-Wk2"/>
                 <constraint firstItem="nfq-5j-KyK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xRe-dq-Ngq"/>
-                <constraint firstItem="R0c-en-faJ" firstAttribute="top" secondItem="dR6-rh-dxP" secondAttribute="bottom" constant="5" id="yKz-cd-JZD"/>
+                <constraint firstItem="R0c-en-faJ" firstAttribute="top" secondItem="dR6-rh-dxP" secondAttribute="bottom" constant="15" id="yKz-cd-JZD"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
@@ -252,10 +243,10 @@
     </objects>
     <designables>
         <designable name="BZJ-pp-FFz">
-            <size key="intrinsicContentSize" width="220.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="160.33333333333334" height="22"/>
         </designable>
         <designable name="Pig-uB-Ltl">
-            <size key="intrinsicContentSize" width="147.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="127.33333333333333" height="22"/>
         </designable>
     </designables>
     <resources>

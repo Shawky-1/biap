@@ -83,12 +83,13 @@ class CartViewController: UIViewController {
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            self.presentAlertViewWithOneButtonMIV(alertTitle: "Invalid login.", alertMessage: "You need to be logged in in order to proceed to checkout.", btnOneTitle: "Login") { action in
+            self.presentAlertViewWithOneButtonMIV(alertTitle: "Invalid login.", alertMessage: "You need to be logged-in in order to proceed to checkout.", btnOneTitle: "Login") { action in
                 
-                let vc = LoginVC(nibName: "LoginVC", bundle: nil)
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
-                
+                let loginVC = LoginVC()
+                let navController = UINavigationController(rootViewController: loginVC)
+                navController.modalPresentationStyle = .fullScreen
+                self.present(navController, animated: true)
+
             }
         }
     }
