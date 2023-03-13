@@ -18,6 +18,8 @@ class ProductCell: UICollectionViewCell {
     
     @IBOutlet weak var productPrice: UILabel!
     
+    @IBOutlet weak var Currency: UILabel!
+    
     var bindAddActionToTableView:(() -> ())?
     var bindDeleteActionToTableView:(() -> ())?
     var exist = false

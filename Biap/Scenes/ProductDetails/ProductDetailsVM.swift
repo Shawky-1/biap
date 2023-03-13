@@ -13,6 +13,7 @@ class ProductDetailsVM{
     
     var sizeArr:[String] = []
     var colorArr:[String] = []
+    var vartantsArr:[Int] = []
     var bindResultToProductView:(() -> ()) = {}
     
     //let myDropDown = DropDown()
@@ -33,6 +34,11 @@ class ProductDetailsVM{
                 for each in self.singleProduct!.product.images{
                     self.imgArr.append(each.src)
                 }
+                
+                for each in self.singleProduct!.product.variants!{
+                    self.vartantsArr.append(each.id!)
+                }
+                //print(self.vartantsArr)
                 
                 
                 for each in self.singleProduct!.product.options{

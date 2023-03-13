@@ -19,6 +19,7 @@ class productOfCategory: UIViewController {
     let realm = try! Realm()
     var filteredId:Int = 0
     let searchBar = UISearchBar()
+    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,9 +90,21 @@ extension productOfCategory:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
         cell.productName.text = filteredProducts?.products[indexPath.row].title
-        cell.productPrice.text = filteredProducts?.products[indexPath.row].variants?[0].price
+        if currency == "USD" || currency == ""{
+            cell.productPrice.text = filteredProducts?.products[indexPath.row].variants?[0].price
+        }else{
+            let price = filteredProducts?.products[indexPath.row].variants?[0].price
+            let egp_Price =  (((price)! as NSString).doubleValue) * 30
+            cell.productPrice.text = String(egp_Price)
+        }
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
+        //cell.Currency.text = currency
+        if currency == ""{
+            cell.Currency.text = "USD"
+        }else{
+            cell.Currency.text = currency
+        }
         
         //add object to favorites
         cell.bindAddActionToTableView = {[weak self] in
@@ -99,7 +112,13 @@ extension productOfCategory:UICollectionViewDataSource{
             let obj = Favorite()
             obj.name = self.filteredProducts?.products[indexPath.row].title
             obj.image = self.filteredProducts?.products[indexPath.row].images[0].src
-            obj.price = self.viewModel.priceArr[indexPath.row]
+            if self.currency == "USD" || self.currency == ""{
+                obj.price = self.viewModel.priceArr[indexPath.row]
+            }
+            else{
+                obj.price = (self.viewModel.priceArr[indexPath.row] * 30)
+            }
+            obj.currency = cell.Currency.text
             obj.productId = (self.filteredProducts?.products[indexPath.row].id)!
             obj.variantId = self.filteredProducts?.products[indexPath.row].variants?[0].id ?? 0
             RealmManager.saveDataToFavorites(obj: obj)
@@ -145,7 +164,7 @@ extension productOfCategory: UICollectionViewDelegate{
         let vc = ProductDetails(nibName: "ProductDetails", bundle: nil)
         vc.id = filteredProducts?.products[indexPath.row].id ?? 0
         vc.price = viewModel.priceArr[indexPath.row]
-        vc.variantId = filteredProducts?.products[indexPath.row].variants?[0].id ?? 0
+        //vc.variantId = filteredProducts?.products[indexPath.row].variants?[0].id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

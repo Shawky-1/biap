@@ -99,6 +99,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNk-Vz-5xN">
+                        <rect key="frame" x="200" y="57" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnE-0x-dyf">
+                        <rect key="frame" x="202.66666666666666" y="83" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zId-2w-jmZ">
+                        <rect key="frame" x="201" y="109" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1aQ-Rh-3Ap" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="0tb-C4-56o"/>
@@ -109,10 +127,14 @@
                     <constraint firstItem="1aQ-Rh-3Ap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="6GB-1V-YLo"/>
                     <constraint firstItem="SQP-hk-3m2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="6Kb-uf-NDW"/>
                     <constraint firstItem="xni-qh-BKp" firstAttribute="top" secondItem="KnQ-ry-rky" secondAttribute="bottom" constant="5" id="89w-jR-WoS"/>
+                    <constraint firstItem="zId-2w-jmZ" firstAttribute="leading" secondItem="xni-qh-BKp" secondAttribute="trailing" constant="110" id="ACG-wy-s0H"/>
                     <constraint firstItem="Nnb-4M-wCZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="AnN-Wf-Jk7"/>
                     <constraint firstItem="KnQ-ry-rky" firstAttribute="top" secondItem="Fkl-ck-A8w" secondAttribute="bottom" constant="5" id="Efu-kN-871"/>
+                    <constraint firstItem="CnE-0x-dyf" firstAttribute="top" secondItem="XWf-9D-GfM" secondAttribute="bottom" constant="5" id="EyQ-g6-J4h"/>
                     <constraint firstItem="XWf-9D-GfM" firstAttribute="top" secondItem="t0z-Xp-bq8" secondAttribute="bottom" constant="5" id="Faf-Na-GgB"/>
                     <constraint firstItem="t0z-Xp-bq8" firstAttribute="top" secondItem="Nnb-4M-wCZ" secondAttribute="bottom" constant="5" id="J8V-Sp-usN"/>
+                    <constraint firstItem="zId-2w-jmZ" firstAttribute="top" secondItem="Emm-hf-6hV" secondAttribute="bottom" constant="5" id="JeQ-BZ-17S"/>
+                    <constraint firstItem="CnE-0x-dyf" firstAttribute="leading" secondItem="KnQ-ry-rky" secondAttribute="trailing" constant="125" id="NdE-vF-Aev"/>
                     <constraint firstItem="KnQ-ry-rky" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="R53-yu-78y"/>
                     <constraint firstAttribute="trailing" secondItem="Emm-hf-6hV" secondAttribute="trailing" constant="5" id="ScD-Eg-rS8"/>
                     <constraint firstItem="Fkl-ck-A8w" firstAttribute="top" secondItem="SQP-hk-3m2" secondAttribute="bottom" constant="5" id="TGp-Nz-MCG"/>
@@ -121,6 +143,8 @@
                     <constraint firstAttribute="bottom" secondItem="xni-qh-BKp" secondAttribute="bottom" constant="5" id="gWR-Gg-xKl"/>
                     <constraint firstItem="xni-qh-BKp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="kpc-a5-nfu"/>
                     <constraint firstAttribute="trailing" secondItem="AVa-4E-9DA" secondAttribute="trailing" constant="5" id="qqL-oP-Cn9"/>
+                    <constraint firstItem="fNk-Vz-5xN" firstAttribute="top" secondItem="t0z-Xp-bq8" secondAttribute="bottom" constant="5" id="rjX-su-tG0"/>
+                    <constraint firstItem="fNk-Vz-5xN" firstAttribute="leading" secondItem="Fkl-ck-A8w" secondAttribute="trailing" constant="125" id="tDR-yB-VkK"/>
                     <constraint firstItem="Emm-hf-6hV" firstAttribute="top" secondItem="XWf-9D-GfM" secondAttribute="bottom" constant="5" id="uSp-Wy-eDF"/>
                 </constraints>
             </tableViewCellContentView>

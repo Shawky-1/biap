@@ -19,6 +19,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var subTotalText: UILabel!
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     
+    @IBOutlet weak var Currency: UILabel!
+    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
     var cartArray:[Cart] = []
     let realm = try! Realm()
     var sum:Double = 0.0
@@ -51,6 +53,7 @@ class CartViewController: UIViewController {
             checkOut.isHidden = true
             subTotal.isHidden = true
             subTotalText.isHidden = true
+            Currency.isHidden = true
         }
     }
     
@@ -72,6 +75,12 @@ class CartViewController: UIViewController {
         checkOut.cornerRadius = checkOut.bounds.height / 2
         tableView.registerCellNib(cellClass: ShoppingCartCell.self)
         self.title = "Shopping Cart"
+        if currency == ""{
+            self.Currency.text = "USD"
+        }else{
+            self.Currency.text = currency
+        }
+        //
         tableView.allowsSelection = false
     }
     
@@ -83,7 +92,7 @@ class CartViewController: UIViewController {
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            self.presentAlertViewWithOneButtonMIV(alertTitle: "Invalid login.", alertMessage: "You need to be logged-in in order to proceed to checkout.", btnOneTitle: "Login") { action in
+            self.presentAlertViewWithOneButtonMIV(alertTitle: "Invalid login.", alertMessage: "You need to be logged-in to proceed to checkout.", btnOneTitle: "Login") { action in
                 
                 let loginVC = LoginVC()
                 let navController = UINavigationController(rootViewController: loginVC)
@@ -113,10 +122,14 @@ extension CartViewController:UITableViewDataSource{
         cell.productName.text = cartArray[indexPath.section].name
         cell.productSize.text = cartArray[indexPath.section].size
         cell.productColor.text = cartArray[indexPath.section].color
+        if currency == ""{
+            cell.Currency.text = "USD"
+        }else{
+            cell.Currency.text = cartArray[indexPath.section].currency
+        }
         cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.section].price * ((cell.productQuantity.text)! as NSString).doubleValue)
         cell.originalPrice = cell.productPrice.text!
-//        cell.productQuantity.text = String(cartArray[indexPath.row].quantity)
-//        cell.stepper.value = Double(cartArray[indexPath.row].quantity)
+
         
         let productImageUrl = URL(string: cartArray[indexPath.section].image ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
@@ -195,6 +208,45 @@ extension CartViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 175
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        self.tableView.reloadData()
+        let alert:UIAlertController = UIAlertController(title: "Delete!", message: "Do you really want to remove this Product from your Shopping Cart ?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive,handler: { action in
+           
+            let products = try! Realm().objects(Cart.self)
+            try! self.realm.write({
+                self.realm.delete(products[indexPath.section])
+            })
+            self.cartArray.removeAll()
+            for each in products{
+                self.cartArray.append(each)
+            }
+            
+            self.sum = 0.0
+            for each in self.cartArray{
+                self.sum += each.price
+            }
+            self.subTotal.text = String(format: "%.2f", self.sum)
+            if self.cartArray.isEmpty{
+                self.tableView.isHidden = true
+                self.emptyImage.isHidden = false
+                self.checkOut.isHidden = true
+                self.subTotal.isHidden = true
+                self.subTotalText.isHidden = true}
+            self.tableView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default,handler: { action in
+        }))
+        
+        self.present(alert,animated: true,completion: nil)
+        
+        
+        
+    }
+    
 
 }
 

@@ -18,6 +18,8 @@ class ShoppingCartCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
+    @IBOutlet weak var Currency: UILabel!
+    
     let realm = try! Realm()
     var bindPricesToTableView:((Double) -> ())?
     var bindDeleteToTableView:(() -> ())?

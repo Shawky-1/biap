@@ -17,7 +17,7 @@ class SettingsView: UIViewController {
     @IBOutlet weak var logOut: UIButton!
     
     var viewModel: SettingsVM?
-    
+    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,7 @@ class SettingsView: UIViewController {
             UserDefaults.standard.setValue(nil, forKey: "firstName")
             UserDefaults.standard.setValue(nil, forKey: "lastName")
             UserDefaults.standard.setValue(nil, forKey: "phone")
+            UserDefaults.standard.setValue(nil, forKey: "currency")
             RealmManager.shared.deleteAll()
             let login = LoginVC(nibName: "LoginVC", bundle: nil)
             login.modalPresentationStyle = .fullScreen
@@ -88,7 +89,13 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource{
         case 0:
             cell.rightLabel.text = ""
         case 1:
-            cell.rightLabel.text = "EGP"
+            if (UserDefaults.standard.string(forKey: "currency") == nil){
+                cell.rightLabel.text = "USD"
+                UserDefaults.standard.set(cell.rightLabel.text, forKey: "currency")
+            } else {
+                cell.rightLabel.text = UserDefaults.standard.string(forKey: "currency")
+            }
+            
         default:
             cell.rightLabel.text = ""
         }
@@ -100,17 +107,27 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = settingsTable.cellForRow(at: indexPath) as! SettingsCell
         
+        
         switch(indexPath.section){
         case 0:
             let VC = Addresses(nibName: "Addresses", bundle: nil)
             self.navigationController?.pushViewController(VC, animated: true)
         case 1:
+           
             let alert = UIAlertController(title: "Choose currency", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "EGP", style: .default, handler: { (handle) in
                 cell.rightLabel.text = "EGP"
+                if self.currency != cell.rightLabel.text{
+                    RealmManager.shared.deleteAll()
+                }
+                UserDefaults.standard.set(cell.rightLabel.text, forKey: "currency")
             }))
             alert.addAction(UIAlertAction(title: "USD", style: .default, handler: { (handle) in
                 cell.rightLabel.text = "USD"
+                if self.currency != cell.rightLabel.text{
+                    RealmManager.shared.deleteAll()
+                }
+                UserDefaults.standard.set(cell.rightLabel.text, forKey: "currency")
             }))
             self.present(alert, animated: true, completion: nil)
         case 2:
