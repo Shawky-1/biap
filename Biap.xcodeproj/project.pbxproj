@@ -41,6 +41,8 @@
 		BC2F5EA129B788F1004D0243 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2F5E9F29B788F1004D0243 /* FavoritesView.xib */; };
 		BC2F5EA529B78A2E004D0243 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F5EA329B78A2E004D0243 /* FavoritesCell.swift */; };
 		BC2F5EA629B78A2E004D0243 /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2F5EA429B78A2E004D0243 /* FavoritesCell.xib */; };
+		BC64D1FF29BF7D9D00C9EC64 /* unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64D1FE29BF7D9D00C9EC64 /* unitTest.swift */; };
+		BC64D20129BF823900C9EC64 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64D20029BF823900C9EC64 /* Test.swift */; };
 		BC94611C29B0FB4E00994D80 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94611A29B0FB4E00994D80 /* ProductsView.swift */; };
 		BC94611D29B0FB4E00994D80 /* ProductsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94611B29B0FB4E00994D80 /* ProductsView.xib */; };
 		BC94612929B114A500994D80 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94612729B114A500994D80 /* ProductCell.swift */; };
@@ -181,6 +183,8 @@
 		BC2F5E9F29B788F1004D0243 /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
 		BC2F5EA329B78A2E004D0243 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		BC2F5EA429B78A2E004D0243 /* FavoritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCell.xib; sourceTree = "<group>"; };
+		BC64D1FE29BF7D9D00C9EC64 /* unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTest.swift; sourceTree = "<group>"; };
+		BC64D20029BF823900C9EC64 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		BC94611A29B0FB4E00994D80 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		BC94611B29B0FB4E00994D80 /* ProductsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsView.xib; sourceTree = "<group>"; };
 		BC94612729B114A500994D80 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -709,6 +713,7 @@
 			isa = PBXGroup;
 			children = (
 				E28F533629AE7D1900FB99EF /* BiapTests.swift */,
+				BC64D20029BF823900C9EC64 /* Test.swift */,
 			);
 			path = BiapTests;
 			sourceTree = "<group>";
@@ -806,6 +811,7 @@
 				E2D8127B29B54AA500F1A7E7 /* APIErrors.swift */,
 				BC2F5E9B29B78898004D0243 /* Favorites.swift */,
 				E2207AB929B8F8580080437B /* Order.swift */,
+				BC64D1FE29BF7D9D00C9EC64 /* unitTest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1212,6 +1218,7 @@
 				BC9869CF29B9224D00281CF8 /* OrdersCell.swift in Sources */,
 				E21F0EFA29B3EEAA00BA1A32 /* LoginErrors.swift in Sources */,
 				9E3CA23529BC8F760066930F /* Walkthrough.swift in Sources */,
+				BC64D1FF29BF7D9D00C9EC64 /* unitTest.swift in Sources */,
 				E2793B7529B0EDD50060BE7B /* ProductDetailsVC.swift in Sources */,
 				BCACC6D129B553270004589A /* cart.swift in Sources */,
 				E28F532029AE7D1500FB99EF /* AppDelegate.swift in Sources */,
@@ -1227,6 +1234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28F533729AE7D1900FB99EF /* BiapTests.swift in Sources */,
+				BC64D20129BF823900C9EC64 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
