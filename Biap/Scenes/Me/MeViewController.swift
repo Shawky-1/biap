@@ -7,6 +7,7 @@
 
 import UIKit
 import Reachability
+import RealmSwift
 
 class MeViewController: UIViewController {
     
@@ -15,6 +16,8 @@ class MeViewController: UIViewController {
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var ordersTableView: UITableView!
     @IBOutlet weak var EmptyPlaceholder: UIImageView!
+    
+    var currency:String = ""
     
     var viewModel:MeViewModel!
     override func viewDidLoad() {
@@ -25,6 +28,7 @@ class MeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel = MeViewModel()
+        currency = UserDefaults.standard.string(forKey: "currency") ?? ""
         let id = UserDefaults.standard.string(forKey: "id") ?? ""
         viewModel.getOrders(url: urls.ordersUrl(id: id))
         viewModel.bindResultToMeView = {[weak self] in
@@ -36,6 +40,10 @@ class MeViewController: UIViewController {
             self.ordersTableView.reloadData()
         }
         checkConnection()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        cartIndicator()
     }
     
     @objc func settingButton(sender:UIBarButtonItem){
@@ -72,13 +80,11 @@ class MeViewController: UIViewController {
     
     
     func setupUI(){
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape") , style: .plain, target: self, action: #selector(settingButton))
-        settingButton.tintColor = .label
-        let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
-        cartButton.tintColor = .label
+        
+        
         ordersTableView.allowsSelection = false
         self.title = "Account"
-        navigationItem.rightBarButtonItems = [settingButton,cartButton]
+        
         registerButton.cornerRadius = registerButton.bounds.height / 2
         ordersTableView.registerCellNib(cellClass: OrdersCell.self)
         
@@ -91,6 +97,39 @@ class MeViewController: UIViewController {
             registerButton.isHidden = true
             }
         }
+    
+    func cartIndicator(){
+       let products = try! Realm().objects(Cart.self)
+        
+        
+        //setting button
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape") , style: .plain, target: self, action: #selector(settingButton))
+        settingButton.tintColor = .label
+        
+        let cartButtonn = SSBadgeButton()
+        cartButtonn.frame = CGRect(x: 22, y: -05, width: 20, height: 20)
+        //cartIcon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            cartButtonn.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            cartButtonn.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
+            cartButtonn.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
+        cartButtonn.badge = String(products.count)
+        cartButtonn.tintColor = .label
+        
+        if products.isEmpty{
+            cartButtonn.isHidden = true
+        }
+    
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        rightBarButton.addTarget(self, action: #selector(self.cartButton), for: .touchUpInside)
+        rightBarButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        rightBarButton.tintColor = .label
+        rightBarButton.addSubview(cartButtonn)
+        
+        navigationItem.rightBarButtonItems = [settingButton,UIBarButtonItem.init(
+            customView: rightBarButton)]
+        
+    }
+    
     
     
     @IBAction func registerAction(_ sender: Any) {
@@ -116,9 +155,34 @@ extension MeViewController:UITableViewDataSource{
         
         cell.orderId.text = String(viewModel.listOfOrders?.orders[indexPath.row].id ?? 0)
         cell.orderDate.text = viewModel.listOfOrders?.orders[indexPath.row].created_at
-        cell.totalPrice.text = viewModel.listOfOrders?.orders[indexPath.row].current_subtotal_price
-        cell.discount.text = viewModel.listOfOrders?.orders[indexPath.row].current_total_discounts
-        cell.priceAfterDiscount.text = viewModel.listOfOrders?.orders[indexPath.row].current_total_price
+        if currency == "USD" || currency == ""{
+            cell.subTotalLabel.text = "USD"
+            cell.discountLabel.text = "USD"
+            cell.totalLabel.text = "USD"
+        }else{
+            cell.subTotalLabel.text = currency
+            cell.discountLabel.text = currency
+            cell.totalLabel.text = currency
+        }
+        
+        if currency == "USD" || currency == ""{
+            cell.totalPrice.text = viewModel.listOfOrders?.orders[indexPath.row].current_subtotal_price
+            cell.discount.text = viewModel.listOfOrders?.orders[indexPath.row].current_total_discounts
+            cell.priceAfterDiscount.text = viewModel.listOfOrders?.orders[indexPath.row].current_total_price
+        }else{
+            let subTotalPrice = viewModel.listOfOrders?.orders[indexPath.row].current_subtotal_price ?? ""
+            let egp_subTotalPrice =  (((subTotalPrice) as NSString).doubleValue) * 30
+            cell.totalPrice.text = String(egp_subTotalPrice)
+            
+            let discount =  viewModel.listOfOrders?.orders[indexPath.row].current_total_discounts ?? ""
+            let egp_discount =  (((discount) as NSString).doubleValue) * 30
+            cell.discount.text = String(egp_discount)
+            
+            let priceAfterDiscount =  viewModel.listOfOrders?.orders[indexPath.row].current_total_price ?? ""
+            let egp_priceAfterDiscount =  (((priceAfterDiscount ) as NSString).doubleValue) * 30
+            cell.priceAfterDiscount.text = String(egp_priceAfterDiscount)
+            
+        }
         return cell
     }
     

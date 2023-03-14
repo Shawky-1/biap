@@ -243,10 +243,10 @@
     </objects>
     <designables>
         <designable name="BZJ-pp-FFz">
-            <size key="intrinsicContentSize" width="160.33333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="220.33333333333334" height="22"/>
         </designable>
         <designable name="Pig-uB-Ltl">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="22"/>
+            <size key="intrinsicContentSize" width="147.33333333333334" height="22"/>
         </designable>
     </designables>
     <resources>

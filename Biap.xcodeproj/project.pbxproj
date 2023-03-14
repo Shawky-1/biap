@@ -36,6 +36,7 @@
 		9ED2735529B9C225000F8311 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED2735229B9C225000F8311 /* SettingsVM.swift */; };
 		9ED2735929B9C585000F8311 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED2735729B9C585000F8311 /* SettingsCell.xib */; };
 		9ED2735A29B9C585000F8311 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED2735829B9C585000F8311 /* SettingsCell.swift */; };
+		BC03D1DD29C0A9DD00E32686 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03D1DC29C0A9DD00E32686 /* BadgeButton.swift */; };
 		BC2F5E9C29B78898004D0243 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F5E9B29B78898004D0243 /* Favorites.swift */; };
 		BC2F5EA029B788F1004D0243 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F5E9E29B788F1004D0243 /* FavoritesView.swift */; };
 		BC2F5EA129B788F1004D0243 /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2F5E9F29B788F1004D0243 /* FavoritesView.xib */; };
@@ -178,6 +179,7 @@
 		9ED2735829B9C585000F8311 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		A1764C1B0D1DA9885A9EE083 /* Pods-Biap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap.debug.xcconfig"; path = "Target Support Files/Pods-Biap/Pods-Biap.debug.xcconfig"; sourceTree = "<group>"; };
 		AA1DC5F6B9DD877F5C8E91DB /* Pods-Biap-BiapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biap-BiapUITests.release.xcconfig"; path = "Target Support Files/Pods-Biap-BiapUITests/Pods-Biap-BiapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC03D1DC29C0A9DD00E32686 /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
 		BC2F5E9B29B78898004D0243 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		BC2F5E9E29B788F1004D0243 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		BC2F5E9F29B788F1004D0243 /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 				BC2F5E9B29B78898004D0243 /* Favorites.swift */,
 				E2207AB929B8F8580080437B /* Order.swift */,
 				BC64D1FE29BF7D9D00C9EC64 /* unitTest.swift */,
+				BC03D1DC29C0A9DD00E32686 /* BadgeButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1196,6 +1199,7 @@
 				E2D812DD29B8EA4500F1A7E7 /* CardCell.swift in Sources */,
 				E2793B8929B2B3C20060BE7B /* LoginVC.swift in Sources */,
 				9ECD72C029B75DBC008C90CA /* PaymentsCell.swift in Sources */,
+				BC03D1DD29C0A9DD00E32686 /* BadgeButton.swift in Sources */,
 				BC94612929B114A500994D80 /* ProductCell.swift in Sources */,
 				9E3CA24929BD065C0066930F /* AddressesVM.swift in Sources */,
 				E2793B8629B2B30D0060BE7B /* LoginVM.swift in Sources */,

@@ -20,7 +20,7 @@ class CartViewController: UIViewController {
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     
     @IBOutlet weak var Currency: UILabel!
-    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
+    var currency = ""
     var cartArray:[Cart] = []
     let realm = try! Realm()
     var sum:Double = 0.0
@@ -30,6 +30,7 @@ class CartViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        currency = UserDefaults.standard.string(forKey: "currency") ?? ""
         setupUI()
         loadDatafromRealm()
         tableView.reloadData()
@@ -72,11 +73,12 @@ class CartViewController: UIViewController {
     }
 
     func setupUI(){
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         checkOut.cornerRadius = checkOut.bounds.height / 2
         tableView.registerCellNib(cellClass: ShoppingCartCell.self)
         self.title = "Shopping Cart"
-        if currency == ""{
+        if currency == "USD" || currency == ""{
             self.Currency.text = "USD"
         }else{
             self.Currency.text = currency
@@ -123,10 +125,10 @@ extension CartViewController:UITableViewDataSource{
         cell.productName.text = cartArray[indexPath.section].name
         cell.productSize.text = cartArray[indexPath.section].size
         cell.productColor.text = cartArray[indexPath.section].color
-        if currency == ""{
+        if currency == "USD" || currency == ""{
             cell.Currency.text = "USD"
         }else{
-            cell.Currency.text = cartArray[indexPath.section].currency
+            cell.Currency.text = currency
         }
         cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.section].price * ((cell.productQuantity.text)! as NSString).doubleValue)
         cell.originalPrice = cell.productPrice.text!

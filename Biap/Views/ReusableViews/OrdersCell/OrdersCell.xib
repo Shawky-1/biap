@@ -163,9 +163,12 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="discount" destination="Emm-hf-6hV" id="jxq-ho-3NC"/>
+                <outlet property="discountLabel" destination="CnE-0x-dyf" id="HxR-NN-Q8f"/>
                 <outlet property="orderDate" destination="t0z-Xp-bq8" id="kfq-Ki-3zw"/>
                 <outlet property="orderId" destination="Nnb-4M-wCZ" id="EqE-35-pxX"/>
                 <outlet property="priceAfterDiscount" destination="AVa-4E-9DA" id="lFq-mL-Wtf"/>
+                <outlet property="subTotalLabel" destination="fNk-Vz-5xN" id="gvd-Oq-iYm"/>
+                <outlet property="totalLabel" destination="zId-2w-jmZ" id="a3m-ve-OQJ"/>
                 <outlet property="totalPrice" destination="XWf-9D-GfM" id="2ej-Bf-TT1"/>
             </connections>
             <point key="canvasLocation" x="32.824427480916029" y="-11.619718309859156"/>

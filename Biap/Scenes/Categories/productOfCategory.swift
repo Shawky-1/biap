@@ -24,7 +24,6 @@ class productOfCategory: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-       
         viewModel = productVM()
         viewModel.getSProduct(url:urls.productsOfCategory(productType: productType))
         viewModel.bindResultToProductView = {[weak self] in
@@ -33,15 +32,46 @@ class productOfCategory: UIViewController {
                 self.collectionView.reloadData()
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        cartIndicator()
+    }
 
     func setupUI(){
-        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass") , style: .plain, target: self, action: #selector(searchButton))
-        searchButton.tintColor = .label
-        let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
-        cartButton.tintColor = .label
-        navigationItem.rightBarButtonItems = [cartButton,searchButton]
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
+        self.navigationController?.navigationBar.tintColor = UIColor.label
         searchBar.delegate = self
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+    }
+    
+    func cartIndicator(){
+       let products = try! Realm().objects(Cart.self)
+        
+        //serarch button
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass") , style: .plain, target: self, action: #selector(searchButton))
+        searchButton.tintColor = .label
+        
+        let cartButtonn = SSBadgeButton()
+        cartButtonn.frame = CGRect(x: 22, y: -05, width: 20, height: 20)
+        //cartIcon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            cartButtonn.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            cartButtonn.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
+            cartButtonn.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
+        cartButtonn.badge = String(products.count)
+        cartButtonn.tintColor = .label
+        
+        if products.isEmpty{
+            cartButtonn.isHidden = true
+        }
+    
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        rightBarButton.addTarget(self, action: #selector(self.cartButton), for: .touchUpInside)
+        rightBarButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        rightBarButton.tintColor = .label
+        rightBarButton.addSubview(cartButtonn)
+        
+        navigationItem.rightBarButtonItems = [UIBarButtonItem.init(
+            customView: rightBarButton),searchButton]
     }
     
     @objc func cartButton(sender:UIBarButtonItem){
@@ -100,7 +130,7 @@ extension productOfCategory:UICollectionViewDataSource{
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")
         cell.productImage.kf.setImage(with: productImageUrl)
         //cell.Currency.text = currency
-        if currency == ""{
+        if currency == "USD" || currency == ""{
             cell.Currency.text = "USD"
         }else{
             cell.Currency.text = currency
@@ -187,11 +217,7 @@ extension productOfCategory:UISearchBarDelegate{
         searchBar.text = ""
         filteredProducts = viewModel.listOfProducts
         collectionView.reloadData()
-        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass") , style: .plain, target: self, action: #selector(searchButton))
-        searchButton.tintColor = .label
-        let cartButton = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
-        cartButton.tintColor = .label
-        navigationItem.rightBarButtonItems = [cartButton,searchButton]
+        cartIndicator()
     }
 }
 

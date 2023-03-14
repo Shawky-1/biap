@@ -65,6 +65,7 @@ class ProductDetails: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
         //favorite button appearence
         for item in try! Realm().objects(Favorite.self).filter("productId == %@",id){
             if id == item.productId{
@@ -73,6 +74,38 @@ class ProductDetails: UIViewController {
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        cartIndicator()
+    }
+    
+    
+    func cartIndicator(){
+       let products = try! Realm().objects(Cart.self)
+        
+        let cartButtonn = SSBadgeButton()
+        cartButtonn.frame = CGRect(x: 22, y: -05, width: 20, height: 20)
+        //cartIcon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            cartButtonn.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            cartButtonn.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
+            cartButtonn.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
+        cartButtonn.badge = String(products.count)
+        cartButtonn.tintColor = .label
+        
+        if products.isEmpty{
+            cartButtonn.isHidden = true
+        }
+    
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        rightBarButton.addTarget(self, action: #selector(self.cartButton), for: .touchUpInside)
+        rightBarButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        rightBarButton.tintColor = .label
+        rightBarButton.addSubview(cartButtonn)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(
+                customView: rightBarButton)
+    }
+    
     
     @IBAction func selectSizeAction(_ sender: Any) {
         viewModel.dropDown(array: viewModel.sizeArr, sender: sender, DropDown: myDropDown, label: selectSize)
@@ -102,7 +135,6 @@ class ProductDetails: UIViewController {
     
     
     func setupUI(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",image: UIImage(systemName: "cart"), target: self,action: #selector(cartButton))
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         self.title = "Product Details"
@@ -111,7 +143,7 @@ class ProductDetails: UIViewController {
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")
         descriprion.isEditable = false
         descriprion.isSelectable = false
-        if currency == ""{
+        if currency == "USD" || currency == ""{
             self.Currency.text = "USD"
         }else{
             self.Currency.text = currency
@@ -165,6 +197,7 @@ class ProductDetails: UIViewController {
                 let alert:UIAlertController = UIAlertController(title: "", message: "Item is added successfully to your shopping cart", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self.present(alert,animated: true,completion: nil)
+                cartIndicator()
             }else{
                 let alert:UIAlertController = UIAlertController(title: "Warning", message: "Item is already exist in your shopping cart", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))

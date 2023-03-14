@@ -18,7 +18,8 @@ class FavoritesView: UIViewController {
     
     var favArray:[Favorite] = []
     let realm = try! Realm()
-    let currency = UserDefaults.standard.string(forKey: "currency") ?? ""
+    var currency:String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,11 @@ class FavoritesView: UIViewController {
         loadDatafromRealm()
         tableView.reloadData()
         checkConnection()
+        currency = UserDefaults.standard.string(forKey: "currency") ?? ""
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        cartIndicator()
     }
     
     func loadDatafromRealm(){
@@ -66,6 +72,33 @@ class FavoritesView: UIViewController {
         tableView.allowsSelection = false
     }
     
+    func cartIndicator(){
+       let products = try! Realm().objects(Cart.self)
+        
+        let cartButtonn = SSBadgeButton()
+        cartButtonn.frame = CGRect(x: 22, y: -05, width: 20, height: 20)
+        //cartIcon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            cartButtonn.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            cartButtonn.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
+            cartButtonn.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
+        cartButtonn.badge = String(products.count)
+        cartButtonn.tintColor = .label
+        
+        if products.isEmpty{
+            cartButtonn.isHidden = true
+        }
+    
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        rightBarButton.addTarget(self, action: #selector(self.cartButton), for: .touchUpInside)
+        rightBarButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        rightBarButton.tintColor = .label
+        rightBarButton.addSubview(cartButtonn)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(
+                customView: rightBarButton)
+    }
+    
+    
     //bar button
     @objc func cartButton(sender:UIBarButtonItem){
         let vc = CartViewController(nibName: "CartViewController", bundle: nil)
@@ -88,7 +121,7 @@ extension FavoritesView:UITableViewDataSource{
         
         cell.productName.text = favArray[indexPath.section].name
         cell.productPrice.text = String(format: "%.2f", favArray[indexPath.section].price)
-        if currency == ""{
+        if currency == "USD" || currency == ""{
             cell.Currency.text = "USD"
         }else{
             cell.Currency.text = favArray[indexPath.section].currency

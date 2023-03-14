@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import Reachability
+import RealmSwift
 
 class HomeVC: UIViewController {
 
@@ -37,6 +38,11 @@ class HomeVC: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        cartIndicator()
+    }
+    
     func checkConnection(){
         let reachability = try! Reachability()
         
@@ -50,24 +56,43 @@ class HomeVC: UIViewController {
     
     func setupUI(){
         self.title = "BIAP"
-
-        let cartIcon = UIBarButtonItem(image: UIImage(systemName: "cart" ), style: .plain, target: self, action: #selector(cartPage))
-        
-        cartIcon.tintColor = .label
-        
         search.searchResultsUpdater = self
         search.searchBar.placeholder = "Search for a product."
         search.obscuresBackgroundDuringPresentation = true
         navigationItem.searchController = search
-        
-        self.navigationItem.rightBarButtonItems = [cartIcon]
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         collectionView.collectionViewLayout = compositionalLayoutHelper.createCompositionalLayout()
         collectionView.register(UINib(nibName: "BrandsCell", bundle: nil), forCellWithReuseIdentifier: "BrandsCell")
         collectionView.register(UINib(nibName: "CouponsCell", bundle: nil), forCellWithReuseIdentifier: "CouponsCell")
         collectionView.register(UINib(nibName: "FeaturedCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedCell")
         startTimer()
+    }
+    
+    func cartIndicator(){
+       let products = try! Realm().objects(Cart.self)
         
+        let cartButtonn = SSBadgeButton()
+        cartButtonn.frame = CGRect(x: 22, y: -05, width: 20, height: 20)
+        //cartIcon.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            cartButtonn.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            cartButtonn.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
+            cartButtonn.addTarget(self, action: #selector(cartPage), for: .touchUpInside)
+        cartButtonn.badge = String(products.count)
+        cartButtonn.tintColor = .label
+        
+        if products.isEmpty{
+            cartButtonn.isHidden = true
+        }
+    
+        let rightBarButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        rightBarButton.addTarget(self, action: #selector(self.cartPage), for: .touchUpInside)
+        rightBarButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        rightBarButton.tintColor = .label
+        rightBarButton.addSubview(cartButtonn)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(
+                customView: rightBarButton)
     }
     
     

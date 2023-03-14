@@ -94,6 +94,7 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource{
                 UserDefaults.standard.set(cell.rightLabel.text, forKey: "currency")
             } else {
                 cell.rightLabel.text = UserDefaults.standard.string(forKey: "currency")
+                UserDefaults.standard.set(cell.rightLabel.text, forKey: "currency")
             }
             
         default:
