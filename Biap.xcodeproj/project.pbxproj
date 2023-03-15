@@ -553,14 +553,14 @@
 			path = AddressCell;
 			sourceTree = "<group>";
 		};
-		E2207ABB29B94D330080437B /* SearchResultsController */ = {
+		E2207ABB29B94D330080437B /* SearchResults */ = {
 			isa = PBXGroup;
 			children = (
 				E2207ABC29B94D760080437B /* SearchResultsVC.swift */,
 				E2207AC529B952AC0080437B /* SearchResultsVM.swift */,
 				E2207ABD29B94D760080437B /* SearchResultsVC.xib */,
 			);
-			path = SearchResultsController;
+			path = SearchResults;
 			sourceTree = "<group>";
 		};
 		E2207AC029B94DD90080437B /* SearchCell */ = {
@@ -737,7 +737,7 @@
 				9E3CA23229BC8F010066930F /* Walkthrough */,
 				9ED2735B29BA775E000F8311 /* Information */,
 				9ED2734F29B9C225000F8311 /* Settings */,
-				E2207ABB29B94D330080437B /* SearchResultsController */,
+				E2207ABB29B94D330080437B /* SearchResults */,
 				BC9869C629B912CE00281CF8 /* Me */,
 				E2D812D229B8E45800F1A7E7 /* Checkout */,
 				BC2F5E9D29B788BF004D0243 /* Favorites */,

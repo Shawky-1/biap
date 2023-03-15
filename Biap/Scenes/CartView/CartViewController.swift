@@ -19,12 +19,16 @@ class CartViewController: UIViewController {
     @IBOutlet weak var subTotalText: UILabel!
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     
+    @IBOutlet weak var checkoutView: UIView!
+    @IBOutlet weak var discountLbl: UILabel!
+    @IBOutlet weak var couponTF: TextField!
     @IBOutlet weak var Currency: UILabel!
     var currency = ""
     var cartArray:[Cart] = []
     let realm = try! Realm()
     var sum:Double = 0.0
-    
+    var sumAfterDiscount:Double = 0.0
+    var discountAmmount:Double = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -55,7 +59,9 @@ class CartViewController: UIViewController {
             subTotal.isHidden = true
             subTotalText.isHidden = true
             Currency.isHidden = true
+            self.checkoutView.isHidden = true
         }
+        applyCoupon()
     }
     
     func checkConnection(){
@@ -67,6 +73,7 @@ class CartViewController: UIViewController {
             checkOut.isHidden = true
             subTotal.isHidden = true
             subTotalText.isHidden = true
+            checkoutView.isHidden = true
             emptyImage.isHidden = true
             Currency.isHidden = true
         }
@@ -87,11 +94,37 @@ class CartViewController: UIViewController {
         tableView.allowsSelection = false
     }
     
+    private func applyCoupon(){
+        sumAfterDiscount = sum
+        if discountAmmount != 0.0{
+            let discount = sum * (discountAmmount / 100)
+            sumAfterDiscount = sum - discount
+            subTotal.text = String(sumAfterDiscount)
+            self.discountLbl.text = "\(discountAmmount)%"
+        }
+    }
+    
+    @IBAction func validateCouponClicked(_ sender: Any) {
+        guard let discountCode = couponTF.text else {
+            self.showToast(message: "Coupon invalid", font: .systemFont(ofSize: 12))
+            return
+        }
+        for coupon in globalCoupons.shared.coupones{
+            if coupon.code == discountCode{
+                self.showToast(message: "Valid coupon!", font: .systemFont(ofSize: 12))
+                self.discountAmmount = coupon.discountAmmount ?? 0.0
+                applyCoupon()
+                return
+            }
+        }
+        self.showToast(message: "Coupon invalid", font: .systemFont(ofSize: 12))
+    }
     
     @IBAction func checkOutAction(_ sender: Any) {
         if (UserDefaults.standard.string(forKey: "email") != nil){
             let vc = PaymentOptions(nibName: "PaymentOptions", bundle: nil)
             vc.cart = self.cartArray
+            vc.discountAmmount = discountAmmount
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
@@ -168,7 +201,9 @@ extension CartViewController:UITableViewDataSource{
                     self.subTotal.isHidden = true
                     self.subTotalText.isHidden = true
                     self.Currency.isHidden = true
+                    self.checkoutView.isHidden = true
                 }
+                self.applyCoupon()
                 self.tableView.reloadData()
             }))
             
@@ -193,6 +228,7 @@ extension CartViewController:UITableViewDataSource{
             let sum1 = self.sum
             self.sum = sum1 + totalPrice
             self.subTotal.text = String(format: "%.2f", sum1 + totalPrice)
+            self.applyCoupon()
         }
     
         return cell
@@ -241,7 +277,10 @@ extension CartViewController:UITableViewDelegate{
                 self.subTotal.isHidden = true
                 self.subTotalText.isHidden = true
                 self.Currency.isHidden = true
+                self.checkoutView.isHidden = true
+
             }
+            self.applyCoupon()
             self.tableView.reloadData()
         }))
         

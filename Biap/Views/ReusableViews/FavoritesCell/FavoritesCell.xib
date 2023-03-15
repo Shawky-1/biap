@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-wT-hFo">
-                        <rect key="frame" x="222" y="44.333333333333336" width="71" height="21.000000000000007"/>
+                        <rect key="frame" x="222" y="44.333333333333336" width="41.333333333333314" height="21.000000000000007"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQr-7A-BMt">
-                        <rect key="frame" x="295" y="44.333333333333336" width="42" height="21.000000000000007"/>
+                        <rect key="frame" x="268.33333333333331" y="44.333333333333336" width="42" height="21.000000000000007"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -104,14 +104,13 @@
                     <constraint firstItem="PzL-60-nen" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="LPi-KJ-p72"/>
                     <constraint firstItem="SR1-wT-hFo" firstAttribute="leading" secondItem="ocs-VC-kQo" secondAttribute="trailing" constant="8" id="P9F-yN-a3b"/>
                     <constraint firstAttribute="trailing" secondItem="Snb-mM-YiH" secondAttribute="trailing" constant="30" id="SfY-DB-RzE"/>
-                    <constraint firstAttribute="trailing" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="80" id="TdW-jY-ZP1"/>
                     <constraint firstItem="Snb-mM-YiH" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="20" id="XRz-ir-W5d"/>
                     <constraint firstItem="SR1-wT-hFo" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="10" id="cm3-BW-3Vd"/>
                     <constraint firstItem="Snb-mM-YiH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="eXK-iJ-ikh"/>
                     <constraint firstItem="ocs-VC-kQo" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="10" id="hcF-OZ-Ada"/>
                     <constraint firstItem="FQr-7A-BMt" firstAttribute="top" secondItem="Snb-mM-YiH" secondAttribute="bottom" constant="10" id="kxz-oz-7F1"/>
                     <constraint firstItem="ocs-VC-kQo" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="30" id="p99-Zk-1Um"/>
-                    <constraint firstItem="FQr-7A-BMt" firstAttribute="leading" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="2" id="qjU-Ef-TgJ"/>
+                    <constraint firstItem="FQr-7A-BMt" firstAttribute="leading" secondItem="SR1-wT-hFo" secondAttribute="trailing" constant="5" id="qjU-Ef-TgJ"/>
                     <constraint firstItem="AIR-OP-SVe" firstAttribute="top" secondItem="ocs-VC-kQo" secondAttribute="bottom" constant="10" id="rAO-GO-iAc"/>
                     <constraint firstItem="AIR-OP-SVe" firstAttribute="leading" secondItem="PzL-60-nen" secondAttribute="trailing" constant="30" id="wrO-wt-YEc"/>
                 </constraints>

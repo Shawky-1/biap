@@ -202,6 +202,7 @@ extension HomeVC: UICollectionViewDelegate{
         case 0:
             let pasteboard = UIPasteboard.general
             pasteboard.string = viewModel.adsArr[indexPath.row].code
+            self.showToast(message: "Copied.", font: .systemFont(ofSize: 12))
         case 1:
             let VC = ProductsView(nibName: "ProductsView", bundle: nil)
             VC.hidesBottomBarWhenPushed = true

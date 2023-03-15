@@ -13,6 +13,7 @@ class PaymentOptions: UIViewController {
     
 //    var selectedOption = "Cash On Delivery"
     var cart: [Cart]!
+    var discountAmmount = 0.0
     struct paymentOption{
         let paymentType: String
         let options:[String]
@@ -67,6 +68,7 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
 //        selectedOption = Payments[indexPath.section].options[indexPath.row]
         let checkOutVM = CheckOutVM()
         checkOutVM.cart = self.cart
+        checkOutVM.discountAmmount = self.discountAmmount
         let checkOutVC = CheckOutVC()
         checkOutVC.viewModel = checkOutVM
         if indexPath.section == 0{

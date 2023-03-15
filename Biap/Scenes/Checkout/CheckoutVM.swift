@@ -9,6 +9,7 @@ import Foundation
 
 class CheckOutVM: ViewModel {
     var cart: [Cart]!
+    var discountAmmount = 0.0
     //    let customer: Customer!
     func viewDidLoad(){
     }
@@ -22,7 +23,9 @@ class CheckOutVM: ViewModel {
                 
             }
         }
-        return totalAmmount
+        let discount = totalAmmount * (discountAmmount / 100)
+        let sumAfterDiscount = totalAmmount - discount
+        return sumAfterDiscount
     }
     
     func createOrder(){

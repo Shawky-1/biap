@@ -36,7 +36,7 @@
                             <action selector="favoriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5gY-VY-tBL"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIQ-y6-2pm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIQ-y6-2pm">
                         <rect key="frame" x="20" y="179" width="88" height="20.333333333333343"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20.333333333333343" id="2Db-7q-kSI"/>
@@ -51,8 +51,8 @@
                         <color key="textColor" systemColor="systemGreenColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1m-Z5-R3o">
-                        <rect key="frame" x="109" y="179" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1m-Z5-R3o">
+                        <rect key="frame" x="113" y="179" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                 <constraint firstItem="peR-gq-5ag" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="FF2-t8-DaQ"/>
                 <constraint firstItem="hAJ-NG-fh6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="J0X-3V-5X7"/>
                 <constraint firstAttribute="bottom" secondItem="01X-rP-KKA" secondAttribute="bottom" id="K0O-Lh-wJR"/>
-                <constraint firstItem="H1m-Z5-R3o" firstAttribute="leading" secondItem="hIQ-y6-2pm" secondAttribute="trailing" constant="1" id="NBC-r5-ktu"/>
+                <constraint firstItem="H1m-Z5-R3o" firstAttribute="leading" secondItem="hIQ-y6-2pm" secondAttribute="trailing" constant="5" id="NBC-r5-ktu"/>
                 <constraint firstItem="JyM-fR-Gfj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OoG-S2-z0A"/>
                 <constraint firstItem="JyM-fR-Gfj" firstAttribute="top" secondItem="hAJ-NG-fh6" secondAttribute="bottom" constant="5" id="R0x-VA-N0i"/>
                 <constraint firstAttribute="bottom" secondItem="hIQ-y6-2pm" secondAttribute="bottom" constant="26.666666666666657" id="SU5-vo-Bgu"/>

@@ -12,10 +12,10 @@ class homeVM: ViewModel{
     
     func viewDidLoad() {
         getbrands()
-        getCoupons()
+//        getCoupons()
         fetchProducts()
     }
-    var adsArr:[coupon] = []
+    var adsArr:[coupon] = globalCoupons.shared.coupones
     var bindResultToHomeView:(() -> ()) = {}
     var trendingProducts: [properies] = []
     var listOfBrands:brands!{
@@ -49,10 +49,10 @@ class homeVM: ViewModel{
         }
     }
     
-    func getCoupons(){
-        adsArr.append(coupon(code: "VFSSW20", image: "ad1"))
-        adsArr.append(coupon(code: "EFYSS10", image: "ad2"))
-        adsArr.append(coupon(code: "SUVXX50", image: "ad3"))
-    }
-    
+//    func getCoupons(){
+//        adsArr.append(coupon(code: "VFSSW20", image: "ad1"))
+//        adsArr.append(coupon(code: "EFYSS10", image: "ad2"))
+//        adsArr.append(coupon(code: "SUVXX50", image: "ad3"))
+//    }
+//
 }
