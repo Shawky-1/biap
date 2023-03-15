@@ -62,9 +62,9 @@
                         <action selector="nextBtnClicked:" destination="-1" eventType="touchUpInside" id="fb0-xZ-MoN"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-8E-1b2">
-                    <rect key="frame" x="311" y="783" width="57" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-8E-1b2">
+                    <rect key="frame" x="311" y="753" width="57" height="35"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="tintColor" systemColor="labelColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Skip"/>
@@ -80,10 +80,12 @@
                 <constraint firstItem="pJ0-oB-jJd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3qa-O9-ip5"/>
                 <constraint firstItem="v2I-1t-e68" firstAttribute="top" secondItem="pJ0-oB-jJd" secondAttribute="bottom" constant="10" id="60j-Yu-m2X"/>
                 <constraint firstItem="pJ0-oB-jJd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8y4-vU-kBE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1fZ-8E-1b2" secondAttribute="trailing" constant="25" id="L6Q-kQ-Pd8"/>
                 <constraint firstItem="v2I-1t-e68" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="TYq-d0-H1o"/>
                 <constraint firstItem="uWU-Bq-Ta2" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="VPm-Bf-2kO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pJ0-oB-jJd" secondAttribute="bottom" constant="150" id="cnk-bS-Ifd"/>
                 <constraint firstItem="pJ0-oB-jJd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ecN-iU-oup"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1fZ-8E-1b2" secondAttribute="bottom" constant="30" id="pid-wD-YOf"/>
             </constraints>
             <point key="canvasLocation" x="20.610687022900763" y="-11.267605633802818"/>
         </view>

@@ -25,9 +25,9 @@ class FeaturedCell: UICollectionViewCell {
     }
     
     func configureCell(product: properies){
-        productTitleLbl.text = product.title
-        productVendorLbl.text = product.vendor
-        productPriceLbl.text = product.variants?[0].price
+        //productTitleLbl.text = product.title
+        //productVendorLbl.text = product.vendor
+       // productPriceLbl.text = product.variants?[0].price
         
         let imgURL = URL(string:product.images[0].src)
         

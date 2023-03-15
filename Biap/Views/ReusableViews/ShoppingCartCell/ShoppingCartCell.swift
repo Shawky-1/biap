@@ -34,6 +34,7 @@ class ShoppingCartCell: UITableViewCell {
         stepper.isContinuous = true
         stepper.maximumValue = 100
         stepper.minimumValue = 0
+        //let products = try! Realm().objects(Cart.self)
         stepper.value = 1
         oldValue = stepper.value
         print(oldValue)
