@@ -24,6 +24,7 @@ class ProductDetails: UIViewController {
     @IBOutlet weak var selectColor: UILabel!
     @IBOutlet weak var descriprion: UITextView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var ratingView: RatingView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var Currency: UILabel!
@@ -138,6 +139,7 @@ class ProductDetails: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         self.title = "Product Details"
+        self.ratingView.configureWithRating(rating: 5, style: .full)
         addButton.cornerRadius = addButton.bounds.height / 2
         pageControl.cornerRadius = pageControl.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")

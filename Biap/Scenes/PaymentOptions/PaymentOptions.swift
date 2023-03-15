@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PassKit
 
 class PaymentOptions: UIViewController {
 
@@ -13,13 +14,25 @@ class PaymentOptions: UIViewController {
     
 //    var selectedOption = "Cash On Delivery"
     var cart: [Cart]!
-    var discountAmmount = 0.0
+    var discountAmmount:Double = 0.0
     struct paymentOption{
         let paymentType: String
         let options:[String]
     }
+    private let paymentRequest: PKPaymentRequest = {
+       let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.Test"
+        request.supportedNetworks = [.quicPay, .masterCard, .visa]
+        request.supportedCountries = ["EG"]
+        request.merchantCapabilities = .capability3DS
+        
+        request.countryCode = "EG"
+        request.currencyCode = "EGP"
+        
+        return request
+    }()
     
-    var Payments = [paymentOption(paymentType: "Online payment", options: ["Pay with card"]),
+    var Payments = [paymentOption(paymentType: "Online payment", options: ["Pay with card", "Pay with apple pay"]),
                     paymentOption(paymentType: "More payment options", options: ["Cash On Delivery"])]
     
     override func viewDidLoad() {
@@ -71,14 +84,58 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
         checkOutVM.discountAmmount = self.discountAmmount
         let checkOutVC = CheckOutVC()
         checkOutVC.viewModel = checkOutVM
+        
         if indexPath.section == 0{
-            checkOutVC.payWithCard = true
-            self.navigationController?.pushViewController(checkOutVC, animated: true)
+            switch indexPath.row{
+            case 0:
+                break
+            case 1:
+                configApplePay()
+            default:
+                break
+            }
         } else if indexPath.section == 1 {
             checkOutVC.payWithCard = false
             self.navigationController?.pushViewController(checkOutVC, animated: true)
             
         }
+    }
+    
+    private func configApplePay(){
+        var subtotal:Double = {
+            var total:Double = 0
+            self.cart.forEach { cart in
+                for _ in 1...cart.quantity{
+                    total += cart.price
+                }
+            }
+            return total
+        }()
+        let discountPrice = subtotal * discountAmmount / 100
+        let taxesPrice = subtotal * 0.14
+        let totalAmmount = (subtotal - discountPrice) + taxesPrice
+        
+        var summeryItems:[PKPaymentSummaryItem] = []
+        for item in cart{
+            for _ in 1...item.quantity{
+                summeryItems.append(PKPaymentSummaryItem(label: item.name ?? "", amount: NSDecimalNumber(value: item.price)))
+//                    paymentRequest.paymentSummaryItems.append(PKPaymentSummaryItem())
+            }
+        }
+        
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "taxes", amount: NSDecimalNumber(value: taxesPrice)),
+                                              PKPaymentSummaryItem(label: "Discount", amount: NSDecimalNumber(value: discountAmmount)),
+                                              PKPaymentSummaryItem(label: "Subtotal", amount: NSDecimalNumber(value: discountPrice)),
+                                              PKPaymentSummaryItem(label: "Biap cart", amount: NSDecimalNumber(value: totalAmmount))]
+
+        let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
+        if controller != nil{
+            controller!.delegate = self
+            present(controller!, animated: true){
+                
+            }
+        }
+
     }
     
     
@@ -87,4 +144,16 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+extension PaymentOptions: PKPaymentAuthorizationViewControllerDelegate{
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true)
+        self.paymentRequest.paymentSummaryItems = []
+    }
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+        self.paymentRequest.paymentSummaryItems = []
+    }
 }

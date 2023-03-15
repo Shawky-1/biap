@@ -18,6 +18,7 @@
                 <outlet property="pageControl" destination="EZO-py-eyW" id="lC0-49-ao1"/>
                 <outlet property="productName" destination="sxx-px-gLu" id="71q-TV-p0H"/>
                 <outlet property="productPrice" destination="C2d-Jz-fRn" id="Pwf-Uz-71w"/>
+                <outlet property="ratingView" destination="axc-Ah-TYh" id="zLu-3A-hhi"/>
                 <outlet property="selectColor" destination="2ja-1G-wD6" id="L64-37-k7c"/>
                 <outlet property="selectSize" destination="qTy-bG-1wc" id="5Ba-GN-bzI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -187,17 +188,24 @@
                         <constraint firstAttribute="width" constant="20" id="XqP-mc-zdI"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axc-Ah-TYh" customClass="RatingView" customModule="Biap" customModuleProvider="target">
+                    <rect key="frame" x="202.33333333333337" y="335.66666666666669" width="170.66666666666663" height="38"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="axc-Ah-TYh" firstAttribute="centerY" secondItem="qD2-U5-ynE" secondAttribute="centerY" id="0pl-N1-YIg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GwZ-f6-jRa" secondAttribute="trailing" constant="200" id="1Gd-to-fWA"/>
                 <constraint firstItem="sxx-px-gLu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="2SY-Qk-EJE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="axc-Ah-TYh" secondAttribute="trailing" constant="20" id="3h2-ZZ-J02"/>
                 <constraint firstItem="nhb-mh-X4I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="42X-qb-0RU"/>
                 <constraint firstItem="qTy-bG-1wc" firstAttribute="top" secondItem="nhb-mh-X4I" secondAttribute="bottom" constant="10" id="4R4-Qc-ibK"/>
                 <constraint firstItem="nhb-mh-X4I" firstAttribute="top" secondItem="upU-dj-Shi" secondAttribute="bottom" constant="25" id="4xY-a8-uDZ"/>
                 <constraint firstItem="qTy-bG-1wc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="55h-0f-ntn"/>
                 <constraint firstItem="upU-dj-Shi" firstAttribute="leading" secondItem="C2d-Jz-fRn" secondAttribute="trailing" constant="5" id="5pd-JZ-rTM"/>
+                <constraint firstItem="axc-Ah-TYh" firstAttribute="leading" secondItem="upU-dj-Shi" secondAttribute="trailing" constant="30" id="6KG-om-ppo"/>
                 <constraint firstItem="qD2-U5-ynE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="6Rs-rl-XnZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Ua-iN-ech" secondAttribute="trailing" constant="23" id="7Bc-fk-4gh"/>
                 <constraint firstItem="tyf-wV-EBj" firstAttribute="top" secondItem="kdr-kk-sLA" secondAttribute="bottom" id="7JG-63-DCX"/>
@@ -233,6 +241,7 @@
                 <constraint firstItem="JQo-Js-gXH" firstAttribute="leading" secondItem="qTy-bG-1wc" secondAttribute="trailing" constant="20" id="f9v-p8-G9R"/>
                 <constraint firstItem="cui-2X-SAb" firstAttribute="top" secondItem="qTy-bG-1wc" secondAttribute="bottom" constant="-55" id="gQP-gM-aUR"/>
                 <constraint firstItem="kdr-kk-sLA" firstAttribute="top" secondItem="u9o-3A-0Vc" secondAttribute="bottom" constant="10" id="hpP-ds-Pvb"/>
+                <constraint firstItem="axc-Ah-TYh" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0446009" id="i7j-sA-Tqo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tyf-wV-EBj" secondAttribute="bottom" constant="10" id="iE6-c8-Uo5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nhb-mh-X4I" secondAttribute="trailing" constant="10" id="kc4-JG-pnO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w8P-hY-h5u" secondAttribute="trailing" constant="20" id="lKg-ag-whs"/>

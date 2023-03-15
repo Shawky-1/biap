@@ -26,6 +26,7 @@ class HomeVC: UIViewController {
     var timer: Timer?
     var currentCellIndex = 0
     let search = UISearchController(searchResultsController: SearchResultsVC())
+    var currency = ""
 
     override func viewDidLoad() {
         viewModel = homeVM()
@@ -37,9 +38,15 @@ class HomeVC: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewDidLoad()
+        currency = UserDefaults.standard.string(forKey: "currency") ?? ""
+//        self.collectionView.reloadData()
+
+    }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         cartIndicator()
     }
     
@@ -157,8 +164,23 @@ extension HomeVC: UICollectionViewDataSource{
         
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedCell", for: indexPath) as! FeaturedCell
+            var price = ""
+            if currency == "USD" || currency == ""{
+                price = String(viewModel.trendingProducts[indexPath.row].variants![0].price ?? "")
+            }else{
+                let priceInt = viewModel.trendingProducts[indexPath.row].variants![0].price
+                let egp_Price =  (((priceInt)! as NSString).doubleValue) * 30
+                price = String(egp_Price)
+            }
+
+            cell.currency = currency
+            cell.configureCell(product: viewModel.trendingProducts[indexPath.row], price: price)
+
+            if !cell.israted{
+                cell.ratingView.configureWithRating(rating: Int.random(in: 0...5), style: .compact)
+                cell.israted = true
+            }
             
-            cell.configureCell(product: viewModel.trendingProducts[indexPath.row])
             
             return cell
         default:

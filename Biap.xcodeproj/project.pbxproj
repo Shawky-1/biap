@@ -85,6 +85,7 @@
 		E2207AC629B952AC0080437B /* SearchResultsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2207AC529B952AC0080437B /* SearchResultsVM.swift */; };
 		E2300B3729B97E9A00A60BDC /* FeaturedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2300B3529B97E9A00A60BDC /* FeaturedCell.swift */; };
 		E2300B3829B97E9A00A60BDC /* FeaturedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2300B3629B97E9A00A60BDC /* FeaturedCell.xib */; };
+		E2432AAC29C1BFE400B77649 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2432AAB29C1BFE400B77649 /* RatingView.swift */; };
 		E2793B5829AFD38C0060BE7B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B5629AFD38C0060BE7B /* HeaderView.swift */; };
 		E2793B5929AFD38C0060BE7B /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2793B5729AFD38C0060BE7B /* HeaderView.xib */; };
 		E2793B5B29AFD5DA0060BE7B /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793B5A29AFD5DA0060BE7B /* Brands.swift */; };
@@ -230,6 +231,7 @@
 		E2207AC529B952AC0080437B /* SearchResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVM.swift; sourceTree = "<group>"; };
 		E2300B3529B97E9A00A60BDC /* FeaturedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCell.swift; sourceTree = "<group>"; };
 		E2300B3629B97E9A00A60BDC /* FeaturedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedCell.xib; sourceTree = "<group>"; };
+		E2432AAB29C1BFE400B77649 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		E25E2B0529BCCC6C007F1791 /* Biap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biap.entitlements; sourceTree = "<group>"; };
 		E2793B5629AFD38C0060BE7B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E2793B5729AFD38C0060BE7B /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -831,6 +833,7 @@
 			isa = PBXGroup;
 			children = (
 				E2BDDFFE29B3A80C00CC5977 /* TextFieldHelper.swift */,
+				E2432AAB29C1BFE400B77649 /* RatingView.swift */,
 			);
 			path = Designables;
 			sourceTree = "<group>";
@@ -1189,6 +1192,7 @@
 				9E997EBC29B3EB92008B74F7 /* Coupons.swift in Sources */,
 				BC2F5EA529B78A2E004D0243 /* FavoritesCell.swift in Sources */,
 				9E3CA24129BD057B0066930F /* NewAddress.swift in Sources */,
+				E2432AAC29C1BFE400B77649 /* RatingView.swift in Sources */,
 				E2793B6629B0D55C0060BE7B /* BrandsCell.swift in Sources */,
 				BC2F5E9C29B78898004D0243 /* Favorites.swift in Sources */,
 				9ED2735529B9C225000F8311 /* SettingsVM.swift in Sources */,
@@ -1401,7 +1405,7 @@
 				CODE_SIGN_ENTITLEMENTS = Biap/Biap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KQP2A9KA89;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Biap/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1413,7 +1417,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedAlabiad.Biap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedAlabiad.Biap.pay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1430,7 +1434,7 @@
 				CODE_SIGN_ENTITLEMENTS = Biap/Biap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KQP2A9KA89;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Biap/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1442,7 +1446,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedAlabiad.Biap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedAlabiad.Biap.pay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

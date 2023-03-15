@@ -18,16 +18,19 @@ class FeaturedCell: UICollectionViewCell {
     
     @IBOutlet weak var productPriceLbl: UILabel!
     
-    
+    @IBOutlet weak var ratingView: RatingView!
+    var israted: Bool = false
+    var currency: String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func configureCell(product: properies){
+    func configureCell(product: properies, price:String){
+        var priceAttributed: String = "\(price) \(currency)"
         productTitleLbl.text = product.title
         productVendorLbl.text = product.vendor
-        productPriceLbl.text = product.variants?[0].price
+        productPriceLbl.text = priceAttributed
         
         let imgURL = URL(string:product.images[0].src)
         
