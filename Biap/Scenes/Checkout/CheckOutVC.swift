@@ -15,16 +15,32 @@ class CheckOutVC: UIViewController {
             tableView.register(UINib(nibName: "AddressCell", bundle: nil), forCellReuseIdentifier: "AddressCell")
         }
     }
+    @IBOutlet weak var TaxesLbl: UILabel!
     
+    @IBOutlet weak var discountLbl: UILabel!
+    @IBOutlet weak var subtotalLbl: UILabel!
+    @IBOutlet weak var totalLbl: UILabel!
     var viewModel: CheckOutVM!
-    @IBOutlet weak var titleLbl: UILabel!
+
     var payWithCard:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Checkout"
+        configureUI()
+
+    }
+    
+    private func configureUI(){
+        totalLbl.text = "Total amount: \(viewModel.currencyStr()) \(String(format: "%.1f", viewModel.totalAmmount()))"
+        TaxesLbl.text = "Taxes(14%): \(viewModel.currencyStr()) \(String(format: "%.1f", viewModel.taxesPrice()))"
+        discountLbl.text = "Discount: \(viewModel.currencyStr()) \(String(format: "%.1f", viewModel.discountPrice()))"
+        subtotalLbl.text = "Subtotal: \(viewModel.currencyStr()) \(String(format: "%.1f", viewModel.subtotal()))"
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.titleLbl.text = "Total ammount: \(viewModel.totalAmmount())"
+        self.title = "Checkout"
+        configTableView()
+    }
+    
+    private func configTableView(){
         viewModel.orderSucessful = {bool in
             if bool {
                 self.presentAlertViewWithOneButtonMIV(alertTitle: "Order", alertMessage: "Order Created sucessfully!", btnOneTitle: "Ok") { action in

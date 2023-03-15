@@ -16,33 +16,65 @@
                 <rect key="frame" x="0.0" y="0.0" width="563" height="153"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oGz-Sd-nXQ">
-                        <rect key="frame" x="20" y="57.666666666666657" width="35" height="38"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSy-qv-Z9w">
+                        <rect key="frame" x="15" y="10" width="533" height="133"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oGz-Sd-nXQ">
+                                <rect key="frame" x="19.999999999999996" y="40.666666666666671" width="47.666666666666657" height="51.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oGz-Sd-nXQ" secondAttribute="height" multiplier="35:38" id="Fi4-U1-L2L"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjQ-G5-tyR">
+                                <rect key="frame" x="87.666666666666657" y="55.666666666666664" width="425.33333333333337" height="21.666666666666664"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="oGz-Sd-nXQ" secondAttribute="height" multiplier="35:38" id="Fi4-U1-L2L"/>
+                            <constraint firstAttribute="trailing" secondItem="TjQ-G5-tyR" secondAttribute="trailing" constant="20" id="0ly-Os-1pW"/>
+                            <constraint firstItem="TjQ-G5-tyR" firstAttribute="centerY" secondItem="HSy-qv-Z9w" secondAttribute="centerY" id="T6T-Eo-77b"/>
+                            <constraint firstItem="oGz-Sd-nXQ" firstAttribute="height" secondItem="HSy-qv-Z9w" secondAttribute="height" multiplier="0.248366" constant="18.627451999999998" id="Twi-I4-24G"/>
+                            <constraint firstItem="oGz-Sd-nXQ" firstAttribute="centerY" secondItem="HSy-qv-Z9w" secondAttribute="centerY" id="fsA-UP-6q0"/>
+                            <constraint firstItem="oGz-Sd-nXQ" firstAttribute="leading" secondItem="HSy-qv-Z9w" secondAttribute="leading" constant="20" id="loz-lq-Nta"/>
+                            <constraint firstItem="TjQ-G5-tyR" firstAttribute="leading" secondItem="oGz-Sd-nXQ" secondAttribute="trailing" constant="20" id="q6e-DE-gFF"/>
                         </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjQ-G5-tyR">
-                        <rect key="frame" x="75" y="65.666666666666671" width="468" height="21.666666666666671"/>
-                        <attributedString key="attributedText">
-                            <fragment content="Label">
-                                <attributes>
-                                    <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" systemColor="systemGray6Color"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                <point key="value" x="5" y="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemFillColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="TjQ-G5-tyR" secondAttribute="trailing" constant="20" id="0pB-ve-pew"/>
-                    <constraint firstItem="oGz-Sd-nXQ" firstAttribute="leading" secondItem="vMe-gt-mee" secondAttribute="leading" constant="20" id="6QG-Bj-nlV"/>
-                    <constraint firstItem="oGz-Sd-nXQ" firstAttribute="centerY" secondItem="vMe-gt-mee" secondAttribute="centerY" id="FuK-cs-Gel"/>
-                    <constraint firstItem="oGz-Sd-nXQ" firstAttribute="height" secondItem="vMe-gt-mee" secondAttribute="height" multiplier="0.248366" id="VBj-03-vCR"/>
-                    <constraint firstItem="TjQ-G5-tyR" firstAttribute="leading" secondItem="oGz-Sd-nXQ" secondAttribute="trailing" constant="20" id="fTi-0P-ev0"/>
-                    <constraint firstItem="TjQ-G5-tyR" firstAttribute="centerY" secondItem="vMe-gt-mee" secondAttribute="centerY" id="ljO-k0-KZa"/>
+                    <constraint firstItem="HSy-qv-Z9w" firstAttribute="leading" secondItem="vMe-gt-mee" secondAttribute="leading" constant="15" id="akg-Kg-ZXN"/>
+                    <constraint firstItem="HSy-qv-Z9w" firstAttribute="top" secondItem="vMe-gt-mee" secondAttribute="top" constant="10" id="hqR-4L-d3g"/>
+                    <constraint firstAttribute="bottom" secondItem="HSy-qv-Z9w" secondAttribute="bottom" constant="10" id="ibA-6F-2pe"/>
+                    <constraint firstAttribute="trailing" secondItem="HSy-qv-Z9w" secondAttribute="trailing" constant="15" id="vZg-dd-mbd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -53,8 +85,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

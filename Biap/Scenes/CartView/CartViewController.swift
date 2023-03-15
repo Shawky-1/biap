@@ -36,6 +36,7 @@ class CartViewController: UIViewController {
         super.viewWillAppear(animated)
         currency = UserDefaults.standard.string(forKey: "currency") ?? ""
         setupUI()
+        
         loadDatafromRealm()
         tableView.reloadData()
         checkConnection()
@@ -48,8 +49,9 @@ class CartViewController: UIViewController {
         for each in products{
             cartArray.append(each)
         }
+        sum = 0.0
         for each in cartArray{
-            sum += each.price
+            sum += each.price * Double(each.quantity)
         }
         subTotal.text = String(format: "%.2f", sum)
         if cartArray.isEmpty{
@@ -163,8 +165,11 @@ extension CartViewController:UITableViewDataSource{
         }else{
             cell.Currency.text = currency
         }
-        cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.section].price * ((cell.productQuantity.text)! as NSString).doubleValue)
-        cell.originalPrice = cell.productPrice.text!
+        cell.stepper.value = Double(cartArray[indexPath.section].quantity)
+        cell.oldValue = cell.stepper.value
+        cell.productQuantity.text = String(format: "%.0f",cell.stepper.value)
+        cell.productPrice.text = String(format: "%.2f", cartArray[indexPath.section].price * Double(cartArray[indexPath.section].quantity))
+        cell.originalPrice = String(cartArray[indexPath.section].price)//cell.productPrice.text!
 
         
         let productImageUrl = URL(string: cartArray[indexPath.section].image ?? "")
@@ -187,11 +192,9 @@ extension CartViewController:UITableViewDataSource{
                 for each in products{
                     self.cartArray.append(each)
                 }
-                cell.stepper.value = 1
-                cell.productQuantity.text =  String(format: "%.0f", cell.stepper.value)
                 self.sum = 0.0
                 for each in self.cartArray{
-                    self.sum += each.price
+                    self.sum += each.price * Double(each.quantity)
                 }
                 self.subTotal.text = String(format: "%.2f", self.sum)
                 if self.cartArray.isEmpty{
@@ -224,7 +227,7 @@ extension CartViewController:UITableViewDataSource{
                     product.quantity = Int(cell.stepper.value)
                 })
             }
-
+            //var sum1 = 0.0
             let sum1 = self.sum
             self.sum = sum1 + totalPrice
             self.subTotal.text = String(format: "%.2f", sum1 + totalPrice)
@@ -267,7 +270,7 @@ extension CartViewController:UITableViewDelegate{
             
             self.sum = 0.0
             for each in self.cartArray{
-                self.sum += each.price
+                self.sum += each.price * Double(each.quantity)
             }
             self.subTotal.text = String(format: "%.2f", self.sum)
             if self.cartArray.isEmpty{

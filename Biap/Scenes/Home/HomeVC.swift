@@ -167,13 +167,15 @@ extension HomeVC: UICollectionViewDataSource{
             var price = ""
             if currency == "USD" || currency == ""{
                 price = String(viewModel.trendingProducts[indexPath.row].variants![0].price ?? "")
+                cell.currency = "USD"
+
             }else{
                 let priceInt = viewModel.trendingProducts[indexPath.row].variants![0].price
                 let egp_Price =  (((priceInt)! as NSString).doubleValue) * 30
                 price = String(egp_Price)
+                cell.currency = "EGP"
             }
 
-            cell.currency = currency
             cell.configureCell(product: viewModel.trendingProducts[indexPath.row], price: price)
 
             if !cell.israted{
