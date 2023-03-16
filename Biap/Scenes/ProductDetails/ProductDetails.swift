@@ -139,7 +139,7 @@ class ProductDetails: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
         self.navigationController?.navigationBar.tintColor = UIColor.label
         self.title = "Product Details"
-        self.ratingView.configureWithRating(rating: 5, style: .full)
+        self.ratingView.configureWithRating(rating: Int.random(in: 0...5), style: .full)
         addButton.cornerRadius = addButton.bounds.height / 2
         pageControl.cornerRadius = pageControl.bounds.height / 2
         collectionView.register(UINib(nibName: "ProductDetailsCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailsCell")

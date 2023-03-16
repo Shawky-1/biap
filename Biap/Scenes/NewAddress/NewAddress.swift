@@ -22,6 +22,9 @@ class NewAddress: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = NewAddressVM()
+        viewModel?.getAddress = {
+            self.navigationController?.popViewController(animated: true)
+        }
         
     }
 
@@ -38,7 +41,6 @@ class NewAddress: UIViewController {
         if MIValidation.isValidData(validationArr){
             
             viewModel?.createAddress(adr: addr!)
-            self.navigationController?.popViewController(animated: true)
         }
     }
     

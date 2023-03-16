@@ -62,7 +62,8 @@ class RatingView: UIView {
             let image = generateStarView(.filled)
             let ratingText = UILabel()
             ratingText.text = String(rating)
-            ratingText.font = .systemFont(ofSize: 14)
+            ratingText.font = .systemFont(ofSize: 12)
+            ratingText.textAlignment = .right
             stackView.addArrangedSubview(ratingText)
             stackView.addArrangedSubview(image)
         }

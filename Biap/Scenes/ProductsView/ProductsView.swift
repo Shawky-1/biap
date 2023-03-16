@@ -130,7 +130,7 @@ extension ProductsView:UICollectionViewDataSource{
         }else{
             let price = filteredProducts?.products[indexPath.row].variants?[0].price
             let egp_Price =  (((price)! as NSString).doubleValue) * 30
-            cell.productPrice.text = String(egp_Price)
+            cell.productPrice.text = String(format: "%.2f", egp_Price)
         }
        
         let productImageUrl = URL(string: filteredProducts?.products[indexPath.row].images[0].src ?? "")

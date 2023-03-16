@@ -109,7 +109,7 @@ struct Address: Codable {
     let address2: String?
     let city: String?
     let province: String?
-    let country: String? = "Egypt"
+    let country: String?
     let zip: String?
     let phone: String?
     let name: String
@@ -147,5 +147,6 @@ struct Address: Codable {
         self.provinceCode = ""
         self.countryCode = ""
         self.countryName = ""
+        self.country = Country
     }
 }

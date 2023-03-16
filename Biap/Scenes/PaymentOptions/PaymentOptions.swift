@@ -122,17 +122,17 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
         let taxesPrice = subtotal * 0.14
         let totalAmmount = (subtotal - discountPrice) + taxesPrice
         
-        var summeryItems:[PKPaymentSummaryItem] = []
-        for item in cart{
-            for _ in 1...item.quantity{
-                summeryItems.append(PKPaymentSummaryItem(label: item.name ?? "", amount: NSDecimalNumber(value: item.price)))
-            }
-        }
+//        var summeryItems:[PKPaymentSummaryItem] = []
+//        for item in cart{
+//            for _ in 1...item.quantity{
+//                summeryItems.append(PKPaymentSummaryItem(label: item.name ?? "", amount: NSDecimalNumber(value: item.price)))
+//            }
+//        }
         
-        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "taxes (14%)", amount: NSDecimalNumber(value: taxesPrice)),
-                                              PKPaymentSummaryItem(label: "Discount", amount: NSDecimalNumber(value: -discountPrice)),
-                                              PKPaymentSummaryItem(label: "Subtotal", amount: NSDecimalNumber(value: subtotal)),
-                                              PKPaymentSummaryItem(label: "Biap cart", amount: NSDecimalNumber(value: totalAmmount))]
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "taxes (14%)", amount: NSDecimalNumber(value: taxesPrice.rounded())),
+                                              PKPaymentSummaryItem(label: "Discount", amount: NSDecimalNumber(value: -discountPrice.rounded())),
+                                              PKPaymentSummaryItem(label: "Subtotal", amount: NSDecimalNumber(value: subtotal.rounded())),
+                                              PKPaymentSummaryItem(label: "Biap cart", amount: NSDecimalNumber(value: totalAmmount.rounded()))]
 
         let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
         if controller != nil{
@@ -155,7 +155,7 @@ extension PaymentOptions: UITableViewDelegate, UITableViewDataSource{
 extension PaymentOptions: PKPaymentAuthorizationViewControllerDelegate{
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true)
-        self.paymentRequest.paymentSummaryItems = []
+//        self.paymentRequest.paymentSummaryItems = []
     }
 
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
@@ -169,6 +169,6 @@ extension PaymentOptions: PKPaymentAuthorizationViewControllerDelegate{
                 completion(PKPaymentAuthorizationResult(status: .failure, errors: nil))
             }
         }
-        self.paymentRequest.paymentSummaryItems = []
+//        self.paymentRequest.paymentSummaryItems = []
     }
 }

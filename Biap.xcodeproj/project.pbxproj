@@ -699,6 +699,7 @@
 		E28F531E29AE7D1500FB99EF /* Biap */ = {
 			isa = PBXGroup;
 			children = (
+				E28F532D29AE7D1800FB99EF /* Info.plist */,
 				E25E2B0529BCCC6C007F1791 /* Biap.entitlements */,
 				E28F535429AF9A9C00FB99EF /* Utilities */,
 				E2793B5C29B002160060BE7B /* Helpers */,
@@ -708,7 +709,6 @@
 				E28F535329AF9A6B00FB99EF /* Mangers */,
 				E28F534F29AF9A1200FB99EF /* Scenes */,
 				E28F535529AF9AA900FB99EF /* Views */,
-				E28F532D29AE7D1800FB99EF /* Info.plist */,
 			);
 			path = Biap;
 			sourceTree = "<group>";
